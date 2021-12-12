@@ -57,7 +57,7 @@ public class LeaderboardUpdateHelper extends Thread {
         this.LEADERBOARD.sortScores();
     }
 
-    public void updateScoreAndContinue(UUID playerUUID, int newScore) {
+    public synchronized void updateScore(UUID playerUUID, int newScore) {
         LEADERBOARD.getLeaderboard().get(playerUUID).setPlayerScore(newScore);
     }
 

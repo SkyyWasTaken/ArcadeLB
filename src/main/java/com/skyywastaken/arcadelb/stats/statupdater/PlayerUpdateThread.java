@@ -9,12 +9,12 @@ import java.util.UUID;
 public class PlayerUpdateThread implements Runnable {
     private final StatType CURRENT_STAT_TYPE;
     final UUID PLAYER_UUID;
-    final LeaderboardUpdateHelper PARENT_THREAD;
+    final LeaderboardUpdateHelper updateHelper;
 
-    PlayerUpdateThread(StatType passedCurrentStatType, UUID passedPlayerUUID, LeaderboardUpdateHelper threadToWake) {
+    PlayerUpdateThread(StatType passedCurrentStatType, UUID passedPlayerUUID, LeaderboardUpdateHelper updateHelper) {
         this.CURRENT_STAT_TYPE = passedCurrentStatType;
         this.PLAYER_UUID = passedPlayerUUID;
-        this.PARENT_THREAD = threadToWake;
+        this.updateHelper = updateHelper;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class PlayerUpdateThread implements Runnable {
         } catch (IOException e) {
             return;
         }
-        PARENT_THREAD.updateScoreAndContinue(PLAYER_UUID, newScore);
+        updateHelper.updateScore(PLAYER_UUID, newScore);
     }
 }
