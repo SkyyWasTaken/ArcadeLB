@@ -21,9 +21,36 @@ public class LeaderboardRenderer extends Gui {
     }
 
     public void drawScoreboard(RenderGameOverlayEvent e) {
+        int scoreboardBottomYOffset = getYOffset(e.resolution.getScaledHeight());
+        int screenWidth = e.resolution.getScaledWidth();
+        int rowLength = getRequiredRowLength(this.leaderboardFormatter.getLeaderboardRows());
+        int xOffset = getXOffset(screenWidth, rowLength);
+
+        int rightBound = getRightBound(xOffset, screenWidth, rowLength);
+        if (rightBound == screenWidth) {
+            xOffset = rightBound - rowLength;
+        }
+
         FontRenderer fontRenderer = Minecraft.getMinecraft().fontRendererObj;
         int fontHeight = fontRenderer.FONT_HEIGHT;
-        int screenHeight = e.resolution.getScaledHeight();
+        int rowTopHeight = scoreboardBottomYOffset - fontHeight;
+        for (int i = this.leaderboardFormatter.getLeaderboardRows().size() - 1; i >= 0; i--) {
+            renderRowRectangle(xOffset, rowTopHeight, rightBound, rowTopHeight + fontHeight);
+            LeaderboardRowInfo currentRow = this.leaderboardFormatter.getLeaderboardRows().get(i);
+            if (currentRow.RIGHT_TEXT.equals("")) {
+                int centeredTextOffset = calculateCenteredTextOffset(currentRow.LEFT_TEXT, xOffset, rowLength);
+                renderText(currentRow.LEFT_TEXT, centeredTextOffset, rowTopHeight);
+            } else {
+                renderText(currentRow.LEFT_TEXT, xOffset, rowTopHeight);
+                int rightTextOffset = rightBound - currentRow.getRightTextSize();
+                renderText(currentRow.RIGHT_TEXT, rightTextOffset, rowTopHeight);
+            }
+            rowTopHeight = rowTopHeight - fontHeight;
+        }
+    }
+
+    private int getYOffset(int screenHeight) {
+        int fontHeight = Minecraft.getMinecraft().fontRendererObj.FONT_HEIGHT;
         int scoreboardHeight = fontHeight * (this.leaderboardFormatter.getLeaderboardRows().size());
         int scoreboardBottomYOffset = (int) (ConfigManager.getYOffset() * screenHeight + scoreboardHeight / 2);
         if (scoreboardBottomYOffset < scoreboardHeight) {
@@ -31,34 +58,37 @@ public class LeaderboardRenderer extends Gui {
         } else if (scoreboardBottomYOffset > screenHeight) {
             scoreboardBottomYOffset = screenHeight;
         }
+        return scoreboardBottomYOffset;
+    }
 
-        int screenWidth = e.resolution.getScaledWidth();
-        int rowLength = getRequiredRowLength(this.leaderboardFormatter.getLeaderboardRows());
+    private int getXOffset(int screenWidth, int rowLength) {
         int xOffset = (int) (ConfigManager.getXOffset() * screenWidth - rowLength / 2);
         if (xOffset < 0) {
             xOffset = 0;
         }
+        return xOffset;
+    }
+
+    private int getRightBound(int xOffset, int screenWidth, int rowLength) {
         int rightBound = xOffset + rowLength;
         if (rightBound > screenWidth) {
-            xOffset = screenWidth - rowLength;
             rightBound = screenWidth;
         }
+        return rightBound;
+    }
 
-        int rowTopHeight = scoreboardBottomYOffset - fontHeight;
-        for (int i = this.leaderboardFormatter.getLeaderboardRows().size() - 1; i >= 0; i--) {
-            LeaderboardRowInfo currentRow = this.leaderboardFormatter.getLeaderboardRows().get(i);
-            drawRect(xOffset, rowTopHeight, rightBound, rowTopHeight + fontHeight, ConfigManager.getOpacity() << 24);
-            if (currentRow.RIGHT_TEXT.equals("")) {
-                drawString(fontRenderer, currentRow.LEFT_TEXT,
-                        xOffset + (rowLength -
-                                fontRenderer.getStringWidth(currentRow.LEFT_TEXT)) / 2,
-                        rowTopHeight, 0xFFFFFFFF);
-            } else {
-                drawString(fontRenderer, currentRow.LEFT_TEXT, xOffset, rowTopHeight, 0xFFFFFFFF);
-                drawString(fontRenderer, currentRow.RIGHT_TEXT, rightBound - currentRow.getRightTextSize(), rowTopHeight, 0xFFFFFFFF);
-            }
-            rowTopHeight = rowTopHeight - fontHeight;
-        }
+    private void renderRowRectangle(int left, int top, int right, int bottom) {
+        drawRect(left, top, right, bottom, ConfigManager.getOpacity() << 24);
+    }
+
+    private void renderText(String text, int xValue, int yValue) {
+        FontRenderer renderer = Minecraft.getMinecraft().fontRendererObj;
+        drawString(renderer, text, xValue, yValue, 0XFFFFFFFF);
+    }
+
+    private int calculateCenteredTextOffset(String text, int xOffset, int rowLength) {
+        FontRenderer renderer = Minecraft.getMinecraft().fontRendererObj;
+        return xOffset + (rowLength - renderer.getStringWidth(text)) / 2;
     }
 
     private int getRequiredRowLength(LinkedList<LeaderboardRowInfo> rowsToCheck) {

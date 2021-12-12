@@ -32,15 +32,12 @@ public class LeaderboardFormatter {
         LinkedList<LeaderboardRowInfo> newRows = new LinkedList<>();
         StatType trackedStat = this.ARCADE_LEADERBOARD.getStatType();
         if (trackedStat == null) {
-            String noBoardError = EnumChatFormatting.BOLD + "" + EnumChatFormatting.RED + "No leaderboard selected!";
-            newRows.add(new LeaderboardRowInfo(noBoardError, ""));
+            newRows.add(FormatHelper.NO_BOARD_ROW);
             return newRows;
         }
-        String headerText = EnumChatFormatting.AQUA + "" + EnumChatFormatting.BOLD + trackedStat.getHeaderText();
-        newRows.add(new LeaderboardRowInfo(headerText, ""));
+        newRows.add(FormatHelper.getHeaderRow(trackedStat));
         if (this.ARCADE_LEADERBOARD.getLeaderboard().size() == 0) {
-            String fetchString = EnumChatFormatting.GOLD + "" + "Fetching leaderboard...";
-            newRows.add(new LeaderboardRowInfo(fetchString, ""));
+            newRows.add(FormatHelper.FETCH_ROW);
         } else {
             newRows.addAll(getPlayerRows());
         }
@@ -72,20 +69,10 @@ public class LeaderboardFormatter {
             return getNormalScoreboardRows();
         }
 
-        LinkedList<LeaderboardRowInfo> returnList =
-                new LinkedList<>(getLeaderboardRowsFromIndices(0, 3));
-        returnList.add(new LeaderboardRowInfo(EnumChatFormatting.GRAY + "...", ""));
-
-        int partialPlaceIterator;
-        if (playerPlace > ConfigManager.getTotalTracked() - 3) {
-            partialPlaceIterator = ConfigManager.getTotalTracked() - playerPlace;
-        } else {
-            partialPlaceIterator = 3;
-        }
-
-        int searchEnd = partialPlaceIterator + playerPlace;
-        returnList.addAll(getLeaderboardRowsFromIndices(searchEnd - 6, searchEnd));
-        return returnList;
+        LinkedList<LeaderboardRowInfo> splitScoreboardRows = new LinkedList<>(getFirstThreePlayerRows());
+        splitScoreboardRows.add(FormatHelper.DIVIDER_ROW);
+        splitScoreboardRows.addAll(getPlayerInvolvedRows(playerPlace));
+        return splitScoreboardRows;
     }
 
     private LinkedList<LeaderboardRowInfo> getNormalScoreboardRows() {
@@ -132,5 +119,21 @@ public class LeaderboardFormatter {
             }
         }
         return returnList;
+    }
+
+    private LinkedList<LeaderboardRowInfo> getPlayerInvolvedRows(int playerPlace) {
+        int partialPlaceIterator;
+        if (playerPlace > ConfigManager.getTotalTracked() - 3) {
+            partialPlaceIterator = ConfigManager.getTotalTracked() - playerPlace;
+        } else {
+            partialPlaceIterator = 3;
+        }
+
+        int searchEnd = partialPlaceIterator + playerPlace;
+        return getLeaderboardRowsFromIndices(searchEnd - 6, searchEnd);
+    }
+
+    private LinkedList<LeaderboardRowInfo> getFirstThreePlayerRows() {
+        return getLeaderboardRowsFromIndices(0, 3);
     }
 }
