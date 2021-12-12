@@ -1,11 +1,13 @@
-package com.skyywastaken.arcadelb.command.subcommands;
+package com.skyywastaken.arcadelb.command.subcommands.render;
 
+import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class ArcadeLBSetEnabledSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (args.length == 0) {
-            sendHelpMessage(sender);
+            CommandUtils.sendHelpMessage(this);
         }
         boolean typedValue = Boolean.parseBoolean(args[0]);
         ConfigManager.setLeaderboardEnabled(typedValue);
@@ -32,9 +34,9 @@ public class ArcadeLBSetEnabledSubCommand implements SubCommand {
     }
 
     @Override
-    public void sendHelpMessage(ICommandSender sender) {
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+    public IChatComponent getHelpMessage() {
+        return new ChatComponentText(EnumChatFormatting.GREEN
                 + "Use this subcommand to enable or disable the leaderboard. (true/false, default: true)\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setenabled true"));
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setenabled true");
     }
 }

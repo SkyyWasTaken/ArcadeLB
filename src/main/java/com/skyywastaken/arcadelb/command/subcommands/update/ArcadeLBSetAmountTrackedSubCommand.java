@@ -1,11 +1,13 @@
-package com.skyywastaken.arcadelb.command.subcommands;
+package com.skyywastaken.arcadelb.command.subcommands.update;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 
@@ -18,19 +20,18 @@ public class ArcadeLBSetAmountTrackedSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (args.length == 0) {
-            sendHelpMessage(sender);
+            CommandUtils.sendHelpMessage(this);
             return;
         }
-        int newupdateAmount;
+        int newUpdateAmount;
         try {
-            newupdateAmount = Integer.parseInt(args[0]);
+            newUpdateAmount = CommandUtils.AttemptIntegerParseWithHelp(args[0], this);
         } catch (NumberFormatException e) {
-            sendHelpMessage(sender);
             return;
         }
-        ConfigManager.setTotalTracked(newupdateAmount);
+        ConfigManager.setTotalTracked(newUpdateAmount);
         sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
-                + "Total tracked player count has been set to " + newupdateAmount + "!"));
+                + "Total tracked player count has been set to " + newUpdateAmount + "!"));
     }
 
     @Override
@@ -39,9 +40,9 @@ public class ArcadeLBSetAmountTrackedSubCommand implements SubCommand {
     }
 
     @Override
-    public void sendHelpMessage(ICommandSender sender) {
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+    public IChatComponent getHelpMessage() {
+        return new ChatComponentText(EnumChatFormatting.GREEN
                 + "Use this subcommand to change how many players to keep track of (range 0-100, default 50)\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setamounttracked 50"));
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setamounttracked 50");
     }
 }

@@ -2,6 +2,8 @@ package com.skyywastaken.arcadelb.command;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 
@@ -12,5 +14,5 @@ public interface SubCommand {
 
     String getCommandName();
 
-    void sendHelpMessage(ICommandSender sender);
+    IChatComponent getHelpMessage();
 }

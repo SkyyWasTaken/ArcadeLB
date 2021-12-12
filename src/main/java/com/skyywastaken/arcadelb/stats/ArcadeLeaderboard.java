@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.skyywastaken.arcadelb.ArcadeLB;
 import com.skyywastaken.arcadelb.leaderboard.VenomHelper;
+import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
@@ -13,7 +14,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Session;
 import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
-import com.skyywastaken.arcadelb.stats.game.StatType;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -88,7 +88,7 @@ public class ArcadeLeaderboard {
         int playerScore;
         if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))) {
             playerScore = 0;
-            ThreadHelper.sendThreadedMessage(new ChatComponentText(EnumChatFormatting.RED
+            ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "Your ArcadeLB API key is invalid!"));
         } else {
             try {

@@ -1,18 +1,18 @@
 package com.skyywastaken.arcadelb.command;
 
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetAPIKeySubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetUpdateAmountSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetAPIKeySubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetUpdateAmountSubCommand;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetDisplayPlayerSubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetEnabledSubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetOpacitySubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetXOffsetSubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLBSetYOffsetSubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.ArcadeLbRefreshSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetDisplayPlayerSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetEnabledSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetOpacitySubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetXOffsetSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetYOffsetSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLbRefreshSubCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.util.StringUtils;
 
@@ -92,6 +92,7 @@ public class ArcadeLBCommand implements ICommand {
         registerSubCommand(new ArcadeLBSetDisplayPlayerSubCommand());
         registerSubCommand(new ArcadeLBSetUpdateAmountSubCommand());
         registerSubCommand(new ArcadeLBSetAPIKeySubCommand());
+        registerSubCommand(new ArcadeLBSetUpdateAmountSubCommand());
     }
 
     private void registerSubCommand(SubCommand commandToRegister) {

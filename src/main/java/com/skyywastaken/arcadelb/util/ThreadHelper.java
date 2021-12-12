@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.IChatComponent;
 
 public class ThreadHelper {
-    public static void sendThreadedMessage(IChatComponent chatComponent) {
+    public static void sendPlayerMessage(IChatComponent chatComponent) {
         Minecraft.getMinecraft().addScheduledTask(() -> {
             try {
                 Minecraft.getMinecraft().thePlayer.addChatMessage(chatComponent);

@@ -1,16 +1,16 @@
-package com.skyywastaken.arcadelb.command.subcommands;
+package com.skyywastaken.arcadelb.command.subcommands.update;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
 import com.skyywastaken.arcadelb.util.ThreadHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
@@ -25,7 +25,7 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (args.length == 0) {
-            sendHelpMessage(sender);
+            CommandUtils.sendHelpMessage(this);
             return;
         }
         UUID typedUUID;
@@ -46,10 +46,10 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
     }
 
     @Override
-    public void sendHelpMessage(ICommandSender sender) {
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+    public IChatComponent getHelpMessage() {
+        return new ChatComponentText(EnumChatFormatting.GREEN
                 + "Use this subcommand to give the mod your Hypixel API key.\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setapikey (key)"));
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setapikey (key)");
     }
 
     private Runnable checkValidityAndSetAPIKey(UUID apiKey) {
@@ -57,10 +57,10 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
             boolean keyIsValid;
             keyIsValid = HypixelQueryHelper.isKeyValid(apiKey);
             if (!keyIsValid) {
-                ThreadHelper.sendThreadedMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
+                ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
             } else {
                 ConfigManager.setAPIKey(apiKey.toString());
-                ThreadHelper.sendThreadedMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
+                ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
             }
         };
     }

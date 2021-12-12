@@ -1,11 +1,13 @@
-package com.skyywastaken.arcadelb.command.subcommands;
+package com.skyywastaken.arcadelb.command.subcommands.render;
 
+import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import com.skyywastaken.arcadelb.command.SubCommand;
+import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 
@@ -18,18 +20,13 @@ public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (args.length == 0) {
-            sendHelpMessage(sender);
+            CommandUtils.sendHelpMessage(this);
             return;
         }
         double typedValue;
         try {
-            typedValue = Double.parseDouble(args[0]);
-        } catch (NumberFormatException numberFormatException) {
-            sendHelpMessage(sender);
-            return;
-        }
-        if (typedValue < 0 || typedValue > 1) {
-            sendHelpMessage(sender);
+            typedValue = CommandUtils.attemptFloatParseWithHelp(args[0], this);
+        } catch (NumberFormatException e) {
             return;
         }
         ConfigManager.setXOffset((float) typedValue);
@@ -43,9 +40,9 @@ public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
     }
 
     @Override
-    public void sendHelpMessage(ICommandSender sender) {
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+    public IChatComponent getHelpMessage() {
+        return new ChatComponentText(EnumChatFormatting.GREEN
                 + "Use this subcommand to change the x offset of the leaderboard (0.0-1.0, default 0.0)\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setxoffset 0"));
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setxoffset 0");
     }
 }

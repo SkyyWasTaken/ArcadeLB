@@ -1,4 +1,4 @@
-package com.skyywastaken.arcadelb.command.subcommands;
+package com.skyywastaken.arcadelb.command.subcommands.update;
 
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import net.minecraft.command.ICommandSender;
@@ -6,6 +6,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import com.skyywastaken.arcadelb.command.SubCommand;
+import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 
@@ -33,9 +34,9 @@ public class ArcadeLbRefreshSubCommand implements SubCommand {
     }
 
     @Override
-    public void sendHelpMessage(ICommandSender sender) {
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+    public IChatComponent getHelpMessage() {
+        return new ChatComponentText(EnumChatFormatting.GREEN
                 + "This command forces the mod to sync the leaderboard with Hypixel's API. Use sparingly!\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadeapi refresh"));
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadeapi refresh");
     }
 }

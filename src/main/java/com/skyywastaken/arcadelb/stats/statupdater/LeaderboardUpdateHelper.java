@@ -37,7 +37,7 @@ public class LeaderboardUpdateHelper extends Thread {
         }
         validKeyCheck.shutdown();
         if (!keyIsValid) {
-            ThreadHelper.sendThreadedMessage(new ChatComponentText(EnumChatFormatting.RED + "Your ArcadeLB API key is invalid!"));
+            ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED + "Your ArcadeLB API key is invalid!"));
             return;
         }
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(ConfigManager.getAmountOfPlayersToUpdate(),
