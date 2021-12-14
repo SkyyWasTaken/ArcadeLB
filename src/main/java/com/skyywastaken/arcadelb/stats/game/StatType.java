@@ -6,4 +6,6 @@ public interface StatType {
     String getHypixelPath();
 
     String getHeaderText();
+
+    String getPlayerFriendlyPath();
 }

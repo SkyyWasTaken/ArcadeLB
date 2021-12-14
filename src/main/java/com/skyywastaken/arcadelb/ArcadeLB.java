@@ -3,7 +3,9 @@ package com.skyywastaken.arcadelb;
 import com.skyywastaken.arcadelb.command.ArcadeLBCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.game.PartyGames;
-import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
+import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
+import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -11,9 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 @Mod(modid = ArcadeLB.MODID, version = ArcadeLB.VERSION)
 public class ArcadeLB {
@@ -31,11 +30,13 @@ public class ArcadeLB {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        final ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard();
-        final Thread getStartingLeaderboard = new Thread(() -> arcadeLeaderboard.setLeaderboardFromVenomJson(PartyGames.WINS));
+        ThreadHelper.sendThreadSafeMessage(new ChatComponentText("lol"));
+        StatTypeHelper statTypeTracker = new StatTypeHelper();
+        ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard(statTypeTracker);
+        Thread getStartingLeaderboard = new Thread(() -> arcadeLeaderboard.setLeaderboardFromVenomJson(PartyGames.WINS));
         getStartingLeaderboard.start();
         MinecraftForge.EVENT_BUS.register(new EventThing(arcadeLeaderboard));
-        ClientCommandHandler.instance.registerCommand(new ArcadeLBCommand(arcadeLeaderboard));
+        ClientCommandHandler.instance.registerCommand(new ArcadeLBCommand(arcadeLeaderboard, statTypeTracker));
     }
 
     public static org.apache.logging.log4j.Logger getLogger() {

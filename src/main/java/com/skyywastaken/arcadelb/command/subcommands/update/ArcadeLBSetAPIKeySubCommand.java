@@ -4,7 +4,7 @@ import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -57,10 +57,10 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
             boolean keyIsValid;
             keyIsValid = HypixelQueryHelper.isKeyValid(apiKey);
             if (!keyIsValid) {
-                ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
+                ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
             } else {
                 ConfigManager.setAPIKey(apiKey.toString());
-                ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
+                ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
             }
         };
     }

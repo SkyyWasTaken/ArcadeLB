@@ -1,20 +1,21 @@
 package com.skyywastaken.arcadelb.command;
 
-import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetAPIKeySubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetUpdateAmountSubCommand;
-import net.minecraft.command.ICommand;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetDisplayPlayerSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetEnabledSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetOpacitySubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetXOffsetSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetYOffsetSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetAPIKeySubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLBSetUpdateAmountSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLbRefreshSubCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
+import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.util.StringUtils;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,9 +25,11 @@ import java.util.List;
 public class ArcadeLBCommand implements ICommand {
     private final ArcadeLeaderboard ARCADE_LEADERBOARD;
     private final HashMap<String, SubCommand> subCommands = new HashMap<>();
+    private final StatTypeHelper STAT_TYPE_TRACKER;
 
-    public ArcadeLBCommand(ArcadeLeaderboard passedLeaderboard) {
+    public ArcadeLBCommand(ArcadeLeaderboard passedLeaderboard, StatTypeHelper statTypeTracker) {
         this.ARCADE_LEADERBOARD = passedLeaderboard;
+        this.STAT_TYPE_TRACKER = statTypeTracker;
         registerSubCommands();
     }
 

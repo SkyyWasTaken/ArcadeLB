@@ -1,7 +1,6 @@
 package com.skyywastaken.arcadelb.command.subcommands;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
-import com.skyywastaken.arcadelb.util.ThreadHelper;
 import net.minecraft.client.Minecraft;
 
 public class CommandUtils {

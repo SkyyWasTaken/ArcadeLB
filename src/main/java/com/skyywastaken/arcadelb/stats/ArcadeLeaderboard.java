@@ -4,16 +4,17 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.skyywastaken.arcadelb.ArcadeLB;
 import com.skyywastaken.arcadelb.leaderboard.VenomHelper;
+import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
 import com.skyywastaken.arcadelb.stats.game.StatType;
+import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Session;
-import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -26,11 +27,22 @@ import java.util.concurrent.TimeUnit;
 
 public class ArcadeLeaderboard {
     private LinkedHashMap<UUID, PlayerStat> leaderboard = new LinkedHashMap<>();
+    private final StatTypeHelper STAT_TYPE_HELPER;
     ScheduledExecutorService executorService = null;
     private StatType statType = null;
     private boolean playerIsOnLeaderboard = false;
+    private boolean boardIsSwitching = false;
+
+    public ArcadeLeaderboard(StatTypeHelper statTypeHelper) {
+        this.STAT_TYPE_HELPER = statTypeHelper;
+    }
+
+    public void loadLeaderboardFromConfig() {
+
+    }
 
     public void setLeaderboardFromVenomJson(StatType passedStatType) {
+        boardIsSwitching = true;
         if (executorService != null) {
             this.executorService.shutdownNow();
             executorService = null;
@@ -41,7 +53,12 @@ public class ArcadeLeaderboard {
         UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
         boolean playerHasBeenFound = false;
         int i = 1;
-        for (JsonElement currentElement : VenomHelper.requestLeaderboard(passedStatType).getAsJsonArray()) {
+        JsonElement venomElement = VenomHelper.requestLeaderboard(passedStatType);
+        if (venomElement == null) {
+            boardIsSwitching = false;
+            return;
+        }
+        for (JsonElement currentElement : venomElement.getAsJsonArray()) {
             JsonObject currentObject = currentElement.getAsJsonObject();
             UUID uuid;
             try {
@@ -72,6 +89,7 @@ public class ArcadeLeaderboard {
         FormatHelper.triggerUpdate();
         this.executorService = Executors.newScheduledThreadPool(1);
         this.executorService.scheduleAtFixedRate(this::updateLeaderboard, 1, 1, TimeUnit.MINUTES);
+        this.boardIsSwitching = false;
     }
 
     public LinkedHashMap<UUID, PlayerStat> getLeaderboard() {
@@ -88,7 +106,7 @@ public class ArcadeLeaderboard {
         int playerScore;
         if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))) {
             playerScore = 0;
-            ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED
+            ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "Your ArcadeLB API key is invalid!"));
         } else {
             try {
@@ -111,6 +129,10 @@ public class ArcadeLeaderboard {
         }
         this.leaderboard = intermediateLeaderboard;
         FormatHelper.triggerUpdate();
+    }
+
+    public boolean isBoardSwitching() {
+        return this.boardIsSwitching;
     }
 
     public boolean getPlayerInTopTracked() {

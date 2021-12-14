@@ -4,7 +4,7 @@ import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
@@ -37,7 +37,7 @@ public class LeaderboardUpdateHelper extends Thread {
         }
         validKeyCheck.shutdown();
         if (!keyIsValid) {
-            ThreadHelper.sendPlayerMessage(new ChatComponentText(EnumChatFormatting.RED + "Your ArcadeLB API key is invalid!"));
+            ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your ArcadeLB API key is invalid!"));
             return;
         }
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(ConfigManager.getAmountOfPlayersToUpdate(),

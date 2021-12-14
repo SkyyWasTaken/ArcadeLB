@@ -1,8 +1,8 @@
 package com.skyywastaken.arcadelb.util;
 
-import net.minecraftforge.common.config.Property;
 import com.skyywastaken.arcadelb.ArcadeLB;
 import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
+import net.minecraftforge.common.config.Property;
 
 public class ConfigManager {
     public static double getXOffset() {
@@ -116,6 +116,10 @@ public class ConfigManager {
     private static Property getAPIKeyProperty() {
         return ArcadeLB.configuration.get("secrets", "apikey", "",
                 "Your Hypixel API key. This is used to update the leaderboard");
+    }
+
+    private static Property getStatTrackedProperty() {
+        return ArcadeLB.configuration.get("main", "selectedstat", "", "Which ");
     }
 
     private static void saveConfig() {
