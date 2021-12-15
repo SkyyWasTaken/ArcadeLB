@@ -1,19 +1,20 @@
 package com.skyywastaken.arcadelb.command.subcommands.render;
 
+import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
+import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import com.skyywastaken.arcadelb.command.SubCommand;
-import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArcadeLBSetEnabledSubCommand implements SubCommand {
     @Override
-    public ArrayList<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
+    public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
     }
 

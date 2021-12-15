@@ -2,6 +2,7 @@ package com.skyywastaken.arcadelb.util;
 
 import com.skyywastaken.arcadelb.ArcadeLB;
 import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
+import com.skyywastaken.arcadelb.stats.game.StatType;
 import net.minecraftforge.common.config.Property;
 
 public class ConfigManager {
@@ -9,24 +10,55 @@ public class ConfigManager {
         return getXOffsetProperty().getDouble();
     }
 
+    public static void setXOffset(float newValue) {
+        getXOffsetProperty().set(newValue);
+        saveConfig();
+    }
+
     public static double getYOffset() {
         return getYOffsetProperty().getDouble();
+    }
+
+    public static void setYOffset(float newValue) {
+        getYOffsetProperty().set(newValue);
+        saveConfig();
     }
 
     public static int getTotalTracked() {
         return getTotalTrackedProperty().getInt();
     }
 
+    public static void setTotalTracked(int newValue) {
+        getTotalTrackedProperty().set(newValue);
+        saveConfig();
+    }
+
     public static boolean getLeaderboardEnabled() {
         return getLeaderboardEnabledProperty().getBoolean();
+    }
+
+    public static void setLeaderboardEnabled(boolean newValue) {
+        getLeaderboardEnabledProperty().set(newValue);
+        saveConfig();
     }
 
     public static int getOpacity() {
         return getOpacityProperty().getInt();
     }
 
+    public static void setOpacity(int newOpacity) {
+        getOpacityProperty().set(newOpacity);
+        saveConfig();
+    }
+
     public static boolean getDisplayPlayer() {
         return getDisplayPlayerProperty().getBoolean();
+    }
+
+    public static void setDisplayPlayer(boolean newValue) {
+        getDisplayPlayerProperty().set(newValue);
+        saveConfig();
+        FormatHelper.triggerUpdate();
     }
 
     public static int getAmountOfPlayersToUpdate() {
@@ -37,30 +69,13 @@ public class ConfigManager {
         return getAPIKeyProperty().getString();
     }
 
-    public static void setXOffset(float newValue) {
-        getXOffsetProperty().set(newValue);
+    public static void setAPIKey(String passedKey) {
+        getAPIKeyProperty().set(passedKey);
         saveConfig();
     }
 
-    public static void setYOffset(float newValue) {
-        getYOffsetProperty().set(newValue);
-        saveConfig();
-    }
-
-    public static void setLeaderboardEnabled(boolean newValue) {
-        getLeaderboardEnabledProperty().set(newValue);
-        saveConfig();
-    }
-
-    public static void setOpacity(int newOpacity) {
-        getOpacityProperty().set(newOpacity);
-        saveConfig();
-    }
-
-    public static void setDisplayPlayer(boolean newValue) {
-        getDisplayPlayerProperty().set(newValue);
-        saveConfig();
-        FormatHelper.triggerUpdate();
+    public static String getTrackedStat() {
+        return getStatTrackedProperty().getString();
     }
 
     public static void setUpdateAmount(int newValue) {
@@ -68,13 +83,8 @@ public class ConfigManager {
         saveConfig();
     }
 
-    public static void setTotalTracked(int newValue) {
-        getTotalTrackedProperty().set(newValue);
-        saveConfig();
-    }
-
-    public static void setAPIKey(String passedKey) {
-        getAPIKeyProperty().set(passedKey);
+    public static void setStatTracked(StatType passedStatType) {
+        getStatTrackedProperty().set(passedStatType.getPlayerFriendlyPath());
         saveConfig();
     }
 
@@ -119,7 +129,7 @@ public class ConfigManager {
     }
 
     private static Property getStatTrackedProperty() {
-        return ArcadeLB.configuration.get("main", "selectedstat", "", "Which ");
+        return ArcadeLB.configuration.get("main", "selectedstat", "", "");
     }
 
     private static void saveConfig() {

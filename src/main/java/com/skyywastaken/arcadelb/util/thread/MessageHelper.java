@@ -9,11 +9,11 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ThreadHelper {
-    private final static ThreadHelper mainInstance = new ThreadHelper();
+public class MessageHelper {
+    private final static MessageHelper mainInstance = new MessageHelper();
     private final ArrayList<IChatComponent> QUEUED_MESSAGES = new ArrayList<>();
 
-    public ThreadHelper() {
+    public MessageHelper() {
         ThreadListeners threadListeners = new ThreadListeners(this);
         MinecraftForge.EVENT_BUS.register(threadListeners);
     }

@@ -2,9 +2,8 @@ package com.skyywastaken.arcadelb;
 
 import com.skyywastaken.arcadelb.command.ArcadeLBCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
-import com.skyywastaken.arcadelb.stats.game.PartyGames;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
-import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +21,10 @@ public class ArcadeLB {
     public static Configuration configuration;
     private static Logger logger;
 
+    public static org.apache.logging.log4j.Logger getLogger() {
+        return logger;
+    }
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         logger = e.getModLog();
@@ -30,16 +33,12 @@ public class ArcadeLB {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        ThreadHelper.sendThreadSafeMessage(new ChatComponentText("lol"));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText("lol"));
         StatTypeHelper statTypeTracker = new StatTypeHelper();
         ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard(statTypeTracker);
-        Thread getStartingLeaderboard = new Thread(() -> arcadeLeaderboard.setLeaderboardFromVenomJson(PartyGames.WINS));
+        Thread getStartingLeaderboard = new Thread(arcadeLeaderboard::loadLeaderboardFromConfig);
         getStartingLeaderboard.start();
         MinecraftForge.EVENT_BUS.register(new EventThing(arcadeLeaderboard));
         ClientCommandHandler.instance.registerCommand(new ArcadeLBCommand(arcadeLeaderboard, statTypeTracker));
-    }
-
-    public static org.apache.logging.log4j.Logger getLogger() {
-        return logger;
     }
 }

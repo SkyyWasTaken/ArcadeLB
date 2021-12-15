@@ -10,7 +10,7 @@ import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -26,9 +26,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ArcadeLeaderboard {
-    private LinkedHashMap<UUID, PlayerStat> leaderboard = new LinkedHashMap<>();
     private final StatTypeHelper STAT_TYPE_HELPER;
     ScheduledExecutorService executorService = null;
+    private LinkedHashMap<UUID, PlayerStat> leaderboard = new LinkedHashMap<>();
     private StatType statType = null;
     private boolean playerIsOnLeaderboard = false;
     private boolean boardIsSwitching = false;
@@ -38,10 +38,20 @@ public class ArcadeLeaderboard {
     }
 
     public void loadLeaderboardFromConfig() {
-
+        String configStatString = ConfigManager.getTrackedStat();
+        if (!this.STAT_TYPE_HELPER.statExists(configStatString)) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+                    + "Looks like you don't have a leaderboard selected. Type /arcadelb setboard <args> to fix that!\n"
+                    + EnumChatFormatting.GOLD + "Tip: Use tab completion to see available completions!"));
+        } else {
+            new Thread(() -> {
+                setLeaderboardFromVenomJson(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString));
+            }).start();
+        }
     }
 
     public void setLeaderboardFromVenomJson(StatType passedStatType) {
+        this.leaderboard.clear();
         boardIsSwitching = true;
         if (executorService != null) {
             this.executorService.shutdownNow();
@@ -106,7 +116,7 @@ public class ArcadeLeaderboard {
         int playerScore;
         if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))) {
             playerScore = 0;
-            ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "Your ArcadeLB API key is invalid!"));
         } else {
             try {

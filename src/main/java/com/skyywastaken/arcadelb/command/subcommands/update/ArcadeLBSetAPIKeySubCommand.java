@@ -4,7 +4,7 @@ import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.thread.ThreadHelper;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -12,13 +12,14 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
     @Override
-    public ArrayList<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
+    public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
     }
 
@@ -57,10 +58,10 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
             boolean keyIsValid;
             keyIsValid = HypixelQueryHelper.isKeyValid(apiKey);
             if (!keyIsValid) {
-                ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
+                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
             } else {
                 ConfigManager.setAPIKey(apiKey.toString());
-                ThreadHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
+                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
             }
         };
     }

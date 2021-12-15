@@ -6,9 +6,9 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ThreadListeners {
-    private final ThreadHelper parentThread;
+    private final MessageHelper parentThread;
 
-    public ThreadListeners(ThreadHelper parentThread) {
+    public ThreadListeners(MessageHelper parentThread) {
         this.parentThread = parentThread;
     }
 

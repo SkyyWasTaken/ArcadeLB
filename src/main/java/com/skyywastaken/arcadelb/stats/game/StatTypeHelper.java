@@ -1,6 +1,7 @@
 package com.skyywastaken.arcadelb.stats.game;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class StatTypeHelper {
     private final HashMap<String, StatType> statTypeHashMap = new HashMap<>();
@@ -31,5 +32,9 @@ public class StatTypeHelper {
 
     private void registerAllStats() {
         registerStats(PartyGames.class);
+    }
+
+    public Set<String> getAllStats() {
+        return this.statTypeHashMap.keySet();
     }
 }

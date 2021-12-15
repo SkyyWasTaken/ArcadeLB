@@ -1,14 +1,15 @@
 package com.skyywastaken.arcadelb.command.subcommands.update;
 
+import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import com.skyywastaken.arcadelb.command.SubCommand;
 import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArcadeLbRefreshSubCommand implements SubCommand {
     private final ArcadeLeaderboard ARCADE_LEADERBOARD;
@@ -18,7 +19,7 @@ public class ArcadeLbRefreshSubCommand implements SubCommand {
     }
 
     @Override
-    public ArrayList<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
+    public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
     }
 

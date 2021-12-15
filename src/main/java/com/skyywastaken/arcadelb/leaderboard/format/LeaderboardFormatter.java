@@ -1,20 +1,20 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
+import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
+import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
+import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
-import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
-import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
-import com.skyywastaken.arcadelb.stats.game.StatType;
 
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.UUID;
 
 public class LeaderboardFormatter {
-    private LinkedList<LeaderboardRowInfo> leaderboardRows = new LinkedList<>();
     private final ArcadeLeaderboard ARCADE_LEADERBOARD;
+    private LinkedList<LeaderboardRowInfo> leaderboardRows = new LinkedList<>();
 
     public LeaderboardFormatter(ArcadeLeaderboard passedLeaderboard) {
         this.ARCADE_LEADERBOARD = passedLeaderboard;

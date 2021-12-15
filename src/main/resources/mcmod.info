@@ -1,16 +1,18 @@
 [
-{
-  "modid": "arcadelb",
-  "name": "ArcadeLB",
-  "description": "Arcade Leaderboard",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["SkyyWasTaken"],
-  "credits": "SkyyWasTaken",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "arcadelb",
+    "name": "ArcadeLB",
+    "description": "Arcade Leaderboard",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "SkyyWasTaken"
+    ],
+    "credits": "SkyyWasTaken",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

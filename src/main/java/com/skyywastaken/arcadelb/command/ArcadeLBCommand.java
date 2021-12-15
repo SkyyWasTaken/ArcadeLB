@@ -1,5 +1,6 @@
 package com.skyywastaken.arcadelb.command;
 
+import com.skyywastaken.arcadelb.command.subcommands.misc.ArcadeLBSetBoardSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetDisplayPlayerSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetEnabledSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetOpacitySubCommand;
@@ -71,6 +72,8 @@ public class ArcadeLBCommand implements ICommand {
             return new ArrayList<>(this.subCommands.keySet());
         } else if (args.length == 1) {
             return StringUtils.getPartialMatches(args[0], this.subCommands.keySet());
+        } else if (this.subCommands.containsKey(args[0])) {
+            return this.subCommands.get(args[0]).getCompletions(sender, Arrays.copyOfRange(args, 1, args.length), pos);
         } else {
             return new ArrayList<>();
         }
@@ -96,6 +99,7 @@ public class ArcadeLBCommand implements ICommand {
         registerSubCommand(new ArcadeLBSetUpdateAmountSubCommand());
         registerSubCommand(new ArcadeLBSetAPIKeySubCommand());
         registerSubCommand(new ArcadeLBSetUpdateAmountSubCommand());
+        registerSubCommand(new ArcadeLBSetBoardSubCommand(this.ARCADE_LEADERBOARD, this.STAT_TYPE_TRACKER));
     }
 
     private void registerSubCommand(SubCommand commandToRegister) {

@@ -5,10 +5,10 @@ import net.minecraft.util.IChatComponent;
 
 public class SendMessageThread extends Thread {
     private final IChatComponent passedComponent;
-    private final ThreadHelper passedThreadHelper;
+    private final MessageHelper passedThreadHelper;
     private final int passedDelay;
 
-    public SendMessageThread(IChatComponent messageToSend, ThreadHelper passedThreadHelper, int passedDelay) {
+    public SendMessageThread(IChatComponent messageToSend, MessageHelper passedThreadHelper, int passedDelay) {
         this.passedComponent = messageToSend;
         this.passedThreadHelper = passedThreadHelper;
         this.passedDelay = passedDelay;
@@ -27,6 +27,7 @@ public class SendMessageThread extends Thread {
             this.passedThreadHelper.addQueuedMessage(this.passedComponent);
             return;
         }
+        //TODO: Append mod name here
         Minecraft.getMinecraft().addScheduledTask(() ->
                 Minecraft.getMinecraft().thePlayer.addChatMessage(this.passedComponent));
     }

@@ -10,10 +10,11 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArcadeLBSetAmountTrackedSubCommand implements SubCommand {
     @Override
-    public ArrayList<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
+    public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
     }
 

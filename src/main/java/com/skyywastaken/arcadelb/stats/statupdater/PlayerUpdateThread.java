@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class PlayerUpdateThread implements Runnable {
-    private final StatType CURRENT_STAT_TYPE;
     final UUID PLAYER_UUID;
     final LeaderboardUpdateHelper updateHelper;
+    private final StatType CURRENT_STAT_TYPE;
 
     PlayerUpdateThread(StatType passedCurrentStatType, UUID passedPlayerUUID, LeaderboardUpdateHelper updateHelper) {
         this.CURRENT_STAT_TYPE = passedCurrentStatType;

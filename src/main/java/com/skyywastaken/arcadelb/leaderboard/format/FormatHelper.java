@@ -1,9 +1,9 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
+import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import net.minecraft.util.EnumChatFormatting;
-import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
 
 public class FormatHelper {
     public static final LeaderboardRowInfo NO_BOARD_ROW = getNoBoardSelectedRow();

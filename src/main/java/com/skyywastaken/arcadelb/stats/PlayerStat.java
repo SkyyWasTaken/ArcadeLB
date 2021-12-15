@@ -1,8 +1,8 @@
 package com.skyywastaken.arcadelb.stats;
 
 public class PlayerStat {
-    private final String playerName;
     public final boolean isCurrentPlayer;
+    private final String playerName;
     private int playerScore;
 
     public PlayerStat(String passedName, int passedScore, boolean passedIsCurrentPlayer) {
@@ -15,11 +15,11 @@ public class PlayerStat {
         return this.playerName;
     }
 
-    public void setPlayerScore(int newScore) {
-        this.playerScore = newScore;
-    }
-
     public int getPlayerScore() {
         return this.playerScore;
+    }
+
+    public void setPlayerScore(int newScore) {
+        this.playerScore = newScore;
     }
 }
