@@ -3,6 +3,7 @@ package com.skyywastaken.arcadelb.leaderboard;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.skyywastaken.arcadelb.stats.game.StatType;
+import sun.security.validator.ValidatorException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +13,7 @@ import java.net.URLConnection;
 
 
 public class VenomHelper {
-    public static JsonElement requestLeaderboard(StatType statType) {
+    public static JsonElement requestLeaderboard(StatType statType) throws ValidatorException {
         URL url;
         try {
             url = new URL("https://cdn.hyarcade.xyz/lb?path=." + statType.getVenomPath());

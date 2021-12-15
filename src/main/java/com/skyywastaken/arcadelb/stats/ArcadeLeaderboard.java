@@ -17,6 +17,9 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Session;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -44,62 +47,123 @@ public class ArcadeLeaderboard {
                     + "Looks like you don't have a leaderboard selected. Type /arcadelb setboard <args> to fix that!\n"
                     + EnumChatFormatting.GOLD + "Tip: Use tab completion to see available completions!"));
         } else {
-            new Thread(() -> {
-                setLeaderboardFromVenomJson(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString));
-            }).start();
+            new Thread(() -> setLeaderboardFromVenomJson(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString)))
+                    .start();
         }
     }
 
     public void setLeaderboardFromVenomJson(StatType passedStatType) {
-        this.leaderboard.clear();
-        boardIsSwitching = true;
-        if (executorService != null) {
-            this.executorService.shutdownNow();
-            executorService = null;
-        }
+        prepareForStatChange();
         this.statType = passedStatType;
         FormatHelper.triggerUpdate();
-        int leaderboardLimit = ConfigManager.getTotalTracked();
-        UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
-        boolean playerHasBeenFound = false;
-        int i = 1;
-        JsonElement venomElement = VenomHelper.requestLeaderboard(passedStatType);
+        JsonElement venomElement;
+        try {
+            venomElement = VenomHelper.requestLeaderboard(passedStatType);
+        } catch (sun.security.validator.ValidatorException e) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "It seems you're " +
+                    "using an out-of-date version of Java! Make sure you have Java 8 installed and check that the " +
+                    "launcher is not using the built-in Java as the mod cannot connect to the internet with the " +
+                    "bundled Java version."));
+            this.statType = null;
+            FormatHelper.triggerUpdate();
+            return;
+        }
         if (venomElement == null) {
             boardIsSwitching = false;
             return;
         }
-        for (JsonElement currentElement : venomElement.getAsJsonArray()) {
-            JsonObject currentObject = currentElement.getAsJsonObject();
-            UUID uuid;
-            try {
-                uuid = UUID.fromString(currentObject.get("uuidPosix").getAsString());
-            } catch (IllegalArgumentException e) {
-                ArcadeLB.getLogger().warn("Failed to parse " + currentPlayerUUID + "'s UUID. Ignoring and continuing.");
-                continue;
-            }
+        HashMap<UUID, PlayerStat> newLeaderboard = parseVenomJson(venomElement);
+        boolean currentPlayerIsOnNewBoard = currentPlayerIsOnLeaderboard(newLeaderboard);
+        if (!currentPlayerIsOnNewBoard) {
+            addCurrentPlayerScoreToMap(newLeaderboard);
+        }
+        this.leaderboard.putAll(newLeaderboard);
+        this.playerIsOnLeaderboard = currentPlayerIsOnNewBoard;
+        runFinishingTasks();
+    }
 
-            JsonObject gameElement = currentObject.get(passedStatType.getVenomPath().split("\\.")[0]).getAsJsonObject();
-            boolean thisIsCurrentPlayer = uuid.equals(currentPlayerUUID);
-            if (thisIsCurrentPlayer) {
-                playerHasBeenFound = true;
-            }
-            this.leaderboard.put(uuid, new PlayerStat(currentObject.get("name").getAsString(),
-                    gameElement.get(passedStatType.getVenomPath().split("\\.")[1]).getAsInt(),
-                    thisIsCurrentPlayer));
-            if (i >= leaderboardLimit) {
-                break;
-            }
-            i++;
-        }
-        this.playerIsOnLeaderboard = playerHasBeenFound;
-        if (!playerHasBeenFound) {
-            addCurrentPlayerScore();
-        }
+    private void runFinishingTasks() {
         this.sortScores();
         FormatHelper.triggerUpdate();
         this.executorService = Executors.newScheduledThreadPool(1);
         this.executorService.scheduleAtFixedRate(this::updateLeaderboard, 1, 1, TimeUnit.MINUTES);
         this.boardIsSwitching = false;
+    }
+
+    private boolean currentPlayerIsOnLeaderboard(HashMap<UUID, PlayerStat> passedMap) {
+        for (PlayerStat currentStat : passedMap.values()) {
+            if (currentStat.isCurrentPlayer) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void prepareForStatChange() {
+        removeCurrentAutoUpdateInstance();
+        this.leaderboard.clear();
+        boardIsSwitching = true;
+    }
+
+    private void removeCurrentAutoUpdateInstance() {
+        if (executorService != null) {
+            this.executorService.shutdownNow();
+            executorService = null;
+        }
+    }
+
+    private LinkedHashMap<UUID, PlayerStat> parseVenomJson(JsonElement passedVenomJson) {
+        LinkedHashMap<UUID, PlayerStat> returnMap = new LinkedHashMap<>();
+        UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
+        int leaderboardLimit = ConfigManager.getTotalTracked();
+        int i = 1;
+        for (JsonElement currentElement : passedVenomJson.getAsJsonArray()) {
+            JsonObject currentObject = currentElement.getAsJsonObject();
+            UUID currentObjectUUID = attemptToParseUUID(currentObject);
+            if (currentObjectUUID == null) {
+                ArcadeLB.getLogger().warn("Failed to parse " + currentPlayerUUID + "'s UUID. Ignoring and continuing.");
+                continue;
+            }
+            boolean thisIsCurrentPlayer = currentObjectUUID.equals(currentPlayerUUID);
+            PlayerStat newStat = generatePlayerStatFromJson(currentObject, thisIsCurrentPlayer);
+            returnMap.put(currentObjectUUID, newStat);
+            if (i >= leaderboardLimit) {
+                break;
+            }
+            i++;
+        }
+        return returnMap;
+    }
+
+    private UUID attemptToParseUUID(JsonObject passedPlayerObject) {
+        String uuidString = passedPlayerObject.get("uuidPosix").getAsString();
+        try {
+            return UUID.fromString(uuidString);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
+
+    private PlayerStat generatePlayerStatFromJson(JsonObject passedJson, boolean playerIsCurrentPlayer) {
+        String playerName = passedJson.get("name").getAsString();
+        int playerScore = getPlayerScoreFromJsonObject(passedJson);
+        return new PlayerStat(playerName, playerScore, playerIsCurrentPlayer);
+    }
+
+    private int getPlayerScoreFromJsonObject(JsonObject passedObject) {
+        String[] scorePath = this.statType.getVenomPath().split("\\.");
+        Iterator<String> scorePathIterator = Arrays.stream(scorePath).iterator();
+        JsonObject currentJsonObject = passedObject;
+        int playerScore = 0;
+        while (scorePathIterator.hasNext()) {
+            String currentPathPart = scorePathIterator.next();
+            if (!scorePathIterator.hasNext()) {
+                playerScore = currentJsonObject.get(currentPathPart).getAsInt();
+            } else {
+                currentJsonObject = currentJsonObject.getAsJsonObject(currentPathPart);
+            }
+        }
+        return playerScore;
     }
 
     public LinkedHashMap<UUID, PlayerStat> getLeaderboard() {
@@ -110,7 +174,7 @@ public class ArcadeLeaderboard {
         new LeaderboardUpdateHelper(this).start();
     }
 
-    private void addCurrentPlayerScore() {
+    private void addCurrentPlayerScoreToMap(HashMap<UUID, PlayerStat> passedMap) {
         Session currentSession = Minecraft.getMinecraft().getSession();
         UUID currentPlayerUUID = currentSession.getProfile().getId();
         int playerScore;
@@ -126,7 +190,7 @@ public class ArcadeLeaderboard {
                 return;
             }
         }
-        this.leaderboard.put(currentPlayerUUID, new PlayerStat(currentSession.getUsername(),
+        passedMap.put(currentPlayerUUID, new PlayerStat(currentSession.getUsername(),
                 playerScore, true));
     }
 
