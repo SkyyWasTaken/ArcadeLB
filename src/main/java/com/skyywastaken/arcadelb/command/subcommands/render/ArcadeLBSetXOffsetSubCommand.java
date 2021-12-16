@@ -3,6 +3,7 @@ package com.skyywastaken.arcadelb.command.subcommands.render;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -31,7 +32,7 @@ public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setXOffset(typedValue);
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "X offset successfully set to " + typedValue));
     }
 

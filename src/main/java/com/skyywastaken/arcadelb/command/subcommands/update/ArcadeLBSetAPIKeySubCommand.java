@@ -33,10 +33,10 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
         try {
             typedUUID = UUID.fromString(args[0]);
         } catch (IllegalArgumentException e) {
-            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Please enter a valid API key."));
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Please enter a valid API key."));
             return;
         }
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Checking your API key..."));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Checking your API key..."));
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(checkValidityAndSetAPIKey(typedUUID));
     }

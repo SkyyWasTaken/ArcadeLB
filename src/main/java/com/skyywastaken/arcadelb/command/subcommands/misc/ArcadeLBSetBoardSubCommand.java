@@ -6,6 +6,7 @@ import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.StringUtils;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -39,12 +40,12 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (this.arcadeLeaderboard.isBoardSwitching()) {
-            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Your leaderboard is currently "
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your leaderboard is currently "
                     + "loading! Wait for it to finish before swapping leaderboards again."));
         } else if (args.length == 0) {
-            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "You need to specify a statistic to swap to!"));
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "You need to specify a statistic to swap to!"));
         } else if (!this.statTypeHelper.statExists(String.join(".", args))) {
-            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "That statistic doesn't exist! " +
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "That statistic doesn't exist! " +
                     "Check your spelling and try again."));
         } else {
             StatType newStatType = this.statTypeHelper.getStatTypeFromString(String.join(".", args));

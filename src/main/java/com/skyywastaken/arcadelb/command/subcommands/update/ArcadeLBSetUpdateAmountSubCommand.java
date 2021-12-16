@@ -3,6 +3,7 @@ package com.skyywastaken.arcadelb.command.subcommands.update;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -31,7 +32,7 @@ public class ArcadeLBSetUpdateAmountSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setUpdateAmount(newUpdateAmount);
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Concurrent update amount set to " + newUpdateAmount + "!"));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Concurrent update amount set to " + newUpdateAmount + "!"));
     }
 
     @Override

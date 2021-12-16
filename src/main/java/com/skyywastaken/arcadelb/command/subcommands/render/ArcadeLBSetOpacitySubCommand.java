@@ -3,6 +3,7 @@ package com.skyywastaken.arcadelb.command.subcommands.render;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -31,7 +32,7 @@ public class ArcadeLBSetOpacitySubCommand implements SubCommand {
             return;
         }
         ConfigManager.setOpacity(newOpacity);
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Opacity successfully set to " + newOpacity + "!"));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Opacity successfully set to " + newOpacity + "!"));
     }
 
     @Override

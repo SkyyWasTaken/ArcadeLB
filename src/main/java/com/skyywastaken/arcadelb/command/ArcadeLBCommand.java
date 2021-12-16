@@ -12,6 +12,7 @@ import com.skyywastaken.arcadelb.command.subcommands.update.ArcadeLbRefreshSubCo
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.util.StringUtils;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
@@ -126,7 +127,7 @@ public class ArcadeLBCommand implements ICommand {
             }
             subCommandList.append(EnumChatFormatting.RESET);
         }
-        commandSender.addChatMessage(new ChatComponentText(failureMessage));
-        commandSender.addChatMessage(new ChatComponentText(subCommandList.toString()));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(failureMessage));
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(subCommandList.toString()));
     }
 }

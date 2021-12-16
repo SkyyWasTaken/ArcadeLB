@@ -3,6 +3,7 @@ package com.skyywastaken.arcadelb.command.subcommands.render;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -25,7 +26,7 @@ public class ArcadeLBSetEnabledSubCommand implements SubCommand {
         }
         boolean typedValue = Boolean.parseBoolean(args[0]);
         ConfigManager.setLeaderboardEnabled(typedValue);
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "The leaderboard has been "
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "The leaderboard has been "
                 + (typedValue ? "enabled" : "disabled") + "!"));
     }
 
