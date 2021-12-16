@@ -24,13 +24,13 @@ public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
             CommandUtils.sendHelpMessage(this);
             return;
         }
-        double typedValue;
+        float typedValue;
         try {
             typedValue = CommandUtils.attemptFloatParseWithHelp(args[0], this);
         } catch (NumberFormatException e) {
             return;
         }
-        ConfigManager.setXOffset((float) typedValue);
+        ConfigManager.setXOffset(typedValue);
         sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "X offset successfully set to " + typedValue));
     }

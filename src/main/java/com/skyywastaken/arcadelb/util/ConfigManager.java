@@ -10,7 +10,7 @@ public class ConfigManager {
         return getXOffsetProperty().getDouble();
     }
 
-    public static void setXOffset(float newValue) {
+    public static void setXOffset(double newValue) {
         getXOffsetProperty().set(newValue);
         saveConfig();
     }
@@ -89,7 +89,7 @@ public class ConfigManager {
     }
 
     private static Property getXOffsetProperty() {
-        return ArcadeLB.configuration.get("main", "xoffset", 0,
+        return ArcadeLB.configuration.get("main", "xoffset", 0F,
                 "X position by percentage. Default: 0", 0, 1);
     }
 
