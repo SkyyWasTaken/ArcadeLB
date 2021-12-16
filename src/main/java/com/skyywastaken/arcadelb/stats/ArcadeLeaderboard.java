@@ -18,6 +18,7 @@ import net.minecraft.util.Session;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -196,7 +197,11 @@ public class ArcadeLeaderboard {
 
     public void sortScores() {
         LinkedList<Map.Entry<UUID, PlayerStat>> entryLinkedList = new LinkedList<>(this.leaderboard.entrySet());
-        entryLinkedList.sort((o1, o2) -> Integer.compare(o2.getValue().getPlayerScore(), o1.getValue().getPlayerScore()));
+        if (!this.statType.isReversed()) {
+            entryLinkedList.sort((o1, o2) -> Integer.compare(o2.getValue().getPlayerScore(), o1.getValue().getPlayerScore()));
+        } else {
+            entryLinkedList.sort(Comparator.comparingInt(o -> o.getValue().getPlayerScore()));
+        }
         LinkedHashMap<UUID, PlayerStat> intermediateLeaderboard = new LinkedHashMap<>();
         for (Map.Entry<UUID, PlayerStat> currentEntry : entryLinkedList) {
             intermediateLeaderboard.put(currentEntry.getKey(), currentEntry.getValue());

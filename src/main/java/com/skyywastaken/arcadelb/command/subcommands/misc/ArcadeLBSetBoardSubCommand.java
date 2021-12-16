@@ -74,19 +74,20 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
         ArrayList<String> possibilityList = new ArrayList<>();
         for (String currentString : this.statTypeHelper.getAllStats()) {
             if (currentString.startsWith(argsJoined)) {
-                System.out.println(currentString);
                 possibilityList.add(currentString);
             }
         }
         ArrayList<String> returnList = new ArrayList<>();
         for (String currentString : possibilityList) {
-            System.out.println(currentString);
             int indexToSuggest = args.length - 1;
             String[] possibilitySplit = currentString.split("\\.");
             if (possibilitySplit.length < indexToSuggest) {
                 continue;
             }
-            returnList.add(possibilitySplit[indexToSuggest]);
+            String newSuggestion = possibilitySplit[indexToSuggest];
+            if (!returnList.contains(newSuggestion)) {
+                returnList.add(newSuggestion);
+            }
         }
         return returnList;
     }

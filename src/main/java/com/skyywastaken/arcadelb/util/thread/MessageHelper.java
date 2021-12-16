@@ -1,6 +1,8 @@
 package com.skyywastaken.arcadelb.util.thread;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -20,7 +22,10 @@ public class MessageHelper {
 
     public static void sendThreadSafeMessage(IChatComponent chatComponent) {
         if (Minecraft.getMinecraft().thePlayer != null) {
-            Minecraft.getMinecraft().thePlayer.addChatMessage(chatComponent);
+            ChatComponentText modNameMessage = new ChatComponentText(EnumChatFormatting.GOLD + ""
+                    + EnumChatFormatting.BOLD + "ARCADELB>" + EnumChatFormatting.RESET);
+            modNameMessage.appendSibling(chatComponent);
+            MessageHelper.sendThreadSafeMessage(modNameMessage);
         } else {
             mainInstance.QUEUED_MESSAGES.add(chatComponent);
         }

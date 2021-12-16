@@ -1,11 +1,11 @@
 package com.skyywastaken.arcadelb.command.subcommands;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
-import net.minecraft.client.Minecraft;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 
 public class CommandUtils {
     public static void sendHelpMessage(SubCommand passedSubCommand) {
-        Minecraft.getMinecraft().thePlayer.addChatMessage(passedSubCommand.getHelpMessage());
+        MessageHelper.sendThreadSafeMessage(passedSubCommand.getHelpMessage());
     }
 
     public static int AttemptIntegerParseWithHelp(String intToParse, SubCommand sourceCommand) throws NumberFormatException {
