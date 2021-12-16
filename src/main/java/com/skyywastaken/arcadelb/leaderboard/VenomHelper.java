@@ -13,10 +13,11 @@ import java.net.URLConnection;
 
 
 public class VenomHelper {
-    public static JsonElement requestLeaderboard(StatType statType) throws ValidatorException {
+    public static JsonElement requestLeaderboard(StatType statType, boolean reversed) throws ValidatorException {
         URL url;
         try {
-            url = new URL("https://cdn.hyarcade.xyz/lb?path=." + statType.getVenomPath());
+            url = new URL("https://cdn.hyarcade.xyz/lb?path=." + statType.getVenomPath()
+                    + (reversed ? "&reverse" : ""));
         } catch (Exception e) {
             e.printStackTrace();
             return null;

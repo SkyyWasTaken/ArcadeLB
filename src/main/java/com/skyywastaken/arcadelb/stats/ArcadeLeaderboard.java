@@ -47,18 +47,18 @@ public class ArcadeLeaderboard {
                     + "Looks like you don't have a leaderboard selected. Type /arcadelb setboard <args> to fix that!\n"
                     + EnumChatFormatting.GOLD + "Tip: Use tab completion to see available completions!"));
         } else {
-            new Thread(() -> setLeaderboardFromVenomJson(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString)))
+            new Thread(() -> setLeaderboardFromStatType(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString)))
                     .start();
         }
     }
 
-    public void setLeaderboardFromVenomJson(StatType passedStatType) {
+    public void setLeaderboardFromStatType(StatType passedStatType) {
         prepareForStatChange();
         this.statType = passedStatType;
         FormatHelper.triggerUpdate();
         JsonElement venomElement;
         try {
-            venomElement = VenomHelper.requestLeaderboard(passedStatType);
+            venomElement = VenomHelper.requestLeaderboard(passedStatType, passedStatType.isReversed());
         } catch (sun.security.validator.ValidatorException e) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "It seems you're " +
                     "using an out-of-date version of Java! Make sure you have Java 8 installed and check that the " +

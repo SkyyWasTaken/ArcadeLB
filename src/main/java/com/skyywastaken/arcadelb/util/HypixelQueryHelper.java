@@ -1,5 +1,6 @@
 package com.skyywastaken.arcadelb.util;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.skyywastaken.arcadelb.stats.game.StatType;
@@ -21,10 +22,20 @@ public class HypixelQueryHelper {
         JsonObject currentElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
         String[] path = statBeingTracked.getHypixelPath().split("\\.");
         for (String key : path) {
+
             if (key.equals(path[path.length - 1])) {
-                return currentElement.get(key).getAsInt();
+                JsonElement possibleScore = currentElement.get(key);
+                if (possibleScore == null) {
+                    return 0;
+                }
+                return possibleScore.getAsInt();
             } else {
-                currentElement = currentElement.get(key).getAsJsonObject();
+                JsonElement jsonElement = currentElement.get(key);
+                if (jsonElement == null) {
+                    return 0;
+                } else {
+                    currentElement = jsonElement.getAsJsonObject();
+                }
             }
         }
         return currentElement.getAsInt();

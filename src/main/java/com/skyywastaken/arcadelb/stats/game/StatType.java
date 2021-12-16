@@ -8,4 +8,6 @@ public interface StatType {
     String getHeaderText();
 
     String getPlayerFriendlyPath();
+
+    boolean isReversed();
 }

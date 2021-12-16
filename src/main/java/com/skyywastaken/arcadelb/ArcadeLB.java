@@ -3,8 +3,6 @@ package com.skyywastaken.arcadelb;
 import com.skyywastaken.arcadelb.command.ArcadeLBCommand;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
-import com.skyywastaken.arcadelb.util.thread.MessageHelper;
-import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -33,7 +31,6 @@ public class ArcadeLB {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText("lol"));
         StatTypeHelper statTypeTracker = new StatTypeHelper();
         ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard(statTypeTracker);
         Thread getStartingLeaderboard = new Thread(arcadeLeaderboard::loadLeaderboardFromConfig);
