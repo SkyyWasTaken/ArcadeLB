@@ -182,7 +182,7 @@ public class ArcadeLeaderboard {
         if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))) {
             playerScore = 0;
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
-                    + "Your ArcadeLB API key is invalid!"));
+                    + "Your API key is invalid!"));
         } else {
             try {
                 playerScore = HypixelQueryHelper.getUpdatedScoreByUUID(currentPlayerUUID, statType);

@@ -22,10 +22,7 @@ public class MessageHelper {
 
     public static void sendThreadSafeMessage(IChatComponent chatComponent) {
         if (Minecraft.getMinecraft().thePlayer != null) {
-            ChatComponentText modNameMessage = new ChatComponentText(EnumChatFormatting.GOLD + ""
-                    + EnumChatFormatting.BOLD + "ARCADELB>" + EnumChatFormatting.RESET);
-            modNameMessage.appendSibling(chatComponent);
-            MessageHelper.sendThreadSafeMessage(modNameMessage);
+            sendUnsafeMessage(chatComponent);
         } else {
             mainInstance.QUEUED_MESSAGES.add(chatComponent);
         }
@@ -38,6 +35,13 @@ public class MessageHelper {
             messages.remove();
             sendMessageThreads.execute(new SendMessageThread(queuedMessage, this, 2000));
         }
+    }
+
+    static void sendUnsafeMessage(IChatComponent component) {
+        ChatComponentText modNameMessage = new ChatComponentText(EnumChatFormatting.GOLD + ""
+                + EnumChatFormatting.BOLD + "ARCADELB> ");
+        modNameMessage.appendSibling(component).appendSibling(new ChatComponentText(""));
+        Minecraft.getMinecraft().thePlayer.addChatMessage(modNameMessage);
     }
 
     void addQueuedMessage(IChatComponent message) {
