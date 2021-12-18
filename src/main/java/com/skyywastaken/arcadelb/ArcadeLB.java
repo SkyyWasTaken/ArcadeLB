@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 public class ArcadeLB {
 
     public static final String MODID = "arcadelb";
-    public static final String VERSION = "0.0.1 INDEV";
+    public static final String VERSION = "1.0 ALPHA";
     public static Configuration configuration;
     private static Logger logger;
 
