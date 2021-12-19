@@ -1,4 +1,4 @@
-package com.skyywastaken.arcadelb;
+package com.skyywastaken.arcadelb.event;
 
 import com.skyywastaken.arcadelb.leaderboard.LeaderboardRenderer;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;

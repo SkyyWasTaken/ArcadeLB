@@ -1,6 +1,7 @@
 package com.skyywastaken.arcadelb;
 
 import com.skyywastaken.arcadelb.command.ArcadeLBCommand;
+import com.skyywastaken.arcadelb.event.EventThing;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.load.StatTypeLoader;
