@@ -2,7 +2,7 @@
   "statTypeList": [
     {
       "userFriendlyPath": "partygames.wins",
-      "venomPath": "partyGames.wins1",
+      "venomPath": "partyGames.wins",
       "hypixelPath": "player.stats.Arcade.wins_party",
       "headerText": "Party Games Wins",
       "isReversed": false

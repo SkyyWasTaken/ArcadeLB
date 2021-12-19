@@ -33,8 +33,8 @@ public class ArcadeLB {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         logger = e.getModLog();
-        configuration = new Configuration(e.getSuggestedConfigurationFile());
         configDirectory = new File(e.getModConfigurationDirectory().getPath() + "/arcadelb");
+        configuration = new Configuration(new File(configDirectory, "arcadelb.cfg"));
     }
 
     @Mod.EventHandler
@@ -53,7 +53,6 @@ public class ArcadeLB {
     private void saveStatTypes() {
         URL jsonLocation = getClass().getResource("/assets/arcadelb/stats/PartyGames.json");
         if (jsonLocation == null) {
-            System.out.println("you're dumb");
             return;
         }
         File jsonSaveLocation = new File(configDirectory.getPath() + "/assets/arcadelb/stats");
