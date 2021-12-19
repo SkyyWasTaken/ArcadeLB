@@ -19,26 +19,36 @@ public class HypixelQueryHelper {
 
         URLConnection request = url.openConnection();
         JsonParser jsonParser = new JsonParser();
-        JsonObject currentElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
-        String[] path = statBeingTracked.getHypixelPath().split("\\.");
-        for (String key : path) {
-
-            if (key.equals(path[path.length - 1])) {
-                JsonElement possibleScore = currentElement.get(key);
-                if (possibleScore == null) {
-                    return 0;
-                }
-                return possibleScore.getAsInt();
-            } else {
-                JsonElement jsonElement = currentElement.get(key);
-                if (jsonElement == null) {
-                    return 0;
+        JsonObject startElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
+        JsonObject currentElement = null;
+        int returnInt = 0;
+        for (String currentPath : statBeingTracked.getHypixelPaths()) {
+            String[] returnPath = currentPath.split("\\.");
+            for (String key : returnPath) {
+                if (key.equals(returnPath[0])) {
+                    JsonElement jsonElement = startElement.get(key);
+                    if (jsonElement == null) {
+                        return 0;
+                    } else {
+                        currentElement = jsonElement.getAsJsonObject();
+                    }
+                } else if (key.equals(returnPath[returnPath.length - 1])) {
+                    JsonElement possibleScore = currentElement.get(key);
+                    if (possibleScore == null) {
+                        continue;
+                    }
+                    returnInt += possibleScore.getAsInt();
                 } else {
-                    currentElement = jsonElement.getAsJsonObject();
+                    JsonElement jsonElement = currentElement.get(key);
+                    if (jsonElement == null) {
+                        return 0;
+                    } else {
+                        currentElement = jsonElement.getAsJsonObject();
+                    }
                 }
             }
         }
-        return currentElement.getAsInt();
+        return returnInt;
     }
 
     public static boolean isKeyValid(UUID passedKey) {
