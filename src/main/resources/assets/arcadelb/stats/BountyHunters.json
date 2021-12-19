@@ -15,7 +15,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.kills_oneinthequiver"
       ],
-      "headerText": "Bounty Hunter Kills",
+      "headerText": "Bounty Hunters Kills",
       "isReversed": false
     },
     {
@@ -24,7 +24,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.bounty_kills_oneinthequiver"
       ],
-      "headerText": "Bounty Hunter Bounty Kills",
+      "headerText": "Bounty Hunters Bounty Kills",
       "isReversed": false
     },
     {
