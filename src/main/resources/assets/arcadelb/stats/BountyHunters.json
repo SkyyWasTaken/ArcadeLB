@@ -1,0 +1,40 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "bountyhunters.wins",
+      "venomPath": "bountyHunters.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_oneinthequiver"
+      ],
+      "headerText": "Bounty Hunters Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "bountyhunters.kills",
+      "venomPath": "bountyHunters.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_oneinthequiver"
+      ],
+      "headerText": "Bounty Hunter Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "bountyhunters.bountykills",
+      "venomPath": "bountyHunters.bountyKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.bounty_kills_oneinthequiver"
+      ],
+      "headerText": "Bounty Hunter Bounty Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "bountyhunters.deaths",
+      "venomPath": "bountyHunters.deaths",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_oneinthequiver"
+      ],
+      "headerText": "Bounty Hunters Deaths",
+      "isReversed": false
+    }
+  ]
+}
