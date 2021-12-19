@@ -1,0 +1,22 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "dragonwars.wins",
+      "venomPath": "dragonWars.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_dragonwars2"
+      ],
+      "headerText": "Dragon Wars Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "dragonwars.kills",
+      "venomPath": "dragonWars.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_dragonwars2"
+      ],
+      "headerText": "Dragon Wars Kills",
+      "isReversed": false
+    }
+  ]
+}
