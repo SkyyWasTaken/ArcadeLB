@@ -1,0 +1,31 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "blockingdead.wins",
+      "venomPath": "blockingDead.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_dayone"
+      ],
+      "headerText": "Blocking Dead Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "blockingdead.kills",
+      "venomPath": "blockingDead.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_dayone"
+      ],
+      "headerText": "Blocking Dead Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "blockingdead.headshots",
+      "venomPath": "blockingDead.headshots",
+      "hypixelPaths": [
+        "player.stats.Arcade.headshots_dayone"
+      ],
+      "headerText": "Blocking Dead Headshots",
+      "isReversed": false
+    }
+  ]
+}
