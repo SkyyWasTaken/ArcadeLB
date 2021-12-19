@@ -1,13 +1,37 @@
 package com.skyywastaken.arcadelb.stats.game;
 
-public interface StatType {
-    String getVenomPath();
+public class StatType {
+    public String userFriendlyPath;
+    public String venomPath;
+    public String hypixelPath;
+    public String headerText;
+    public boolean isReversed;
 
-    String getHypixelPath();
+    public StatType(String userFriendlyPath, String venomPath, String hypixelPath, String headerText, boolean isReversed) {
+        this.userFriendlyPath = userFriendlyPath;
+        this.venomPath = venomPath;
+        this.hypixelPath = hypixelPath;
+        this.headerText = headerText;
+        this.isReversed = isReversed;
+    }
 
-    String getHeaderText();
+    public String getVenomPath() {
+        return venomPath;
+    }
 
-    String getPlayerFriendlyPath();
+    public String getHypixelPath() {
+        return hypixelPath;
+    }
 
-    boolean isReversed();
+    public String getHeaderText() {
+        return headerText;
+    }
+
+    public String getPlayerFriendlyPath() {
+        return userFriendlyPath;
+    }
+
+    public boolean isReversed() {
+        return isReversed;
+    }
 }

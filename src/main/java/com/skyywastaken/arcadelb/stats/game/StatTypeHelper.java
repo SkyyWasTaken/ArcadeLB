@@ -1,26 +1,12 @@
 package com.skyywastaken.arcadelb.stats.game;
 
+import com.skyywastaken.arcadelb.stats.load.StatTypeHolder;
+
 import java.util.HashMap;
 import java.util.Set;
 
 public class StatTypeHelper {
     private final HashMap<String, StatType> statTypeHashMap = new HashMap<>();
-
-    public StatTypeHelper() {
-        registerAllStats();
-    }
-
-    private void registerStat(StatType passedStatType) {
-        this.statTypeHashMap.put(passedStatType.getPlayerFriendlyPath(), passedStatType);
-    }
-
-    private <T extends Enum<T>> void registerStats(Class<T> passedEnum) {
-        for (T currentValue : passedEnum.getEnumConstants()) {
-            if (currentValue instanceof StatType) {
-                registerStat((StatType) currentValue);
-            }
-        }
-    }
 
     public boolean statExists(String passedStatString) {
         return this.statTypeHashMap.containsKey(passedStatString);
@@ -30,8 +16,16 @@ public class StatTypeHelper {
         return this.statTypeHashMap.get(passedStatString);
     }
 
-    private void registerAllStats() {
-        registerStats(PartyGames.class);
+    public void registerStats(StatTypeHolder passedStats) {
+        for (StatType statType : passedStats.statTypeList) {
+            registerStat(statType);
+        }
+    }
+
+    private void registerStat(StatType passedStatType) {
+        if (!this.statTypeHashMap.containsKey(passedStatType.getPlayerFriendlyPath())) {
+            this.statTypeHashMap.put(passedStatType.getPlayerFriendlyPath(), passedStatType);
+        }
     }
 
     public Set<String> getAllStats() {

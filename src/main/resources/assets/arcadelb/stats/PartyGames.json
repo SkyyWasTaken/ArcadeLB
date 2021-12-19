@@ -1,0 +1,340 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "partygames.wins",
+      "venomPath": "partyGames.wins1",
+      "hypixelPath": "player.stats.Arcade.wins_party",
+      "headerText": "Party Games Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.starsearned",
+      "venomPath": "partyGames.starsEarned",
+      "hypixelPath": "player.stats.Arcade.total_stars_party",
+      "headerText": "Party Games Stars",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.roundswon",
+      "venomPath": "partyGames.roundsWon",
+      "hypixelPath": "player.stats.Arcade.round_wins_party",
+      "headerText": "Party Games Round Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.animalslaughter.wins",
+      "venomPath": "partyGames.animalSlaughterWins",
+      "hypixelPath": "player.stats.Arcade.animal_slaughter_round_wins_party",
+      "headerText": "Animal Slaughter Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.animalslaughter.kills",
+      "venomPath": "partyGames.animalSlaughterKills",
+      "hypixelPath": "player.stats.Arcade.animal_slaughter_kills_party",
+      "headerText": "Animal Slaughter Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.animalslaughter.bestscore",
+      "venomPath": "partyGames.animalSlaughterPB",
+      "hypixelPath": "player.stats.Arcade.animal_slaughter_best_score_party",
+      "headerText": "Animal Slaughter PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.anvilspleef.wins",
+      "venomPath": "partyGames.anvilSpleefWins",
+      "hypixelPath": "player.stats.Arcade.anvil_spleef_round_wins_party",
+      "headerText": "Anvil Spleef Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.anvilspleef.bestime",
+      "venomPath": "partyGames.anvilSpleefPB",
+      "hypixelPath": "player.stats.Arcade.anvil_spleef_best_time_party",
+      "headerText": "Anvil Spleef Time",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.bombardment.wins",
+      "venomPath": "partyGames.bombardmentWins",
+      "hypixelPath": "player.stats.Arcade.bombardment_round_wins_party",
+      "headerText": "Bombardment Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.bombardment.besttime",
+      "venomPath": "partyGames.bombardmentPB",
+      "hypixelPath": "player.stats.Arcade.bombardment_best_time_party",
+      "headerText": "Bombardment Best Time",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.chickenrings.wins",
+      "venomPath": "partyGames.chickenRingsWins",
+      "hypixelPath": "player.stats.Arcade.anvil_spleef_round_wins_party",
+      "headerText": "Chicken Rings Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.chickenrings.besttime",
+      "venomPath": "partyGames.chickenRingsPB",
+      "hypixelPath": "player.stats.Arcade.chicken_rings_best_time_party",
+      "headerText": "Chicken Rings Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.dive.wins",
+      "venomPath": "partyGames.diveWins",
+      "hypixelPath": "player.stats.Arcade.dive_round_wins_party",
+      "headerText": "Dive Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.dive.bestscore",
+      "venomPath": "partyGames.divePB",
+      "hypixelPath": "player.stats.Arcade.dive_best_score_party",
+      "headerText": "Dive PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.dive.totalscore",
+      "venomPath": "partyGames.diveScore",
+      "hypixelPath": "player.stats.Arcade.dive_total_score_party",
+      "headerText": "Dive Total Score",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.highground.wins",
+      "venomPath": "partyGames.highGroundWins",
+      "hypixelPath": "player.stats.Arcade.high_ground_round_wins_party",
+      "headerText": "High Ground Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.highground.totalscore",
+      "venomPath": "partyGames.highGroundScore",
+      "hypixelPath": "player.stats.Arcade.high_ground_total_score_party",
+      "headerText": "High Ground Total Score",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.highground.bestscore",
+      "venomPath": "partyGames.highGroundPB",
+      "hypixelPath": "player.stats.Arcade.high_ground_best_score_party",
+      "headerText": "High Ground PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.hoehoehoe.wins",
+      "venomPath": "partyGames.hoeWins",
+      "hypixelPath": "player.stats.Arcade.hoe_hoe_hoe_round_wins_party",
+      "headerText": "Hoe Hoe Hoe Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.hoehoehoe.totalscore",
+      "venomPath": "partyGames.hoeScore",
+      "hypixelPath": "player.stats.Arcade.hoe_hoe_hoe_total_score_party",
+      "headerText": "Hoe Hoe Hoe Total Score",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.hoehoehoe.bestscore",
+      "venomPath": "partyGames.hoePB",
+      "hypixelPath": "player.stats.Arcade.hoe_hoe_hoe_best_score_party",
+      "headerText": "Hoe Hoe Hoe PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.jigsawrush.besttime",
+      "venomPath": "partyGames.jigsawPB",
+      "hypixelPath": "player.stats.Arcade.jigsaw_rush_best_time_party",
+      "headerText": "Jigsaw Rush Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.junglejump.wins",
+      "venomPath": "partyGames.jungleJumpWins",
+      "hypixelPath": "player.stats.Arcade.jungle_jump_round_wins_party",
+      "headerText": "Jungle Jump Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.junglejump.besttime",
+      "venomPath": "partyGames.jungleJumpPB",
+      "hypixelPath": "player.stats.Arcade.jungle_jump_best_time_party",
+      "headerText": "Jungle Jump Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.labescape.wins",
+      "venomPath": "partyGames.labEscapeWins",
+      "hypixelPath": "player.stats.Arcade.lab_escape_round_wins_party",
+      "headerText": "Lab Escape Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.labescape.besttime",
+      "venomPath": "partyGames.labEscapePB",
+      "hypixelPath": "player.stats.Arcade.lab_escape_best_time_party",
+      "headerText": "Lab Escape Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.lawnmoower.wins",
+      "venomPath": "partyGames.lawnMoowerWins",
+      "hypixelPath": "player.stats.Arcade.lawn_moower_round_wins_party",
+      "headerText": "Lawn Moower Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.lawnmoower.totalscore",
+      "venomPath": "partyGames.lawnMoowerScore",
+      "hypixelPath": "player.stats.Arcade.lawn_moower_mowed_total_score_party",
+      "headerText": "Lawn Moower Total Score",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.lawnmoower.bestscore",
+      "venomPath": "partyGames.lawnMoowerPB",
+      "hypixelPath": "player.stats.Arcade.lawn_moower_mowed_best_score_party",
+      "headerText": "Lawn Moower PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.minecartracing.wins",
+      "venomPath": "partyGames.minecartRacingWins",
+      "hypixelPath": "player.stats.Arcade.minecart_racing_round_wins_party",
+      "headerText": "Minecart Racing Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.minecartracing.besttime",
+      "venomPath": "partyGames.minecartRacingPB",
+      "hypixelPath": "player.stats.Arcade.minecart_racing_best_time_party",
+      "headerText": "Minecart Racing Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.rpg16.wins",
+      "venomPath": "partyGames.rpgWins",
+      "hypixelPath": "player.stats.Arcade.rpg_16_round_wins_party",
+      "headerText": "RPG-16 Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.rpg16.kills",
+      "venomPath": "partyGames.rpgKills",
+      "hypixelPath": "player.stats.Arcade.rpg_16_kills_party",
+      "headerText": "RPG-16 Total Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.rpg16.bestscore",
+      "venomPath": "partyGames.rpgPB",
+      "hypixelPath": "player.stats.Arcade.rpg_16_kills_best_score_party",
+      "headerText": "RPG-16 PB",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.spidermaze.besttime",
+      "venomPath": "partyGames.spiderMazePB",
+      "hypixelPath": "player.stats.Arcade.spider_maze_best_time_party",
+      "headerText": "Spider Maze Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.floorislava.wins",
+      "venomPath": "partyGames.theFloorIsLavaWins",
+      "hypixelPath": "player.stats.Arcade.the_floor_is_lava_round_wins_party",
+      "headerText": "The Floor Is Lava Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.spidermaze.besttime",
+      "venomPath": "partyGames.theFloorIsLavaPB",
+      "hypixelPath": "player.stats.Arcade.the_floor_is_lava_best_time_party",
+      "headerText": "The Floor Is Lava Time",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "partygames.avalanche.wins",
+      "venomPath": "partyGames.avalancheWins",
+      "hypixelPath": "player.stats.Arcade.avalanche_round_wins_party",
+      "headerText": "Avalanche Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.volcano.wins",
+      "venomPath": "partyGames.volcanoWins",
+      "hypixelPath": "player.stats.Arcade.volcano_round_wins_party",
+      "headerText": "Volcano Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.pigfishing.wins",
+      "venomPath": "partyGames.pigFishingWins",
+      "hypixelPath": "player.stats.Arcade.pig_fishing_round_wins_party",
+      "headerText": "Pig Fishing Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.trampolinio.wins",
+      "venomPath": "partyGames.trampolinioWins",
+      "hypixelPath": "player.stats.Arcade.trampolinio_round_wins_party",
+      "headerText": "Trampolinio Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.pigjousting.wins",
+      "venomPath": "partyGames.pigJoustingWins",
+      "hypixelPath": "player.stats.Arcade.pig_jousting_round_wins_party",
+      "headerText": "Pig Jousting Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.workshop.wins",
+      "venomPath": "partyGames.workshopWins",
+      "hypixelPath": "player.stats.Arcade.workshop_round_wins_party",
+      "headerText": "Workshop Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.shootingrange.wins",
+      "venomPath": "partyGames.shootingRangeWins",
+      "hypixelPath": "player.stats.Arcade.shooting_range_round_wins_party",
+      "headerText": "Shooting Range Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.frozenfloor.wins",
+      "venomPath": "partyGames.frozenFloorWins",
+      "hypixelPath": "player.stats.Arcade.frozen_floor_round_wins_party",
+      "headerText": "Frozen Floor Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.cannonpainting.wins",
+      "venomPath": "partyGames.cannonPaintingWins",
+      "hypixelPath": "player.stats.Arcade.cannon_painting_round_wins_party",
+      "headerText": "Cannon Painting Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.fireleapers.wins",
+      "venomPath": "partyGames.fireLeapersWins",
+      "hypixelPath": "player.stats.Arcade.fire_leapers_round_wins_party",
+      "headerText": "Fire Leapers Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "partygames.supersheep.wins",
+      "venomPath": "partyGames.superSheepWins",
+      "hypixelPath": "player.stats.Arcade.super_sheep_round_wins_party",
+      "headerText": "Super Sheep Wins",
+      "isReversed": false
+    }
+  ]
+}

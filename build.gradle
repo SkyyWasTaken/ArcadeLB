@@ -19,7 +19,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.0 ALPHA"
+version = "1.1 ALPHA"
 group = "com.skyywastaken.arcadelb" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "arcadelb"
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -58,7 +58,7 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    implementation 'org.reflections:reflections:0.10.2'
 }
 
 processResources
