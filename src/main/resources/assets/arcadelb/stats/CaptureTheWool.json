@@ -1,0 +1,22 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "capturethewool.kills",
+      "venomPath": "captureTheWool.kills",
+      "hypixelPaths": [
+        "player.achievements.arcade_ctw_slayer"
+      ],
+      "headerText": "CTW Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "capturethewool.woolcaptured",
+      "venomPath": "captureTheWool.woolCaptures",
+      "hypixelPaths": [
+        "player.achievements.arcade_ctw_oh_sheep"
+      ],
+      "headerText": "CTW Wool Captured",
+      "isReversed": false
+    }
+  ]
+}
