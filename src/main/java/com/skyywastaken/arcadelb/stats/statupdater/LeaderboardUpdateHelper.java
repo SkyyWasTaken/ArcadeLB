@@ -37,7 +37,8 @@ public class LeaderboardUpdateHelper extends Thread {
         }
         validKeyCheck.shutdown();
         if (!keyIsValid) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your ArcadeLB API key is invalid!"));
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your Hypixel API key is invalid! Use '/api new' to generate a new key and save it using "
+                    + "'/arcadelb setapikey <key>'"));
             return;
         }
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(ConfigManager.getAmountOfPlayersToUpdate(),
