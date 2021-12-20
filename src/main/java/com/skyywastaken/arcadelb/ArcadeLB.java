@@ -22,7 +22,7 @@ import java.net.URL;
 public class ArcadeLB {
     public static final String NAME = "ArcadeLB";
     public static final String MODID = "arcadelb";
-    public static final String VERSION = "1.1 ALPHA";
+    public static final String VERSION = "1.3 ALPHA";
     public static Configuration configuration;
     private static Logger logger;
     public static File configDirectory;
