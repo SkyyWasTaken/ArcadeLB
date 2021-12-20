@@ -3,19 +3,28 @@ package com.skyywastaken.arcadelb.leaderboard;
 import net.minecraft.client.Minecraft;
 
 public class LeaderboardRowInfo {
-    public final String LEFT_TEXT;
-    public final String RIGHT_TEXT;
+    public final String FAR_LEFT_TEXT;
+    public final String PLAYER_NAME;
+    public final String SCORE;
 
-    public LeaderboardRowInfo(String leftText, String rightText) {
-        this.LEFT_TEXT = leftText;
-        this.RIGHT_TEXT = rightText;
+    public final boolean IS_CURRENT_PLAYER;
+
+    public LeaderboardRowInfo(String placeNumber, String playerName, String score, boolean isCurrentPlayer) {
+        this.FAR_LEFT_TEXT = placeNumber;
+        this.PLAYER_NAME = playerName;
+        this.SCORE = score;
+        this.IS_CURRENT_PLAYER = isCurrentPlayer;
     }
 
-    public int getLeftTextSize() {
-        return Minecraft.getMinecraft().fontRendererObj.getStringWidth(this.LEFT_TEXT);
+    public int getFarLeftTextSize() {
+        return Minecraft.getMinecraft().fontRendererObj.getStringWidth(this.FAR_LEFT_TEXT);
+    }
+
+    public int getPlayerNameTextSize() {
+        return Minecraft.getMinecraft().fontRendererObj.getStringWidth(this.PLAYER_NAME);
     }
 
     public int getRightTextSize() {
-        return Minecraft.getMinecraft().fontRendererObj.getStringWidth(this.RIGHT_TEXT);
+        return Minecraft.getMinecraft().fontRendererObj.getStringWidth(this.SCORE);
     }
 }

@@ -2,6 +2,7 @@ package com.skyywastaken.arcadelb.command.subcommands.render;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
+import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.StringUtils;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
@@ -19,8 +20,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
     private final List<String> possibleColorChanges = new ArrayList<>();
 
     public ArcadeLBSetColorSubCommand() {
-        ArrayList<String> elementTypes = new ArrayList<>();
-        Arrays.stream(ElementType.values()).forEach(elementType -> elementTypes.add(elementType.name()));
+        Arrays.stream(ElementType.values()).forEach(elementType -> possibleColorChanges.add(elementType.name()));
     }
 
     @Override
@@ -43,7 +43,36 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
                     + "' is not a valid element type!"));
             return;
         }
-
+        int redValue = CommandUtils.attemptIntegerParseWithHelp(args[1], this);
+        int greenValue = CommandUtils.attemptIntegerParseWithHelp(args[2], this);
+        int blueValue = CommandUtils.attemptIntegerParseWithHelp(args[3], this);
+        if (redValue < 0 || greenValue < 0 || blueValue < 0) {
+            MessageHelper.sendThreadSafeMessage(
+                    new ChatComponentText(EnumChatFormatting.RED + "You can't set a color to a value below 0!"));
+        } else if (redValue > 255 || greenValue > 255 || blueValue > 255) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED +
+                    "You can't set a color to a value over 255!"));
+        }
+        int newColorValue = (0xFF << 24) + (redValue << 16) + (greenValue << 8) + blueValue;
+        switch (elementType) {
+            case YOUR_NAME:
+                ConfigManager.setYourNameColor(newColorValue);
+                break;
+            case OTHERS_NAMES:
+                ConfigManager.setOthersNameColor(newColorValue);
+                break;
+            case HEADER:
+                ConfigManager.setHeaderColor(newColorValue);
+                break;
+            case PLACE:
+                ConfigManager.setPlaceColor(newColorValue);
+                break;
+            case SCORE:
+                ConfigManager.setScoreColor(newColorValue);
+                break;
+            case MISC:
+                ConfigManager.setMiscColor(newColorValue);
+        }
     }
 
     @Override
@@ -61,13 +90,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
     }
 
     private enum ElementType {
-        YOUR_NAME, OTHERS_NAMES, PLACE, SCORE, HEADER;
-
-        private List<String> getValueStrings() {
-            ArrayList<String> returnList = new ArrayList<>();
-            Arrays.stream(ElementType.values()).forEach(elementType -> returnList.add(elementType.name()));
-            return returnList;
-        }
+        YOUR_NAME, OTHERS_NAMES, PLACE, SCORE, HEADER, MISC, STATUS;
 
         private ElementType getFromString(String passedString) {
             try {

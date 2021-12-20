@@ -88,6 +88,69 @@ public class ConfigManager {
         saveConfig();
     }
 
+    public static int getYourNameColor() {
+        return getYourNameColorProperty().getInt();
+    }
+
+    public static void setYourNameColor(int newColor) {
+        getYourNameColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static int getOthersNameColor() {
+        return getOthersNameColorProperty().getInt();
+    }
+
+    public static void setOthersNameColor(int newColor) {
+        getOthersNameColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static int getHeaderColor() {
+        return getHeaderColorProperty().getInt();
+    }
+
+    public static void setHeaderColor(int newColor) {
+        getHeaderColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static int getScoreColor() {
+        return getScoreColorProperty().getInt();
+    }
+
+    public static void setScoreColor(int newColor) {
+        getScoreColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static int getPlaceColor() {
+        return getPlaceColorProperty().getInt();
+    }
+
+    public static void setPlaceColor(int newColor) {
+        getPlaceColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static int getMiscColor() {
+        return getMiscColorProperty().getInt();
+    }
+
+    public static void setMiscColor(int newColor) {
+        getMiscColorProperty().set(newColor);
+        saveConfig();
+    }
+
+    public static double getLeaderboardScale() {
+        return getBoardScaleProperty().getDouble();
+    }
+
+    public static void setLeaderboardScale(float newScale) {
+        getBoardScaleProperty().set(newScale);
+        saveConfig();
+    }
+
     private static Property getXOffsetProperty() {
         return ArcadeLB.configuration.get("main", "xoffset", 0F,
                 "X position by percentage. Default: 0", 0, 1);
@@ -130,6 +193,41 @@ public class ConfigManager {
 
     private static Property getStatTrackedProperty() {
         return ArcadeLB.configuration.get("main", "selectedstat", "", "");
+    }
+
+    private static Property getYourNameColorProperty() {
+        return ArcadeLB.configuration.get("color", "yournamecolor", 0xFF55FF55,
+                "The color of your name on the leaderboard", 0, 0xFFFFFFFF);
+    }
+
+    private static Property getOthersNameColorProperty() {
+        return ArcadeLB.configuration.get("color", "othersnamecolors", 0xFFFFAA00,
+                "The color of other players' names on the leaderboard", 0, 0xFFFFFFFF);
+    }
+
+    private static Property getHeaderColorProperty() {
+        return ArcadeLB.configuration.get("color", "headercolor", 0xFF55FFFF,
+                "The color of the header text", 0, 0xFFFFFFFF);
+    }
+
+    private static Property getPlaceColorProperty() {
+        return ArcadeLB.configuration.get("color", "placecolor", 0xFFFF5555,
+                "The color of the place text. ex. '1.'", 0, 0xFFFFFFFF);
+    }
+
+    private static Property getScoreColorProperty() {
+        return ArcadeLB.configuration.get("color", "scorecolor", 0xFFFF55FF,
+                "The color of the score text", 0, 0xFFFFFFFF);
+    }
+
+    private static Property getMiscColorProperty() {
+        return ArcadeLB.configuration.get("color", "misccolor", 0xFFAAAAAA,
+                "The color of miscellaneous elements like status messages or the divider", 0, 0XFFFFFFFF);
+    }
+
+    private static Property getBoardScaleProperty() {
+        return ArcadeLB.configuration.get("main", "scale", 1f,
+                "The current size of the leaderboard (0.01-50, default 1)", 0.01f, 50f);
     }
 
     private static void saveConfig() {

@@ -6,6 +6,7 @@ import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 import java.util.LinkedList;
@@ -21,8 +22,12 @@ public class LeaderboardRenderer extends Gui {
     }
 
     public void drawScoreboard(RenderGameOverlayEvent e) {
-        int scoreboardBottomYOffset = getYOffset(e.resolution.getScaledHeight());
-        int screenWidth = e.resolution.getScaledWidth();
+        GlStateManager.pushAttrib();
+        GlStateManager.pushMatrix();
+        float newScale = (float) ConfigManager.getLeaderboardScale();
+        GlStateManager.scale(newScale, newScale, newScale);
+        int scoreboardBottomYOffset = getYOffset((int) (e.resolution.getScaledHeight() / newScale));
+        int screenWidth = (int) (e.resolution.getScaledWidth() / newScale);
         int rowLength = getRequiredRowLength(this.leaderboardFormatter.getLeaderboardRows());
         int xOffset = getXOffset(screenWidth, rowLength);
 
@@ -37,16 +42,32 @@ public class LeaderboardRenderer extends Gui {
         for (int i = this.leaderboardFormatter.getLeaderboardRows().size() - 1; i >= 0; i--) {
             renderRowRectangle(xOffset, rowTopHeight, rightBound, rowTopHeight + fontHeight);
             LeaderboardRowInfo currentRow = this.leaderboardFormatter.getLeaderboardRows().get(i);
-            if (currentRow.RIGHT_TEXT.equals("")) {
-                int centeredTextOffset = calculateCenteredTextOffset(currentRow.LEFT_TEXT, xOffset, rowLength);
-                renderText(currentRow.LEFT_TEXT, centeredTextOffset, rowTopHeight);
+            if (currentRow.SCORE.equals("")) {
+                int centeredTextOffset = calculateCenteredTextOffset(currentRow.FAR_LEFT_TEXT, xOffset, rowLength);
+                int color;
+                if (i == 0) {
+                    color = ConfigManager.getHeaderColor();
+                } else {
+                    color = ConfigManager.getMiscColor();
+                }
+                renderText(currentRow.FAR_LEFT_TEXT, centeredTextOffset, rowTopHeight, color);
             } else {
-                renderText(currentRow.LEFT_TEXT, xOffset, rowTopHeight);
+                renderText(currentRow.FAR_LEFT_TEXT, xOffset, rowTopHeight, ConfigManager.getPlaceColor());
+                int centerTextOffset = currentRow.getFarLeftTextSize() + fontRenderer.getStringWidth(" ") + xOffset;
+                int playerNameColor;
+                if (currentRow.IS_CURRENT_PLAYER) {
+                    playerNameColor = ConfigManager.getYourNameColor();
+                } else {
+                    playerNameColor = ConfigManager.getOthersNameColor();
+                }
+                renderText(currentRow.PLAYER_NAME, centerTextOffset, rowTopHeight, playerNameColor);
                 int rightTextOffset = rightBound - currentRow.getRightTextSize();
-                renderText(currentRow.RIGHT_TEXT, rightTextOffset, rowTopHeight);
+                renderText(currentRow.SCORE, rightTextOffset, rowTopHeight, ConfigManager.getScoreColor());
             }
             rowTopHeight = rowTopHeight - fontHeight;
         }
+        GlStateManager.popAttrib();
+        GlStateManager.popMatrix();
     }
 
     private int getYOffset(int screenHeight) {
@@ -81,9 +102,9 @@ public class LeaderboardRenderer extends Gui {
         drawRect(left, top, right, bottom, ConfigManager.getOpacity() << 24);
     }
 
-    private void renderText(String text, int xValue, int yValue) {
+    private void renderText(String text, int xValue, int yValue, int color) {
         FontRenderer renderer = Minecraft.getMinecraft().fontRendererObj;
-        drawString(renderer, text, xValue, yValue, 0XFFFFFFFF);
+        drawString(renderer, text, xValue, yValue, color);
     }
 
     private int calculateCenteredTextOffset(String text, int xOffset, int rowLength) {
@@ -92,19 +113,21 @@ public class LeaderboardRenderer extends Gui {
     }
 
     private int getRequiredRowLength(LinkedList<LeaderboardRowInfo> rowsToCheck) {
-        int longestRowLength = 0;
+        int longestPlaceLength = 0;
+        int longestPlayerNameLength = 0;
         int longestScoreLength = 0;
         int longestIndividualRowLength = 0;
         for (LeaderboardRowInfo currentRow : rowsToCheck) {
-            if (currentRow.RIGHT_TEXT.equals("")) {
-                longestIndividualRowLength = Math.max(currentRow.getLeftTextSize(), longestIndividualRowLength);
+            if (currentRow.SCORE.equals("")) {
+                longestIndividualRowLength = Math.max(currentRow.getFarLeftTextSize(), longestIndividualRowLength);
                 continue;
             }
-            longestRowLength = Math.max(longestRowLength, currentRow.getLeftTextSize());
+            longestPlaceLength = Math.max(longestPlaceLength, currentRow.getFarLeftTextSize());
+            longestPlayerNameLength = Math.max(longestPlayerNameLength, currentRow.getPlayerNameTextSize());
             longestScoreLength = Math.max(longestScoreLength, currentRow.getRightTextSize());
         }
-        int spacerSize = Minecraft.getMinecraft().fontRendererObj.getStringWidth("  ");
-        int longestEntryLength = longestRowLength + spacerSize + longestScoreLength;
+        int totalExtraSpaceInBoard = Minecraft.getMinecraft().fontRendererObj.getStringWidth("   ");
+        int longestEntryLength = longestPlaceLength + longestPlayerNameLength + totalExtraSpaceInBoard + longestScoreLength;
         return Math.max(longestIndividualRowLength, longestEntryLength);
     }
 }

@@ -8,7 +8,7 @@ public class CommandUtils {
         MessageHelper.sendThreadSafeMessage(passedSubCommand.getHelpMessage());
     }
 
-    public static int AttemptIntegerParseWithHelp(String intToParse, SubCommand sourceCommand) throws NumberFormatException {
+    public static int attemptIntegerParseWithHelp(String intToParse, SubCommand sourceCommand) throws NumberFormatException {
         try {
             return Integer.parseInt(intToParse);
         } catch (NumberFormatException e) {
@@ -19,11 +19,7 @@ public class CommandUtils {
 
     public static float attemptFloatParseWithHelp(String floatToParse, SubCommand sourceCommand) {
         try {
-            float parsedFloat = Float.parseFloat(floatToParse);
-            if (parsedFloat < 0 || parsedFloat > 1) {
-                throw new NumberFormatException();
-            }
-            return parsedFloat;
+            return Float.parseFloat(floatToParse);
         } catch (NumberFormatException e) {
             sendHelpMessage(sourceCommand);
             throw e;

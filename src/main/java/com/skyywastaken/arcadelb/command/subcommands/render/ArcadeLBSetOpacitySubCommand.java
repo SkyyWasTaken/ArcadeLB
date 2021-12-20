@@ -27,7 +27,7 @@ public class ArcadeLBSetOpacitySubCommand implements SubCommand {
         }
         int newOpacity;
         try {
-            newOpacity = CommandUtils.AttemptIntegerParseWithHelp(args[0], this);
+            newOpacity = CommandUtils.attemptIntegerParseWithHelp(args[0], this);
         } catch (NumberFormatException e) {
             return;
         }

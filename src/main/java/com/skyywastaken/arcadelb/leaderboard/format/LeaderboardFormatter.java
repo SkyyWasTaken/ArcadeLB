@@ -6,7 +6,6 @@ import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.EnumChatFormatting;
 
 import java.util.LinkedList;
 import java.util.Map;
@@ -46,7 +45,7 @@ public class LeaderboardFormatter {
     }
 
     private LinkedList<LeaderboardRowInfo> getPlayerRows() {
-        if (this.ARCADE_LEADERBOARD.getPlayerInTopTracked() && ConfigManager.getDisplayPlayer()) {
+        if (ConfigManager.getDisplayPlayer()) {
             return getPlayerInvolvedScoreboardRows();
         } else {
             return getNormalScoreboardRows();
@@ -68,9 +67,9 @@ public class LeaderboardFormatter {
             return getNormalScoreboardRows();
         }
 
-        LinkedList<LeaderboardRowInfo> splitScoreboardRows = new LinkedList<>(getFirstThreePlayerRows());
+        LinkedList<LeaderboardRowInfo> splitScoreboardRows = new LinkedList<>(getLeaderboardRowsFromIndices(0, 5));
         splitScoreboardRows.add(FormatHelper.DIVIDER_ROW);
-        splitScoreboardRows.addAll(getPlayerInvolvedRows(playerPlace));
+        splitScoreboardRows.addAll(getUnknownPlayerEnding());
         return splitScoreboardRows;
     }
 
@@ -81,7 +80,6 @@ public class LeaderboardFormatter {
 
     private LinkedList<LeaderboardRowInfo> getUnknownPlayerEnding() {
         LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>();
-        returnList.add(new LeaderboardRowInfo(EnumChatFormatting.GRAY + "...", ""));
         int trackingLimit = ConfigManager.getTotalTracked();
         returnList.addAll(getLeaderboardRowsFromIndices(trackingLimit - 3, trackingLimit));
         UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();

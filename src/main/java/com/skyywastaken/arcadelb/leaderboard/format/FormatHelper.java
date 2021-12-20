@@ -25,49 +25,29 @@ public class FormatHelper {
     }
 
     private static LeaderboardRowInfo getNoBoardSelectedRow() {
-        String noBoardSelectedText = EnumChatFormatting.BOLD + "" + EnumChatFormatting.RED + "No leaderboard selected!";
-        return new LeaderboardRowInfo(noBoardSelectedText, "");
+        String noBoardSelectedText = EnumChatFormatting.BOLD + "No leaderboard selected!";
+        return new LeaderboardRowInfo(noBoardSelectedText, "", "", false);
     }
 
     static LeaderboardRowInfo getHeaderRow(StatType trackedStat) {
-        String headerText = EnumChatFormatting.AQUA + "" + EnumChatFormatting.BOLD + trackedStat.getHeaderText();
-        return new LeaderboardRowInfo(headerText, "");
+        String headerText = EnumChatFormatting.BOLD + trackedStat.getHeaderText();
+        return new LeaderboardRowInfo(headerText, "", "", false);
     }
 
     private static LeaderboardRowInfo getFetchRow() {
-        String fetchText = EnumChatFormatting.GOLD + "Fetching leaderboard...";
-        return new LeaderboardRowInfo(fetchText, "");
+        String fetchText = "Fetching leaderboard...";
+        return new LeaderboardRowInfo(fetchText, "", "", false);
     }
 
     private static LeaderboardRowInfo getDividerRow() {
-        String dividerText = EnumChatFormatting.GRAY + "...";
-        return new LeaderboardRowInfo(dividerText, "");
+        return new LeaderboardRowInfo("...", "", "", false);
     }
 
     static LeaderboardRowInfo generatePlayerRow(String placeString, PlayerStat playerStat) {
         if (playerStat == null) {
             FormatHelper.triggerUpdate();
-            return new LeaderboardRowInfo(EnumChatFormatting.GREEN + "Loading your score...", "");
+            return new LeaderboardRowInfo("Loading your score...", "", "", false);
         }
-        String leftText = generateLeftText(placeString, playerStat);
-        String rightText = generateRightText(playerStat.getPlayerScore());
-        return new LeaderboardRowInfo(leftText, rightText);
-    }
-
-    private static String getFormatting(PlayerStat passedPlayerStat) {
-        if (passedPlayerStat.isCurrentPlayer) {
-            return EnumChatFormatting.GREEN + "" + EnumChatFormatting.BOLD;
-        } else {
-            return EnumChatFormatting.GOLD + "";
-        }
-    }
-
-    private static String generateLeftText(String placeNumber, PlayerStat playerStat) {
-        return EnumChatFormatting.RED + "" + placeNumber + ". " + getFormatting(playerStat)
-                + playerStat.getPlayerName();
-    }
-
-    private static String generateRightText(int playerScore) {
-        return EnumChatFormatting.LIGHT_PURPLE + "" + playerScore;
+        return new LeaderboardRowInfo(placeString + ".", (playerStat.isCurrentPlayer ? EnumChatFormatting.BOLD + "" : "") + playerStat.getPlayerName(), playerStat.getPlayerScore() + "", playerStat.isCurrentPlayer);
     }
 }

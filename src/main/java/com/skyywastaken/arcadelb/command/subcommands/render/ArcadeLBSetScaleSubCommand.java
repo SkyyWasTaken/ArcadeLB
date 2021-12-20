@@ -13,7 +13,7 @@ import net.minecraft.util.IChatComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
+public class ArcadeLBSetScaleSubCommand implements SubCommand {
     @Override
     public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
@@ -31,24 +31,24 @@ public class ArcadeLBSetXOffsetSubCommand implements SubCommand {
         } catch (NumberFormatException e) {
             return;
         }
-        if (typedValue < 0 || typedValue > 1) {
+        if (typedValue <= 0 || typedValue > 50) {
             CommandUtils.sendHelpMessage(this);
             return;
         }
-        ConfigManager.setXOffset(typedValue);
+        ConfigManager.setLeaderboardScale(typedValue);
         MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
-                + "X offset successfully set to " + typedValue));
+                + "Leaderboard scale successfully set to " + typedValue));
     }
 
     @Override
     public String getCommandName() {
-        return "setxoffset";
+        return "setscale";
     }
 
     @Override
     public IChatComponent getHelpMessage() {
         return new ChatComponentText(EnumChatFormatting.GREEN
-                + "Use this subcommand to change the x offset of the leaderboard (0.0-1.0, default 0.0)\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setxoffset 0");
+                + "Use this subcommand to change the x offset of the leaderboard (0.0001-50.0, default 1.0)\n"
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setscale 1");
     }
 }

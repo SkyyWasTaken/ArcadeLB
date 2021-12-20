@@ -31,6 +31,10 @@ public class ArcadeLBSetYOffsetSubCommand implements SubCommand {
         } catch (NumberFormatException e) {
             return;
         }
+        if (typedValue <= 0 || typedValue > 1) {
+            CommandUtils.sendHelpMessage(this);
+            return;
+        }
         ConfigManager.setYOffset(typedValue);
         MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "Y offset successfully set to " + typedValue));

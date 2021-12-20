@@ -27,7 +27,7 @@ public class ArcadeLBSetAmountTrackedSubCommand implements SubCommand {
         }
         int newUpdateAmount;
         try {
-            newUpdateAmount = CommandUtils.AttemptIntegerParseWithHelp(args[0], this);
+            newUpdateAmount = CommandUtils.attemptIntegerParseWithHelp(args[0], this);
         } catch (NumberFormatException e) {
             return;
         }
