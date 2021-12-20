@@ -76,9 +76,6 @@ public class LeaderboardFormatter {
 
     private LinkedList<LeaderboardRowInfo> getNormalScoreboardRows() {
         LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>(getLeaderboardRowsFromIndices(0, 10));
-        if (ConfigManager.getDisplayPlayer()) {
-            returnList.addAll(getUnknownPlayerEnding());
-        }
         return returnList;
     }
 
