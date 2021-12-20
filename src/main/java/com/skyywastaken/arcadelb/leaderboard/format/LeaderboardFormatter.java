@@ -75,14 +75,7 @@ public class LeaderboardFormatter {
     }
 
     private LinkedList<LeaderboardRowInfo> getNormalScoreboardRows() {
-        int placeStopPoint;
-        if (ConfigManager.getDisplayPlayer()) {
-            placeStopPoint = 5;
-        } else {
-            placeStopPoint = 10;
-        }
-        LinkedList<LeaderboardRowInfo> returnList
-                = new LinkedList<>(getLeaderboardRowsFromIndices(0, placeStopPoint));
+        LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>(getLeaderboardRowsFromIndices(0, 10));
         if (ConfigManager.getDisplayPlayer()) {
             returnList.addAll(getUnknownPlayerEnding());
         }
