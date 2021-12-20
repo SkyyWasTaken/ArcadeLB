@@ -25,13 +25,13 @@ public class ArcadeLBSetYOffsetSubCommand implements SubCommand {
             CommandUtils.sendHelpMessage(this);
             return;
         }
-        double typedValue;
+        float typedValue;
         try {
             typedValue = CommandUtils.attemptFloatParseWithHelp(args[0], this);
         } catch (NumberFormatException e) {
             return;
         }
-        ConfigManager.setYOffset((float) typedValue);
+        ConfigManager.setYOffset(typedValue);
         MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "Y offset successfully set to " + typedValue));
     }
