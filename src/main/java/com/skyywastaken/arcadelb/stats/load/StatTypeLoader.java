@@ -90,7 +90,6 @@ public class StatTypeLoader {
     }
 
     private void copyStatsToDrive() {
-        System.out.println("Trying to copy stats.");
         List<String> statsOnDriveList = getStatsOnDrive();
         List<String> statsInJar = getJarStatTypeFileNames();
         for (String currentString : statsInJar) {
