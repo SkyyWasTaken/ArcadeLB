@@ -3,9 +3,6 @@ package com.skyywastaken.arcadelb.stats.load;
 import com.google.gson.Gson;
 import com.skyywastaken.arcadelb.ArcadeLB;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
-import org.apache.commons.io.FileUtils;
-import org.reflections.Reflections;
-import org.reflections.scanners.Scanners;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,11 +10,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 public class StatTypeLoader {
     private final File statSaveDirectory;
@@ -45,7 +53,7 @@ public class StatTypeLoader {
 
     private void loadStatsFromJar() {
         for (String currentFileName : getJarStatTypeFileNames()) {
-            URL currentFileURL = getClass().getResource("/" + currentFileName);
+            URL currentFileURL = getClass().getResource(currentFileName);
             if (currentFileURL == null) {
                 continue;
             }
@@ -82,17 +90,19 @@ public class StatTypeLoader {
     }
 
     private void copyStatsToDrive() {
+        System.out.println("Trying to copy stats.");
         List<String> statsOnDriveList = getStatsOnDrive();
-        Set<String> statsInJar = getJarStatTypeFileNames();
+        List<String> statsInJar = getJarStatTypeFileNames();
         for (String currentString : statsInJar) {
             String fileName = currentString.substring(currentString.lastIndexOf("/") + 1);
             if (!statsOnDriveList.contains(fileName)) {
-                URL jarStatLocation = getClass().getResource("/" + currentString);
-                if (jarStatLocation == null) {
+                InputStream resourceStream = getClass().getResourceAsStream(currentString);
+                if (resourceStream == null) {
                     continue;
                 }
                 try {
-                    FileUtils.copyURLToFile(jarStatLocation, new File(this.statSaveDirectory, fileName));
+                    File outputFile = new File(this.statSaveDirectory, fileName);
+                    Files.copy(resourceStream, outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -100,10 +110,43 @@ public class StatTypeLoader {
         }
     }
 
-    private Set<String> getJarStatTypeFileNames() {
-        String REFLECTIONS_STAT_TYPE_LOCATION = "assets.arcadelb.stats";
-        Reflections reflections = new Reflections(REFLECTIONS_STAT_TYPE_LOCATION, Scanners.Resources);
-        return reflections.getResources(".*\\.json");
+    private List<String> getJarStatTypeFileNames() {
+        String resourceLocation = "/assets/arcadelb/stats/";
+        URI uri = null;
+        try {
+            uri = Objects.requireNonNull(getClass().getResource(resourceLocation)).toURI();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        Path myPath;
+        assert uri != null;
+        if (uri.getScheme().equals("jar")) {
+            FileSystem fileSystem = null;
+            try {
+                fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            assert fileSystem != null;
+            myPath = fileSystem.getPath(resourceLocation);
+        } else {
+            myPath = Paths.get(uri);
+        }
+        Stream<Path> walk = null;
+        try {
+            walk = Files.walk(myPath, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ArrayList<String> resourcePaths = new ArrayList<>();
+        for (Iterator<Path> it = walk.iterator(); it.hasNext(); ) {
+            String path = it.next().toString();
+            if (path.contains(".")) {
+                resourcePaths.add(path);
+            }
+        }
+        return resourcePaths;
     }
 
     private List<String> getStatsOnDrive() {
