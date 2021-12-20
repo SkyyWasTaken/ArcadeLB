@@ -159,6 +159,13 @@ public class ArcadeLeaderboard {
         while (scorePathIterator.hasNext()) {
             String currentPathPart = scorePathIterator.next();
             if (!scorePathIterator.hasNext()) {
+                JsonElement finalElement = currentJsonObject.get(currentPathPart);
+                if (finalElement == null) {
+                    this.statType = null;
+                    this.boardIsSwitching = false;
+                    FormatHelper.triggerUpdate();
+                    return 0;
+                }
                 playerScore = currentJsonObject.get(currentPathPart).getAsInt();
             } else {
                 currentJsonObject = currentJsonObject.getAsJsonObject(currentPathPart);

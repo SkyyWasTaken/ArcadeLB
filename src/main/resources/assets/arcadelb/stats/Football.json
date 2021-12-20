@@ -1,0 +1,40 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "football.wins",
+      "venomPath": "football.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_soccer"
+      ],
+      "headerText": "Football Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "football.goals",
+      "venomPath": "football.goals",
+      "hypixelPaths": [
+        "player.stats.Arcade.goals_soccer"
+      ],
+      "headerText": "Football Goals",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "football.powerkicks",
+      "venomPath": "football.powerkicks",
+      "hypixelPaths": [
+        "player.stats.Arcade.powerkicks_soccer"
+      ],
+      "headerText": "Football Power Kicks",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "football.kicks",
+      "venomPath": "football.kicks",
+      "hypixelPaths": [
+        "player.stats.Arcade.kicks_soccer"
+      ],
+      "headerText": "Football Kicks",
+      "isReversed": false
+    }
+  ]
+}
