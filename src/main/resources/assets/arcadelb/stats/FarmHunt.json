@@ -1,0 +1,140 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "farmhunt.wins",
+      "venomPath": "farmhunt.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.poopcollected",
+      "venomPath": "farmhunt.poop",
+      "hypixelPaths": [
+        "player.stats.Arcade.poop_collected",
+        "player.stats.Arcade.poop_collected_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Poop",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.animalwins",
+      "venomPath": "farmhunt.animalWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.animal_wins_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Animal Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.hunterwins",
+      "venomPath": "farmhunt.hunterWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.hunter_wins_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Hunter Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.totalkills",
+      "venomPath": "farmhunt.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.animalkills",
+      "venomPath": "farmhunt.animalKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.animal_kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Animal Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.hunterkills",
+      "venomPath": "farmhunt.hunterKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.hunter_kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Hunter Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.bowkills",
+      "venomPath": "farmhunt.bowKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.bow_kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Bow Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.animalbowkills",
+      "venomPath": "farmhunt.animalBowKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.animals_bow_kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Animal Bow Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.hunterbowkills",
+      "venomPath": "farmhunt.hunterBowKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.hunter_bow_kills_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Hunter Bow Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.tauntsused",
+      "venomPath": "farmhunt.tauntsUsed",
+      "hypixelPaths": [
+        "player.stats.Arcade.taunts_used_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Taunts",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.safetauntsused",
+      "venomPath": "farmhunt.safeTauntsUsed",
+      "hypixelPaths": [
+        "player.stats.Arcade.safe_taunts_used_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Safe Taunts",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.riskytauntsused",
+      "venomPath": "farmhunt.riskyTauntsUsed",
+      "hypixelPaths": [
+        "player.stats.Arcade.risky_taunts_used_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Risky Taunts",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.dangeroustauntsused",
+      "venomPath": "farmhunt.dangerousTauntsUsed",
+      "hypixelPaths": [
+        "player.stats.Arcade.dangerous_taunts_used_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Dangerous Taunts",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "farmhunt.fireworkTauntsUsed",
+      "venomPath": "farmhunt.fireworksUsed",
+      "hypixelPaths": [
+        "player.stats.Arcade.firework_taunts_used_farm_hunt"
+      ],
+      "headerText": "Farm Hunt Firework Taunts",
+      "isReversed": false
+    }
+  ]
+}

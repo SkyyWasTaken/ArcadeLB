@@ -14,6 +14,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArcadeLBSetBoardSubCommand implements SubCommand {
@@ -90,6 +91,7 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
                 returnList.add(newSuggestion);
             }
         }
+        Collections.sort(returnList);
         return returnList;
     }
 
