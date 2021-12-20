@@ -118,7 +118,7 @@ public class StatTypeLoader {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        Path myPath;
+        Path resourceFolder;
         assert uri != null;
         if (uri.getScheme().equals("jar")) {
             FileSystem fileSystem = null;
@@ -128,13 +128,13 @@ public class StatTypeLoader {
                 e.printStackTrace();
             }
             assert fileSystem != null;
-            myPath = fileSystem.getPath(resourceLocation);
+            resourceFolder = fileSystem.getPath(resourceLocation);
         } else {
-            myPath = Paths.get(uri);
+            resourceFolder = Paths.get(uri);
         }
         Stream<Path> walk = null;
         try {
-            walk = Files.walk(myPath, 1);
+            walk = Files.walk(resourceFolder, 1);
         } catch (IOException e) {
             e.printStackTrace();
         }

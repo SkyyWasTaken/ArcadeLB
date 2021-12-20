@@ -54,11 +54,10 @@ public class LeaderboardFormatter {
     }
 
     private LinkedList<LeaderboardRowInfo> getPlayerInvolvedScoreboardRows() {
-        UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
         int playerPlace = 100;
         int playerPlaceIterationCounter = 0;
         for (Map.Entry<UUID, PlayerStat> currentEntry : ARCADE_LEADERBOARD.getLeaderboard().entrySet()) {
-            if (currentEntry.getKey().equals(currentPlayerUUID)) {
+            if (currentEntry.getValue().isCurrentPlayer) {
                 playerPlace = playerPlaceIterationCounter;
                 break;
             }
