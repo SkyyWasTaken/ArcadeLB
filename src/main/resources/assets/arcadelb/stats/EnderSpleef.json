@@ -1,0 +1,22 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "enderspleef.wins",
+      "venomPath": "enderSpleef.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_ender"
+      ],
+      "headerText": "Ender Spleef Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "enderspleef.blocksbroken",
+      "venomPath": "enderSpleef.blocksBroken",
+      "hypixelPaths": [
+        "player.stats.Arcade.blocks_destroyed_ender"
+      ],
+      "headerText": "Ender Spleef Blocks Broken",
+      "isReversed": false
+    }
+  ]
+}

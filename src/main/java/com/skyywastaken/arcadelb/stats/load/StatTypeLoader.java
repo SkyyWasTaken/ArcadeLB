@@ -142,7 +142,7 @@ public class StatTypeLoader {
         for (Iterator<Path> it = walk.iterator(); it.hasNext(); ) {
             String path = it.next().toString();
             if (path.contains(".")) {
-                resourcePaths.add(path);
+                resourcePaths.add(resourceLocation + path.substring(path.lastIndexOf("/") + 1));
             }
         }
         return resourcePaths;
