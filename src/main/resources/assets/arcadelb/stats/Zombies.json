@@ -1,0 +1,1561 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "zombies.deadend.deaths",
+      "venomPath": "zombies.deaths_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_deadend"
+      ],
+      "headerText": "DE Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.deathshard",
+      "venomPath": "zombies.deaths_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.deathsnormal",
+      "venomPath": "zombies.deaths_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.deathsrip",
+      "venomPath": "zombies.deaths_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.doorsopened",
+      "venomPath": "zombies.doors_opened_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_deadend"
+      ],
+      "headerText": "DE Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.doorsopenedhard",
+      "venomPath": "zombies.doors_opened_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.doorsopenednormal",
+      "venomPath": "zombies.doors_opened_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.doorsopenedrip",
+      "venomPath": "zombies.doors_opened_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime10hard",
+      "venomPath": "zombies.fastest_time_10_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime10normal",
+      "venomPath": "zombies.fastest_time_10_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime10rip",
+      "venomPath": "zombies.fastest_time_10_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime20hard",
+      "venomPath": "zombies.fastest_time_20_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime20normal",
+      "venomPath": "zombies.fastest_time_20_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime20rip",
+      "venomPath": "zombies.fastest_time_20_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime30hard",
+      "venomPath": "zombies.fastest_time_30_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime30normal",
+      "venomPath": "zombies.fastest_time_30_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.fastesttime30rip",
+      "venomPath": "zombies.fastest_time_30_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.playersrevived",
+      "venomPath": "zombies.players_revived_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_deadend"
+      ],
+      "headerText": "DE Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.playersrevivedhard",
+      "venomPath": "zombies.players_revived_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.playersrevivednormal",
+      "venomPath": "zombies.players_revived_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.playersrevivedrip",
+      "venomPath": "zombies.players_revived_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.timesknockeddown",
+      "venomPath": "zombies.times_knocked_down_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_deadend"
+      ],
+      "headerText": "DE Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.timesknockeddownhard",
+      "venomPath": "zombies.times_knocked_down_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.timesknockeddownnormal",
+      "venomPath": "zombies.times_knocked_down_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.timesknockeddownrip",
+      "venomPath": "zombies.times_knocked_down_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.totalroundssurvived",
+      "venomPath": "zombies.total_rounds_survived_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_deadend"
+      ],
+      "headerText": "DE Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.totalroundssurvivedhard",
+      "venomPath": "zombies.total_rounds_survived_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.totalroundssurvivednormal",
+      "venomPath": "zombies.total_rounds_survived_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.totalroundssurvivedrip",
+      "venomPath": "zombies.total_rounds_survived_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.windowsrepaired",
+      "venomPath": "zombies.windows_repaired_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_deadend"
+      ],
+      "headerText": "DE Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.windowsrepairedhard",
+      "venomPath": "zombies.windows_repaired_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.windowsrepairednormal",
+      "venomPath": "zombies.windows_repaired_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.windowsrepairedrip",
+      "venomPath": "zombies.windows_repaired_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.wins",
+      "venomPath": "zombies.wins_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_deadend"
+      ],
+      "headerText": "DE Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.winshard",
+      "venomPath": "zombies.wins_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.winsnormal",
+      "venomPath": "zombies.wins_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.winsrip",
+      "venomPath": "zombies.wins_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.zombiekills",
+      "venomPath": "zombies.zombie_kills_zombies_deadend",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_deadend"
+      ],
+      "headerText": "DE Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.zombiekillshard",
+      "venomPath": "zombies.zombie_kills_zombies_deadend_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_deadend_hard"
+      ],
+      "headerText": "DE Hard Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.zombiekillsnormal",
+      "venomPath": "zombies.zombie_kills_zombies_deadend_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_deadend_normal"
+      ],
+      "headerText": "DE Normal Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.deadend.zombiekillsrip",
+      "venomPath": "zombies.zombie_kills_zombies_deadend_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_deadend_rip"
+      ],
+      "headerText": "DE Rip Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.deaths",
+      "venomPath": "zombies.deaths_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_badblood"
+      ],
+      "headerText": "BB Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.deathshard",
+      "venomPath": "zombies.deaths_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.deathsnormal",
+      "venomPath": "zombies.deaths_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.deathsrip",
+      "venomPath": "zombies.deaths_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.doorsopened",
+      "venomPath": "zombies.doors_opened_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_badblood"
+      ],
+      "headerText": "BB Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.doorsopenedhard",
+      "venomPath": "zombies.doors_opened_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.doorsopenednormal",
+      "venomPath": "zombies.doors_opened_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.doorsopenedrip",
+      "venomPath": "zombies.doors_opened_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime10hard",
+      "venomPath": "zombies.fastest_time_10_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime10normal",
+      "venomPath": "zombies.fastest_time_10_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime10rip",
+      "venomPath": "zombies.fastest_time_10_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime20hard",
+      "venomPath": "zombies.fastest_time_20_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime20normal",
+      "venomPath": "zombies.fastest_time_20_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime20rip",
+      "venomPath": "zombies.fastest_time_20_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime30hard",
+      "venomPath": "zombies.fastest_time_30_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime30normal",
+      "venomPath": "zombies.fastest_time_30_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.fastesttime30rip",
+      "venomPath": "zombies.fastest_time_30_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.playersrevived",
+      "venomPath": "zombies.players_revived_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_badblood"
+      ],
+      "headerText": "BB Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.playersrevivedhard",
+      "venomPath": "zombies.players_revived_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.playersrevivednormal",
+      "venomPath": "zombies.players_revived_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.playersrevivedrip",
+      "venomPath": "zombies.players_revived_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.timesknockeddown",
+      "venomPath": "zombies.times_knocked_down_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_badblood"
+      ],
+      "headerText": "BB Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.timesknockeddownhard",
+      "venomPath": "zombies.times_knocked_down_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.timesknockeddownnormal",
+      "venomPath": "zombies.times_knocked_down_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.timesknockeddownrip",
+      "venomPath": "zombies.times_knocked_down_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.totalroundssurvived",
+      "venomPath": "zombies.total_rounds_survived_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_badblood"
+      ],
+      "headerText": "BB Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.totalroundssurvivedhard",
+      "venomPath": "zombies.total_rounds_survived_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.totalroundssurvivednormal",
+      "venomPath": "zombies.total_rounds_survived_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.totalroundssurvivedrip",
+      "venomPath": "zombies.total_rounds_survived_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.windowsrepaired",
+      "venomPath": "zombies.windows_repaired_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_badblood"
+      ],
+      "headerText": "BB Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.windowsrepairedhard",
+      "venomPath": "zombies.windows_repaired_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.windowsrepairednormal",
+      "venomPath": "zombies.windows_repaired_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.windowsrepairedrip",
+      "venomPath": "zombies.windows_repaired_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.wins",
+      "venomPath": "zombies.wins_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_badblood"
+      ],
+      "headerText": "BB Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.winshard",
+      "venomPath": "zombies.wins_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.winsnormal",
+      "venomPath": "zombies.wins_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.winsrip",
+      "venomPath": "zombies.wins_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.zombiekills",
+      "venomPath": "zombies.zombie_kills_zombies_badblood",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_badblood"
+      ],
+      "headerText": "BB Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.zombiekillshard",
+      "venomPath": "zombies.zombie_kills_zombies_badblood_hard",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_badblood_hard"
+      ],
+      "headerText": "BB Hard Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.zombiekillsnormal",
+      "venomPath": "zombies.zombie_kills_zombies_badblood_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_badblood_normal"
+      ],
+      "headerText": "BB Normal Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.badblood.zombiekillsrip",
+      "venomPath": "zombies.zombie_kills_zombies_badblood_rip",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_badblood_rip"
+      ],
+      "headerText": "BB Rip Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.deaths",
+      "venomPath": "zombies.deaths_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_alienarcadium"
+      ],
+      "headerText": "AA Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.deathsnormal",
+      "venomPath": "zombies.deaths_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.doorsopened",
+      "venomPath": "zombies.doors_opened_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_alienarcadium"
+      ],
+      "headerText": "AA Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.doorsopenednormal",
+      "venomPath": "zombies.doors_opened_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.fastesttime10normal",
+      "venomPath": "zombies.fastest_time_10_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.fastesttime20normal",
+      "venomPath": "zombies.fastest_time_20_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.fastesttime30normal",
+      "venomPath": "zombies.fastest_time_30_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.playersrevived",
+      "venomPath": "zombies.players_revived_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_alienarcadium"
+      ],
+      "headerText": "AA Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.playersrevivednormal",
+      "venomPath": "zombies.players_revived_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.timesknockeddown",
+      "venomPath": "zombies.times_knocked_down_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_alienarcadium"
+      ],
+      "headerText": "AA Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.timesknockeddownnormal",
+      "venomPath": "zombies.times_knocked_down_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.totalroundssurvived",
+      "venomPath": "zombies.total_rounds_survived_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_alienarcadium"
+      ],
+      "headerText": "AA Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.totalroundssurvivednormal",
+      "venomPath": "zombies.total_rounds_survived_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Total Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.windowsrepaired",
+      "venomPath": "zombies.windows_repaired_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_alienarcadium"
+      ],
+      "headerText": "AA Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.windowsrepairednormal",
+      "venomPath": "zombies.windows_repaired_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.wins",
+      "venomPath": "zombies.wins_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_alienarcadium"
+      ],
+      "headerText": "AA Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.winsnormal",
+      "venomPath": "zombies.wins_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.zombiekills",
+      "venomPath": "zombies.zombie_kills_zombies_alienarcadium",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_alienarcadium"
+      ],
+      "headerText": "AA Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.alienarcadium.zombiekillsnormal",
+      "venomPath": "zombies.zombie_kills_zombies_alienarcadium_normal",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies_alienarcadium_normal"
+      ],
+      "headerText": "AA Normal Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.bulletshit",
+      "venomPath": "zombies.bullets_hit_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.bullets_hit_zombies"
+      ],
+      "headerText": "Zombies: Bullets Hit",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.bulletsshot",
+      "venomPath": "zombies.bullets_shot_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.bullets_shot_zombies"
+      ],
+      "headerText": "Zombies: Bullets Shot",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.deaths",
+      "venomPath": "zombies.deaths_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_zombies"
+      ],
+      "headerText": "Zombies: Deaths",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.doorsopened",
+      "venomPath": "zombies.doors_opened_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.doors_opened_zombies"
+      ],
+      "headerText": "Zombies: Doors Opened",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.fastesttime10",
+      "venomPath": "zombies.fastest_time_10_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_10_zombies"
+      ],
+      "headerText": "Zombies: Fastest Time 10",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.overall.fastesttime20",
+      "venomPath": "zombies.fastest_time_20_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_20_zombies"
+      ],
+      "headerText": "Zombies: Fastest Time 20",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.overall.fastesttime30",
+      "venomPath": "zombies.fastest_time_30_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.fastest_time_30_zombies"
+      ],
+      "headerText": "Zombies: Fastest Time 30",
+      "isReversed": true
+    },
+    {
+      "userFriendlyPath": "zombies.overall.headshots",
+      "venomPath": "zombies.headshots_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.headshots_zombies"
+      ],
+      "headerText": "Zombies: Headshots",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.playersrevived",
+      "venomPath": "zombies.players_revived_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.players_revived_zombies"
+      ],
+      "headerText": "Zombies: Players Revived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.timesknockeddown",
+      "venomPath": "zombies.times_knocked_down_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.times_knocked_down_zombies"
+      ],
+      "headerText": "Zombies: Times Knocked Down",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.totalroundssurvived",
+      "venomPath": "zombies.total_rounds_survived_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_rounds_survived_zombies"
+      ],
+      "headerText": "Zombies: Rounds Survived",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.windowsrepaired",
+      "venomPath": "zombies.windows_repaired_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.windows_repaired_zombies"
+      ],
+      "headerText": "Zombies: Windows Repaired",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.overall.wins",
+      "venomPath": "zombies.wins_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_zombies"
+      ],
+      "headerText": "Zombies: Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.zombie",
+      "venomPath": "zombies.zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.zombie_kills_zombies"
+      ],
+      "headerText": "Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.basiczombie",
+      "venomPath": "zombies.basic_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.basic_zombie_kills_zombies"
+      ],
+      "headerText": "Basic Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.blazezombie",
+      "venomPath": "zombies.blaze_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.blaze_zombie_kills_zombies"
+      ],
+      "headerText": "Blaze Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.blobzombie",
+      "venomPath": "zombies.blob_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.blob_zombie_kills_zombies"
+      ],
+      "headerText": "Blob Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.broodmotherzombie",
+      "venomPath": "zombies.broodmother_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.broodmother_zombie_kills_zombies"
+      ],
+      "headerText": "Broodmother Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.cavespiderzombie",
+      "venomPath": "zombies.cave_spider_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.cave_spider_zombie_kills_zombies"
+      ],
+      "headerText": "Cave Spider Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.chargedcreeperzombie",
+      "venomPath": "zombies.charged_creeper_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.charged_creeper_zombie_kills_zombies"
+      ],
+      "headerText": "Charged Creeper Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.chglugluzombie",
+      "venomPath": "zombies.chgluglu_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.chgluglu_zombie_kills_zombies"
+      ],
+      "headerText": "Chgluglu Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.clownzombie",
+      "venomPath": "zombies.clown_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.clown_zombie_kills_zombies"
+      ],
+      "headerText": "Clown Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.creeperzombie",
+      "venomPath": "zombies.creeper_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.creeper_zombie_kills_zombies"
+      ],
+      "headerText": "Creeper Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.dabombzombie",
+      "venomPath": "zombies.da_bomb_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.da_bomb_zombie_kills_zombies"
+      ],
+      "headerText": "Da Bomb Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.empoweredzombie",
+      "venomPath": "zombies.empowered_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.empowered_zombie_kills_zombies"
+      ],
+      "headerText": "Empowered Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.enderzombie",
+      "venomPath": "zombies.ender_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.ender_zombie_kills_zombies"
+      ],
+      "headerText": "Ender Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.endermitezombie",
+      "venomPath": "zombies.endermite_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.endermite_zombie_kills_zombies"
+      ],
+      "headerText": "Endermite Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.familydaughterzombie",
+      "venomPath": "zombies.family_daughter_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.family_daughter_zombie_kills_zombies"
+      ],
+      "headerText": "Family Daughter Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.familyfatherzombie",
+      "venomPath": "zombies.family_father_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.family_father_zombie_kills_zombies"
+      ],
+      "headerText": "Family Father Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.familymotherzombie",
+      "venomPath": "zombies.family_mother_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.family_mother_zombie_kills_zombies"
+      ],
+      "headerText": "Family Mother Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.familytwinbluezombie",
+      "venomPath": "zombies.family_twin_blue_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.family_twin_blue_zombie_kills_zombies"
+      ],
+      "headerText": "Family Twin Blue Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.familytwinredzombie",
+      "venomPath": "zombies.family_twin_red_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.family_twin_red_zombie_kills_zombies"
+      ],
+      "headerText": "Family Twin Red Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.firelordzombie",
+      "venomPath": "zombies.fire_lord_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.fire_lord_zombie_kills_zombies"
+      ],
+      "headerText": "Fire Lord Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.firezombie",
+      "venomPath": "zombies.fire_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.fire_zombie_kills_zombies"
+      ],
+      "headerText": "Fire Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.ghastzombie",
+      "venomPath": "zombies.ghast_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.ghast_zombie_kills_zombies"
+      ],
+      "headerText": "Ghast Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.giantrainbowzombie",
+      "venomPath": "zombies.giant_rainbow_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.giant_rainbow_zombie_kills_zombies"
+      ],
+      "headerText": "Giant Rainbow Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.giantzombie",
+      "venomPath": "zombies.giant_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.giant_zombie_kills_zombies"
+      ],
+      "headerText": "Giant Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.guardianzombie",
+      "venomPath": "zombies.guardian_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.guardian_zombie_kills_zombies"
+      ],
+      "headerText": "Guardian Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.herobrineminionzombie",
+      "venomPath": "zombies.herobrine_minion_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.herobrine_minion_zombie_kills_zombies"
+      ],
+      "headerText": "Herobrine Minion Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.herobrinezombie",
+      "venomPath": "zombies.herobrine_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.herobrine_zombie_kills_zombies"
+      ],
+      "headerText": "Herobrine Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.infernozombie",
+      "venomPath": "zombies.inferno_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.inferno_zombie_kills_zombies"
+      ],
+      "headerText": "Inferno Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.invisiblezombie",
+      "venomPath": "zombies.invisible_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.invisible_zombie_kills_zombies"
+      ],
+      "headerText": "Invisible Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.irongolemzombie",
+      "venomPath": "zombies.iron_golem_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.iron_golem_zombie_kills_zombies"
+      ],
+      "headerText": "Iron Golem Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.kingslimezombie",
+      "venomPath": "zombies.king_slime_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.king_slime_zombie_kills_zombies"
+      ],
+      "headerText": "King Slime Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.magmacubezombie",
+      "venomPath": "zombies.magma_cube_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.magma_cube_zombie_kills_zombies"
+      ],
+      "headerText": "Magma Cube Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.magmazombie",
+      "venomPath": "zombies.magma_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.magma_zombie_kills_zombies"
+      ],
+      "headerText": "Magma Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.megablobzombie",
+      "venomPath": "zombies.mega_blob_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.mega_blob_zombie_kills_zombies"
+      ],
+      "headerText": "Mega Blob Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.megamagmazombie",
+      "venomPath": "zombies.mega_magma_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.mega_magma_zombie_kills_zombies"
+      ],
+      "headerText": "Mega Magma Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.moltenzombie",
+      "venomPath": "zombies.molten_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.molten_zombie_kills_zombies"
+      ],
+      "headerText": "Molten Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.pigzombiezombie",
+      "venomPath": "zombies.pig_zombie_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.pig_zombie_zombie_kills_zombies"
+      ],
+      "headerText": "Pig Zombie Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.rainbowzombie",
+      "venomPath": "zombies.rainbow_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.rainbow_zombie_kills_zombies"
+      ],
+      "headerText": "Rainbow Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.sentinelzombie",
+      "venomPath": "zombies.sentinel_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.sentinel_zombie_kills_zombies"
+      ],
+      "headerText": "Sentinel Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.silverfishzombie",
+      "venomPath": "zombies.silverfish_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.silverfish_zombie_kills_zombies"
+      ],
+      "headerText": "Silverfish Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.skelefishzombie",
+      "venomPath": "zombies.skelefish_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.skelefish_zombie_kills_zombies"
+      ],
+      "headerText": "Skelefish Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.skeletonzombie",
+      "venomPath": "zombies.skeleton_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.skeleton_zombie_kills_zombies"
+      ],
+      "headerText": "Skeleton Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.slimezombie",
+      "venomPath": "zombies.slime_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.slime_zombie_kills_zombies"
+      ],
+      "headerText": "Slime Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.slimezombiezombie",
+      "venomPath": "zombies.slime_zombie_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.slime_zombie_zombie_kills_zombies"
+      ],
+      "headerText": "Slime Zombie Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.spaceblasterzombie",
+      "venomPath": "zombies.space_blaster_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.space_blaster_zombie_kills_zombies"
+      ],
+      "headerText": "Space Blaster Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.spacegruntzombie",
+      "venomPath": "zombies.space_grunt_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.space_grunt_zombie_kills_zombies"
+      ],
+      "headerText": "Space Grunt Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.theoldonezombie",
+      "venomPath": "zombies.the_old_one_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.the_old_one_zombie_kills_zombies"
+      ],
+      "headerText": "The Old One Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.tntbabyzombie",
+      "venomPath": "zombies.tnt_baby_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.tnt_baby_zombie_kills_zombies"
+      ],
+      "headerText": "Tnt Baby Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.tntzombie",
+      "venomPath": "zombies.tnt_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.tnt_zombie_kills_zombies"
+      ],
+      "headerText": "Tnt Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.werewolfzombie",
+      "venomPath": "zombies.werewolf_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.werewolf_zombie_kills_zombies"
+      ],
+      "headerText": "Werewolf Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.witchzombie",
+      "venomPath": "zombies.witch_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.witch_zombie_kills_zombies"
+      ],
+      "headerText": "Witch Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.witherskeletonzombie",
+      "venomPath": "zombies.wither_skeleton_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wither_skeleton_zombie_kills_zombies"
+      ],
+      "headerText": "Wither Skeleton Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.witherzombie",
+      "venomPath": "zombies.wither_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wither_zombie_kills_zombies"
+      ],
+      "headerText": "Wither Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.witherzombiezombie",
+      "venomPath": "zombies.wither_zombie_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wither_zombie_zombie_kills_zombies"
+      ],
+      "headerText": "Wither Zombie Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.wolfpetzombie",
+      "venomPath": "zombies.wolf_pet_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wolf_pet_zombie_kills_zombies"
+      ],
+      "headerText": "Wolf Pet Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.wolfzombie",
+      "venomPath": "zombies.wolf_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.wolf_zombie_kills_zombies"
+      ],
+      "headerText": "Wolf Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.worldenderzombie",
+      "venomPath": "zombies.world_ender_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.world_ender_zombie_kills_zombies"
+      ],
+      "headerText": "World Ender Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.wormsmallzombie",
+      "venomPath": "zombies.worm_small_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.worm_small_zombie_kills_zombies"
+      ],
+      "headerText": "Worm Small Zombie Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "zombies.kills.wormzombie",
+      "venomPath": "zombies.worm_zombie_kills_zombies",
+      "hypixelPaths": [
+        "player.stats.Arcade.worm_zombie_kills_zombies"
+      ],
+      "headerText": "Worm Zombie Kills",
+      "isReversed": false
+    }
+  ]
+}
