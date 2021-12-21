@@ -1,0 +1,13 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "creeperattack.maxwave",
+      "venomPath": "creeperAttack.maxWave",
+      "hypixelPaths": [
+        "player.stats.Arcade.max_wave"
+      ],
+      "headerText": "Creeper Attack: Max Wave",
+      "isReversed": false
+    }
+  ]
+}
