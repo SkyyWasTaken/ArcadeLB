@@ -1,0 +1,50 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "hideandseek.wins",
+      "venomPath": "hideAndSeek.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.seeker_wins_hide_and_seek",
+        "player.stats.Arcade.hider_wins_hide_and_seek"
+      ],
+      "headerText": "H\u0026S Total Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "hideandseek.seekerwins",
+      "venomPath": "hideAndSeek.seekerWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.seeker_wins_hide_and_seek"
+      ],
+      "headerText": "H\u0026S: Seeker Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "hideandseek.hiderwins",
+      "venomPath": "hideAndSeek.hiderWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.hider_wins_hide_and_seek"
+      ],
+      "headerText": "H\u0026S: Hider Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "hideandseek.kills",
+      "venomPath": "hideAndSeek.kills",
+      "hypixelPaths": [
+        "player.achievements.arcade_hide_and_seek_hider_kills"
+      ],
+      "headerText": "H\u0026S: Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "hideandseek.masterhidercount",
+      "venomPath": "hideAndSeek.objectives",
+      "hypixelPaths": [
+        "player.achievements.arcade_hide_and_seek_master_hider"
+      ],
+      "headerText": "H\u0026S: Master Hider",
+      "isReversed": false
+    }
+  ]
+}
