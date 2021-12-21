@@ -1,0 +1,31 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "throwout.wins",
+      "venomPath": "throwOut.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_throw_out"
+      ],
+      "headerText": "Throw Out: Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "throwout.kills",
+      "venomPath": "throwOut.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_throw_out"
+      ],
+      "headerText": "Throw Out: Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "throwout.deaths",
+      "venomPath": "throwOut.deaths",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_throw_out"
+      ],
+      "headerText": "Throw Out: Deaths",
+      "isReversed": false
+    }
+  ]
+}
