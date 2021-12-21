@@ -1,0 +1,13 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "pixelpainters.wins",
+      "venomPath": "pixelPainters.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_draw_their_thing"
+      ],
+      "headerText": "Pixel Painters: Wins",
+      "isReversed": false
+    }
+  ]
+}
