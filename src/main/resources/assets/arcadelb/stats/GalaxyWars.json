@@ -1,0 +1,31 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "galaxywars.wins",
+      "venomPath": "galaxyWars.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.sw_game_wins"
+      ],
+      "headerText": "Galaxy Wars: Wins",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "galaxywars.kills",
+      "venomPath": "galaxyWars.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.sw_kills"
+      ],
+      "headerText": "Galaxy Wars: Kills",
+      "isReversed": false
+    },
+    {
+      "userFriendlyPath": "galaxywars.deaths",
+      "venomPath": "galaxyWars.deaths",
+      "hypixelPaths": [
+        "player.stats.Arcade.sw_deaths"
+      ],
+      "headerText": "Galaxy Wars: Deaths",
+      "isReversed": false
+    }
+  ]
+}
