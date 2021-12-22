@@ -73,6 +73,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
             case MISC:
                 ConfigManager.setMiscColor(newColorValue);
         }
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "" + elementType + " has been set to " + EnumChatFormatting.DARK_RED + redValue + " " + EnumChatFormatting.DARK_GREEN + greenValue + " " + EnumChatFormatting.DARK_BLUE + blueValue));
     }
 
     @Override
