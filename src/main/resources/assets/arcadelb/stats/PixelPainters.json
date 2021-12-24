@@ -7,7 +7,8 @@
         "player.stats.Arcade.wins_draw_their_thing"
       ],
       "headerText": "Pixel Painters: Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

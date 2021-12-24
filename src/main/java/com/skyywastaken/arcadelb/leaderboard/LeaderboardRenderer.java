@@ -1,8 +1,8 @@
 package com.skyywastaken.arcadelb.leaderboard;
 
-import com.skyywastaken.arcadelb.leaderboard.format.FormatType;
 import com.skyywastaken.arcadelb.leaderboard.format.LeaderboardFormatter;
 import com.skyywastaken.arcadelb.leaderboard.format.LeaderboardRowInfo;
+import com.skyywastaken.arcadelb.leaderboard.format.RowFormatType;
 import com.skyywastaken.arcadelb.leaderboard.format.RowType;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.util.ConfigManager;
@@ -54,7 +54,7 @@ public class LeaderboardRenderer extends Gui {
     private void renderRow(LeaderboardRowInfo rowInfo, int top, int bottom, int left, int right) {
         renderRowRectangle(left, top, right, bottom);
         RowType rowType = rowInfo.ROW_TYPE;
-        if (rowType.FORMAT_TYPE == FormatType.CENTERED) {
+        if (rowType.FORMAT_TYPE == RowFormatType.CENTERED) {
             renderCenteredText(rowInfo.FAR_LEFT_TEXT, left, right - left, top, rowType.getColor());
         } else {
             renderScore(rowInfo, left, right, top);

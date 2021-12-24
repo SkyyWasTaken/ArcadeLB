@@ -6,8 +6,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.wins_ender"
       ],
-      "headerText": "Ender Spleef Wins",
-      "isReversed": false
+      "headerText": "Ender Spleef: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "enderspleef.blocksbroken",
@@ -15,8 +16,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.blocks_destroyed_ender"
       ],
-      "headerText": "Ender Spleef Blocks Broken",
-      "isReversed": false
+      "headerText": "Ender Spleef: Blocks Broken",
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

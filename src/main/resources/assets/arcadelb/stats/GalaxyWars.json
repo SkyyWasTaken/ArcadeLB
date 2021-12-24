@@ -7,7 +7,8 @@
         "player.stats.Arcade.sw_game_wins"
       ],
       "headerText": "Galaxy Wars: Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "galaxywars.kills",
@@ -16,7 +17,8 @@
         "player.stats.Arcade.sw_kills"
       ],
       "headerText": "Galaxy Wars: Kills",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "galaxywars.deaths",
@@ -25,7 +27,8 @@
         "player.stats.Arcade.sw_deaths"
       ],
       "headerText": "Galaxy Wars: Deaths",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

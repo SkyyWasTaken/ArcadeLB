@@ -6,8 +6,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.wins_dayone"
       ],
-      "headerText": "Blocking Dead Wins",
-      "isReversed": false
+      "headerText": "Blocking Dead: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "blockingdead.kills",
@@ -15,8 +16,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.kills_dayone"
       ],
-      "headerText": "Blocking Dead Kills",
-      "isReversed": false
+      "headerText": "Blocking Dead: Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "blockingdead.headshots",
@@ -24,8 +26,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.headshots_dayone"
       ],
-      "headerText": "Blocking Dead Headshots",
-      "isReversed": false
+      "headerText": "Blocking Dead: Headshots",
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

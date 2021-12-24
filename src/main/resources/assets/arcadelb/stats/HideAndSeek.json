@@ -8,7 +8,8 @@
         "player.stats.Arcade.hider_wins_hide_and_seek"
       ],
       "headerText": "H\u0026S Total Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "hideandseek.seekerwins",
@@ -17,7 +18,8 @@
         "player.stats.Arcade.seeker_wins_hide_and_seek"
       ],
       "headerText": "H\u0026S: Seeker Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "hideandseek.hiderwins",
@@ -26,7 +28,8 @@
         "player.stats.Arcade.hider_wins_hide_and_seek"
       ],
       "headerText": "H\u0026S: Hider Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "hideandseek.kills",
@@ -35,7 +38,8 @@
         "player.achievements.arcade_hide_and_seek_hider_kills"
       ],
       "headerText": "H\u0026S: Kills",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "hideandseek.masterhidercount",
@@ -44,7 +48,8 @@
         "player.achievements.arcade_hide_and_seek_master_hider"
       ],
       "headerText": "H\u0026S: Master Hider",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

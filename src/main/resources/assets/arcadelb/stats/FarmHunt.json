@@ -6,8 +6,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.wins_farm_hunt"
       ],
-      "headerText": "Farm Hunt Wins",
-      "isReversed": false
+      "headerText": "Farm Hunt: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.poopcollected",
@@ -16,8 +17,9 @@
         "player.stats.Arcade.poop_collected",
         "player.stats.Arcade.poop_collected_farm_hunt"
       ],
-      "headerText": "Farm Hunt Poop",
-      "isReversed": false
+      "headerText": "Farm Hunt: Poop",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.animalwins",
@@ -25,8 +27,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.animal_wins_farm_hunt"
       ],
-      "headerText": "Farm Hunt Animal Wins",
-      "isReversed": false
+      "headerText": "Farm Hunt: Animal Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.hunterwins",
@@ -34,8 +37,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.hunter_wins_farm_hunt"
       ],
-      "headerText": "Farm Hunt Hunter Wins",
-      "isReversed": false
+      "headerText": "Farm Hunt: Hunter Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.totalkills",
@@ -43,8 +47,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.animalkills",
@@ -52,8 +57,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.animal_kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Animal Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Animal Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.hunterkills",
@@ -61,8 +67,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.hunter_kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Hunter Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Hunter Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.bowkills",
@@ -70,8 +77,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.bow_kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Bow Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Bow Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.animalbowkills",
@@ -79,8 +87,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.animals_bow_kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Animal Bow Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Animal Bow Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.hunterbowkills",
@@ -88,8 +97,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.hunter_bow_kills_farm_hunt"
       ],
-      "headerText": "Farm Hunt Hunter Bow Kills",
-      "isReversed": false
+      "headerText": "Farm Hunt: Hunter Bow Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.tauntsused",
@@ -97,8 +107,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.taunts_used_farm_hunt"
       ],
-      "headerText": "Farm Hunt Taunts",
-      "isReversed": false
+      "headerText": "Farm Hunt: Taunts",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.safetauntsused",
@@ -106,8 +117,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.safe_taunts_used_farm_hunt"
       ],
-      "headerText": "Farm Hunt Safe Taunts",
-      "isReversed": false
+      "headerText": "Farm Hunt: Safe Taunts",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.riskytauntsused",
@@ -115,8 +127,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.risky_taunts_used_farm_hunt"
       ],
-      "headerText": "Farm Hunt Risky Taunts",
-      "isReversed": false
+      "headerText": "Farm Hunt: Risky Taunts",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.dangeroustauntsused",
@@ -124,8 +137,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.dangerous_taunts_used_farm_hunt"
       ],
-      "headerText": "Farm Hunt Dangerous Taunts",
-      "isReversed": false
+      "headerText": "Farm Hunt: Dangerous Taunts",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "farmhunt.fireworkTauntsUsed",
@@ -133,8 +147,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.firework_taunts_used_farm_hunt"
       ],
-      "headerText": "Farm Hunt Firework Taunts",
-      "isReversed": false
+      "headerText": "Farm Hunt: Firework Taunts",
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

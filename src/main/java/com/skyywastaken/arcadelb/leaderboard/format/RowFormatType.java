@@ -1,5 +1,5 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
-public enum FormatType {
+public enum RowFormatType {
     CENTERED, SCORE
 }

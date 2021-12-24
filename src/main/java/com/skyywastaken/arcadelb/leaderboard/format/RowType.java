@@ -3,39 +3,39 @@ package com.skyywastaken.arcadelb.leaderboard.format;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 
 public enum RowType {
-    HEADER(FormatType.CENTERED) {
+    HEADER(RowFormatType.CENTERED) {
         @Override
         public int getColor() {
             return ConfigManager.getHeaderColor();
         }
     },
-    CURRENT_PLAYER(FormatType.SCORE) {
+    CURRENT_PLAYER(RowFormatType.SCORE) {
         @Override
         public int getColor() {
             return ConfigManager.getYourNameColor();
         }
     },
-    OTHER_PLAYER(FormatType.SCORE) {
+    OTHER_PLAYER(RowFormatType.SCORE) {
         @Override
         public int getColor() {
             return ConfigManager.getOthersNameColor();
         }
     },
-    DIVIDER(FormatType.CENTERED) {
+    DIVIDER(RowFormatType.CENTERED) {
         @Override
         public int getColor() {
             return ConfigManager.getMiscColor();
         }
     },
-    INFO(FormatType.CENTERED) {
+    INFO(RowFormatType.CENTERED) {
         @Override
         public int getColor() {
             return ConfigManager.getMiscColor();
         }
     };
-    public final FormatType FORMAT_TYPE;
+    public final RowFormatType FORMAT_TYPE;
 
-    RowType(FormatType passedFormatType) {
+    RowType(RowFormatType passedFormatType) {
         this.FORMAT_TYPE = passedFormatType;
     }
 

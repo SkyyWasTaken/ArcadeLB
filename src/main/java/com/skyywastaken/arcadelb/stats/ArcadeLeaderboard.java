@@ -126,7 +126,15 @@ public class ArcadeLeaderboard {
                 continue;
             }
             boolean thisIsCurrentPlayer = currentObjectUUID.equals(currentPlayerUUID);
-            PlayerStat newStat = generatePlayerStatFromJson(currentObject, thisIsCurrentPlayer);
+            PlayerStat newStat;
+            try {
+                newStat = generatePlayerStatFromJson(currentObject, thisIsCurrentPlayer);
+            } catch (NullPointerException e) {
+                this.statType = null;
+                this.boardIsSwitching = false;
+                FormatHelper.triggerUpdate();
+                break;
+            }
             returnMap.put(currentObjectUUID, newStat);
             if (i >= leaderboardLimit) {
                 break;
@@ -159,13 +167,6 @@ public class ArcadeLeaderboard {
         while (scorePathIterator.hasNext()) {
             String currentPathPart = scorePathIterator.next();
             if (!scorePathIterator.hasNext()) {
-                JsonElement finalElement = currentJsonObject.get(currentPathPart);
-                if (finalElement == null) {
-                    this.statType = null;
-                    this.boardIsSwitching = false;
-                    FormatHelper.triggerUpdate();
-                    return 0;
-                }
                 playerScore = currentJsonObject.get(currentPathPart).getAsInt();
             } else {
                 currentJsonObject = currentJsonObject.getAsJsonObject(currentPathPart);

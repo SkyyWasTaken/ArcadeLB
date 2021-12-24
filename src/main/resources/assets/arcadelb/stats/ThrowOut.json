@@ -7,7 +7,8 @@
         "player.stats.Arcade.wins_throw_out"
       ],
       "headerText": "Throw Out: Wins",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "throwout.kills",
@@ -16,7 +17,8 @@
         "player.stats.Arcade.kills_throw_out"
       ],
       "headerText": "Throw Out: Kills",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "throwout.deaths",
@@ -25,7 +27,8 @@
         "player.stats.Arcade.deaths_throw_out"
       ],
       "headerText": "Throw Out: Deaths",
-      "isReversed": false
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

@@ -6,8 +6,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.wins_dragonwars2"
       ],
-      "headerText": "Dragon Wars Wins",
-      "isReversed": false
+      "headerText": "Dragon Wars: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "dragonwars.kills",
@@ -15,8 +16,9 @@
       "hypixelPaths": [
         "player.stats.Arcade.kills_dragonwars2"
       ],
-      "headerText": "Dragon Wars Kills",
-      "isReversed": false
+      "headerText": "Dragon Wars: Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

@@ -6,8 +6,9 @@
       "hypixelPaths": [
         "player.achievements.arcade_ctw_slayer"
       ],
-      "headerText": "CTW Kills",
-      "isReversed": false
+      "headerText": "CTW: Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
     },
     {
       "userFriendlyPath": "capturethewool.woolcaptured",
@@ -15,8 +16,9 @@
       "hypixelPaths": [
         "player.achievements.arcade_ctw_oh_sheep"
       ],
-      "headerText": "CTW Wool Captured",
-      "isReversed": false
+      "headerText": "CTW: Wool Captured",
+      "isReversed": false,
+      "formatType": "NORMAL"
     }
   ]
 }

@@ -77,12 +77,11 @@ public class LeaderboardFormatter {
     }
 
     private LinkedList<LeaderboardRowInfo> getUnknownPlayerEnding() {
-        LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>();
         int trackingLimit = ConfigManager.getTotalTracked();
-        returnList.addAll(getLeaderboardRowsFromIndices(trackingLimit - 3, trackingLimit));
+        LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>(getLeaderboardRowsFromIndices(trackingLimit - 3, trackingLimit));
         UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
         returnList.add(FormatHelper.generatePlayerRow("??",
-                this.ARCADE_LEADERBOARD.getLeaderboard().get(currentPlayerUUID)));
+                this.ARCADE_LEADERBOARD.getLeaderboard().get(currentPlayerUUID), this.ARCADE_LEADERBOARD.getStatType()));
         return returnList;
     }
 
@@ -94,13 +93,13 @@ public class LeaderboardFormatter {
                 if (i >= end) {
                     break;
                 }
-                returnList.add(FormatHelper.generatePlayerRow((++i) + "", currentEntry.getValue()));
+                returnList.add(FormatHelper.generatePlayerRow((++i) + "", currentEntry.getValue(), this.ARCADE_LEADERBOARD.getStatType()));
             }
         } else {
             LinkedList<PlayerStat> stats =
                     new LinkedList<>(this.ARCADE_LEADERBOARD.getLeaderboard().values());
             for (int i = start; i < end; i++) {
-                returnList.add(FormatHelper.generatePlayerRow((i + 1) + "", stats.get(i)));
+                returnList.add(FormatHelper.generatePlayerRow((i + 1) + "", stats.get(i), this.ARCADE_LEADERBOARD.getStatType()));
             }
         }
         return returnList;
