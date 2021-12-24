@@ -80,6 +80,7 @@ public class ArcadeLeaderboard {
         }
         this.leaderboard.putAll(newLeaderboard);
         runFinishingTasks();
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Board loaded!"));
     }
 
     private void runFinishingTasks() {
