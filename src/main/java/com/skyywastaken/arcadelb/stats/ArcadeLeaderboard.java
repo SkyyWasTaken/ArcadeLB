@@ -214,6 +214,18 @@ public class ArcadeLeaderboard {
         for (Map.Entry<UUID, PlayerStat> currentEntry : entryLinkedList) {
             intermediateLeaderboard.put(currentEntry.getKey(), currentEntry.getValue());
         }
+        Iterator<Map.Entry<UUID, PlayerStat>> intermediateIterator = intermediateLeaderboard.entrySet().iterator();
+        HashMap<UUID, PlayerStat> playersToAppend = new HashMap<>();
+        while (intermediateIterator.hasNext()) {
+            Map.Entry<UUID, PlayerStat> currentEntry = intermediateIterator.next();
+            if (currentEntry.getValue().getPlayerScore() == 0) {
+                intermediateIterator.remove();
+                playersToAppend.put(currentEntry.getKey(), currentEntry.getValue());
+            } else {
+                break;
+            }
+        }
+        intermediateLeaderboard.putAll(playersToAppend);
         this.leaderboard = intermediateLeaderboard;
         FormatHelper.triggerUpdate();
     }
