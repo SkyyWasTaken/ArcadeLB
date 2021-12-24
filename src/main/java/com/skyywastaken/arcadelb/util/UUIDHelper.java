@@ -4,6 +4,11 @@ import java.util.UUID;
 
 public class UUIDHelper {
     public static UUID parseNonPosixUUID(String passedUUIDString) {
+        try {
+            return UUID.fromString(passedUUIDString);
+        } catch (IllegalArgumentException ignored) {
+
+        }
         String newUUIDString = passedUUIDString.substring(0, 8) + "-"
                 + passedUUIDString.substring(8, 12) + "-"
                 + passedUUIDString.substring(12, 16) + "-"
