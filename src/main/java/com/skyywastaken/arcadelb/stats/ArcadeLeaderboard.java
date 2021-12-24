@@ -132,6 +132,10 @@ public class ArcadeLeaderboard {
                 this.statType = null;
                 this.boardIsSwitching = false;
                 FormatHelper.triggerUpdate();
+                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like the " +
+                        "Venom path for the selected leaderboard is borked or I've received an erroneous response from " +
+                        "the database! Try loading the board again. If the issue persists, fix the path in its " +
+                        "respective json file or contact the mod author."));
                 break;
             }
             returnMap.put(currentObjectUUID, newStat);
