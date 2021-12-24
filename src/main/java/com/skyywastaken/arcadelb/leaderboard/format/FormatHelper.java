@@ -42,14 +42,20 @@ public class FormatHelper {
         return new LeaderboardRowInfo("...", "", "", RowType.DIVIDER);
     }
 
-    static LeaderboardRowInfo generatePlayerRow(String placeString, PlayerStat playerStat) {
+    static LeaderboardRowInfo generatePlayerRow(String placeString, PlayerStat playerStat, StatType currentStatType) {
         if (playerStat == null) {
             FormatHelper.triggerUpdate();
             return new LeaderboardRowInfo("Loading your score...", "", "", RowType.INFO);
         }
+        String scoreString;
+        if (currentStatType.isReversed && playerStat.getPlayerScore() == 0) {
+            scoreString = "Unset!";
+        } else {
+            scoreString = currentStatType.getFormatType().formatScore(playerStat.getPlayerScore());
+        }
         return new LeaderboardRowInfo(placeString + ".",
                 (playerStat.isCurrentPlayer ? EnumChatFormatting.BOLD + "" : "")
-                        + playerStat.getPlayerName(), playerStat.getPlayerScore() + "",
+                        + playerStat.getPlayerName(), scoreString,
                 playerStat.isCurrentPlayer ? RowType.CURRENT_PLAYER : RowType.OTHER_PLAYER);
     }
 }
