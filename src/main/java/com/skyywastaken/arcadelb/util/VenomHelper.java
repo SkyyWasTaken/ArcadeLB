@@ -1,4 +1,4 @@
-package com.skyywastaken.arcadelb.leaderboard;
+package com.skyywastaken.arcadelb.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -17,7 +17,7 @@ public class VenomHelper {
         URL url;
         try {
             url = new URL("https://cdn.hyarcade.xyz/lb?path=." + statType.getVenomPath()
-                    + (reversed ? "&reverse" : ""));
+                    + (reversed ? "&reverse" : "") + "&min");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

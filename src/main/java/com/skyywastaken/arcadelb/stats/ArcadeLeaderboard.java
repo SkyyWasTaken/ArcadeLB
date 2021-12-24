@@ -3,13 +3,14 @@ package com.skyywastaken.arcadelb.stats;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.skyywastaken.arcadelb.ArcadeLB;
-import com.skyywastaken.arcadelb.leaderboard.VenomHelper;
 import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.util.UUIDHelper;
+import com.skyywastaken.arcadelb.util.VenomHelper;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
@@ -145,9 +146,9 @@ public class ArcadeLeaderboard {
     }
 
     private UUID attemptToParseUUID(JsonObject passedPlayerObject) {
-        String uuidString = passedPlayerObject.get("uuidPosix").getAsString();
+        String uuidString = passedPlayerObject.get("uuid").getAsString();
         try {
-            return UUID.fromString(uuidString);
+            return UUIDHelper.parseNonPosixUUID(uuidString);
         } catch (IllegalArgumentException e) {
             return null;
         }
