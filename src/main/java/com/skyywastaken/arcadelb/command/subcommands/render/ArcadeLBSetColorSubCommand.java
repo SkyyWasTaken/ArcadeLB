@@ -43,9 +43,17 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
                     + "' is not a valid element type!"));
             return;
         }
-        int redValue = CommandUtils.attemptIntegerParseWithHelp(args[1], this);
-        int greenValue = CommandUtils.attemptIntegerParseWithHelp(args[2], this);
-        int blueValue = CommandUtils.attemptIntegerParseWithHelp(args[3], this);
+        int redValue;
+        int greenValue;
+        int blueValue;
+
+        try {
+            redValue = CommandUtils.attemptIntegerParseWithHelp(args[1], this);
+            greenValue = CommandUtils.attemptIntegerParseWithHelp(args[2], this);
+            blueValue = CommandUtils.attemptIntegerParseWithHelp(args[3], this);
+        } catch (NumberFormatException e) {
+            return;
+        }
         if (redValue < 0 || greenValue < 0 || blueValue < 0) {
             MessageHelper.sendThreadSafeMessage(
                     new ChatComponentText(EnumChatFormatting.RED + "You can't set a color to a value below 0!"));
