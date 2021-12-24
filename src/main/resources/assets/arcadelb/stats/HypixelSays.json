@@ -1,0 +1,117 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "hypixelsays.wins",
+      "venomPath": "hypixelSays.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_simon_says",
+        "player.stats.Arcade.wins_santa_says"
+      ],
+      "headerText": "HS: Total Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.normalwins",
+      "venomPath": "hypixelSays.simonWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_simon_says"
+      ],
+      "headerText": "HS: Normal Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.santawins",
+      "venomPath": "hypixelSays.santaWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_santa_says"
+      ],
+      "headerText": "HS: Santa Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.totalpoints",
+      "venomPath": "hypixelSays.totalPoints",
+      "hypixelPaths": [
+        "player.stats.Arcade.rounds_simon_says",
+        "player.stats.Arcade.rounds_santa_says"
+      ],
+      "headerText": "HS: Total Points",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.normalpoints",
+      "venomPath": "hypixelSays.simonPoints",
+      "hypixelPaths": [
+        "player.stats.Arcade.rounds_simon_says"
+      ],
+      "headerText": "HS: Normal Points",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.santapoints",
+      "venomPath": "hypixelSays.santaPoints",
+      "hypixelPaths": [
+        "player.stats.Arcade.rounds_santa_says"
+      ],
+      "headerText": "HS: Santa Points",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.totalroundwins",
+      "venomPath": "hypixelSays.totalRoundWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.round_wins_simon_says",
+        "player.stats.Arcade.round_wins_santa_says"
+      ],
+      "headerText": "HS: Total Round Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.normalroundwins",
+      "venomPath": "hypixelSays.simonRoundWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.round_wins_simon_says"
+      ],
+      "headerText": "HS: Normal Round Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.santaroundwins",
+      "venomPath": "hypixelSays.santaRoundWins",
+      "hypixelPaths": [
+        "player.stats.Arcade.round_wins_santa_says"
+      ],
+      "headerText": "HS: Santa Round Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.scorepb",
+      "venomPath": "hypixelSays.maxScoreSimon",
+      "hypixelPaths": [
+        "player.stats.Arcade.top_score_simon_says"
+      ],
+      "headerText": "HS: Best Score",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "hypixelsays.santascorepb",
+      "venomPath": "hypixelSays.maxScoreSanta",
+      "hypixelPaths": [
+        "player.stats.Arcade.top_score_santa_says"
+      ],
+      "headerText": "HS: Santa PB",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    }
+  ]
+}
