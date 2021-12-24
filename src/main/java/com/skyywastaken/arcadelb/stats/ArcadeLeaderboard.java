@@ -35,7 +35,6 @@ public class ArcadeLeaderboard {
     ScheduledExecutorService executorService = null;
     private LinkedHashMap<UUID, PlayerStat> leaderboard = new LinkedHashMap<>();
     private StatType statType = null;
-    private boolean playerIsOnLeaderboard = false;
     private boolean boardIsSwitching = false;
 
     public ArcadeLeaderboard(StatTypeHelper statTypeHelper) {
@@ -80,7 +79,6 @@ public class ArcadeLeaderboard {
             addCurrentPlayerScoreToMap(newLeaderboard);
         }
         this.leaderboard.putAll(newLeaderboard);
-        this.playerIsOnLeaderboard = currentPlayerIsOnNewBoard;
         runFinishingTasks();
     }
 
@@ -219,10 +217,6 @@ public class ArcadeLeaderboard {
 
     public boolean isBoardSwitching() {
         return this.boardIsSwitching;
-    }
-
-    public boolean getPlayerInTopTracked() {
-        return this.playerIsOnLeaderboard;
     }
 
     public StatType getStatType() {
