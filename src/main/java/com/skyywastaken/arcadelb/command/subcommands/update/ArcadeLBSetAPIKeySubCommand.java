@@ -56,7 +56,7 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
     private Runnable checkValidityAndSetAPIKey(UUID apiKey) {
         return () -> {
             boolean keyIsValid;
-            keyIsValid = HypixelQueryHelper.isKeyValid(apiKey);
+            keyIsValid = HypixelQueryHelper.isKeyValid(apiKey.toString());
             if (!keyIsValid) {
                 MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
             } else {

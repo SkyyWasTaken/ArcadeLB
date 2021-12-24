@@ -182,7 +182,7 @@ public class ArcadeLeaderboard {
         Session currentSession = Minecraft.getMinecraft().getSession();
         UUID currentPlayerUUID = currentSession.getProfile().getId();
         int playerScore;
-        if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.runKeyCheckWithFeedback(UUID.fromString(ConfigManager.getAPIKey()))) {
+        if (!HypixelQueryHelper.runKeyCheckWithFeedback(ConfigManager.getAPIKey())) {
             playerScore = 0;
         } else {
             try {

@@ -29,7 +29,7 @@ public class LeaderboardUpdateHelper extends Thread {
         ExecutorService validKeyCheck = Executors.newSingleThreadExecutor();
         boolean keyIsValid = false;
         try {
-            keyIsValid = validKeyCheck.submit(() -> HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))).get();
+            keyIsValid = validKeyCheck.submit(() -> HypixelQueryHelper.isKeyValid(ConfigManager.getAPIKey())).get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             validKeyCheck.shutdown();

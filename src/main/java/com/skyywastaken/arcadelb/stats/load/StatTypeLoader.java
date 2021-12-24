@@ -28,6 +28,7 @@ import java.util.stream.Stream;
 
 public class StatTypeLoader {
     private final File statSaveDirectory;
+    private FileSystem jarFileSystem = null;
 
     private boolean loadingFromJar = false;
 
@@ -122,14 +123,14 @@ public class StatTypeLoader {
         Path resourceFolder;
         assert uri != null;
         if (uri.getScheme().equals("jar")) {
-            FileSystem fileSystem = null;
-            try {
-                fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (jarFileSystem == null) {
+                try {
+                    this.jarFileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            assert fileSystem != null;
-            resourceFolder = fileSystem.getPath(resourceLocation);
+            resourceFolder = this.jarFileSystem.getPath(resourceLocation);
         } else {
             resourceFolder = Paths.get(uri);
         }

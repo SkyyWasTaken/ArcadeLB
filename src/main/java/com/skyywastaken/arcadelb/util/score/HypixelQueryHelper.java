@@ -55,7 +55,7 @@ public class HypixelQueryHelper {
         return returnInt;
     }
 
-    public static boolean runKeyCheckWithFeedback(UUID passedKey) {
+    public static boolean runKeyCheckWithFeedback(String passedKey) {
         boolean keyIsValid = isKeyValid(passedKey);
         if (!keyIsValid) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
@@ -65,9 +65,12 @@ public class HypixelQueryHelper {
         return keyIsValid;
     }
 
-    public static boolean isKeyValid(UUID passedKey) {
+    public static boolean isKeyValid(String passedKey) {
+        if (passedKey.isEmpty()) {
+            return false;
+        }
         try {
-            URL url = new URL("https://api.hypixel.net/key?key=" + passedKey.toString());
+            URL url = new URL("https://api.hypixel.net/key?key=" + passedKey);
             URLConnection request = url.openConnection();
             JsonParser jsonParser = new JsonParser();
             JsonObject currentElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
