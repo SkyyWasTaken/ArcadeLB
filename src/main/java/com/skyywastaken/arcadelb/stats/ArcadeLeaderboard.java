@@ -167,6 +167,9 @@ public class ArcadeLeaderboard {
     }
 
     public void updateLeaderboard() {
+        if (!ConfigManager.getLeaderboardEnabled()) {
+            return;
+        }
         new LeaderboardUpdateHelper(this).start();
     }
 
