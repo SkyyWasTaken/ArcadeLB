@@ -1,6 +1,9 @@
 package com.skyywastaken.arcadelb.leaderboard;
 
+import com.skyywastaken.arcadelb.leaderboard.format.FormatType;
 import com.skyywastaken.arcadelb.leaderboard.format.LeaderboardFormatter;
+import com.skyywastaken.arcadelb.leaderboard.format.LeaderboardRowInfo;
+import com.skyywastaken.arcadelb.leaderboard.format.RowType;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import net.minecraft.client.Minecraft;
@@ -40,34 +43,36 @@ public class LeaderboardRenderer extends Gui {
         int fontHeight = fontRenderer.FONT_HEIGHT;
         int rowTopHeight = scoreboardBottomYOffset - fontHeight;
         for (int i = this.leaderboardFormatter.getLeaderboardRows().size() - 1; i >= 0; i--) {
-            renderRowRectangle(xOffset, rowTopHeight, rightBound, rowTopHeight + fontHeight);
             LeaderboardRowInfo currentRow = this.leaderboardFormatter.getLeaderboardRows().get(i);
-            if (currentRow.SCORE.equals("")) {
-                int centeredTextOffset = calculateCenteredTextOffset(currentRow.FAR_LEFT_TEXT, xOffset, rowLength);
-                int color;
-                if (i == 0) {
-                    color = ConfigManager.getHeaderColor();
-                } else {
-                    color = ConfigManager.getMiscColor();
-                }
-                renderText(currentRow.FAR_LEFT_TEXT, centeredTextOffset, rowTopHeight, color);
-            } else {
-                renderText(currentRow.FAR_LEFT_TEXT, xOffset, rowTopHeight, ConfigManager.getPlaceColor());
-                int centerTextOffset = currentRow.getFarLeftTextSize() + fontRenderer.getStringWidth(" ") + xOffset;
-                int playerNameColor;
-                if (currentRow.IS_CURRENT_PLAYER) {
-                    playerNameColor = ConfigManager.getYourNameColor();
-                } else {
-                    playerNameColor = ConfigManager.getOthersNameColor();
-                }
-                renderText(currentRow.PLAYER_NAME, centerTextOffset, rowTopHeight, playerNameColor);
-                int rightTextOffset = rightBound - currentRow.getRightTextSize();
-                renderText(currentRow.SCORE, rightTextOffset, rowTopHeight, ConfigManager.getScoreColor());
-            }
+            renderRow(currentRow, rowTopHeight, rowTopHeight + fontHeight, xOffset, rightBound);
             rowTopHeight = rowTopHeight - fontHeight;
         }
         GlStateManager.popAttrib();
         GlStateManager.popMatrix();
+    }
+
+    private void renderRow(LeaderboardRowInfo rowInfo, int top, int bottom, int left, int right) {
+        renderRowRectangle(left, top, right, bottom);
+        RowType rowType = rowInfo.ROW_TYPE;
+        if (rowType.FORMAT_TYPE == FormatType.CENTERED) {
+            renderCenteredText(rowInfo.FAR_LEFT_TEXT, left, right - left, top, rowType.getColor());
+        } else {
+            renderScore(rowInfo, left, right, top);
+        }
+    }
+
+    private void renderCenteredText(String text, int baseXOffset, int rowLength, int top, int color) {
+        int centeredTextOffset = calculateCenteredTextOffset(text, baseXOffset, rowLength);
+        renderText(text, centeredTextOffset, top, color);
+    }
+
+    private void renderScore(LeaderboardRowInfo rowInfo, int left, int right, int top) {
+        renderText(rowInfo.FAR_LEFT_TEXT, left, top, ConfigManager.getPlaceColor());
+        int spacerWidth = Minecraft.getMinecraft().fontRendererObj.getStringWidth(" ");
+        int centerTextOffset = rowInfo.getFarLeftTextSize() + spacerWidth + left;
+        renderText(rowInfo.PLAYER_NAME, centerTextOffset, top, rowInfo.ROW_TYPE.getColor());
+        int rightTextOffset = right - rowInfo.getRightTextSize();
+        renderText(rowInfo.SCORE, rightTextOffset, top, ConfigManager.getScoreColor());
     }
 
     private int getYOffset(int screenHeight) {

@@ -1,6 +1,5 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
-import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import net.minecraft.util.EnumChatFormatting;
@@ -26,28 +25,31 @@ public class FormatHelper {
 
     private static LeaderboardRowInfo getNoBoardSelectedRow() {
         String noBoardSelectedText = EnumChatFormatting.BOLD + "No leaderboard selected!";
-        return new LeaderboardRowInfo(noBoardSelectedText, "", "", false);
+        return new LeaderboardRowInfo(noBoardSelectedText, "", "", RowType.INFO);
     }
 
     static LeaderboardRowInfo getHeaderRow(StatType trackedStat) {
         String headerText = EnumChatFormatting.BOLD + trackedStat.getHeaderText();
-        return new LeaderboardRowInfo(headerText, "", "", false);
+        return new LeaderboardRowInfo(headerText, "", "", RowType.HEADER);
     }
 
     private static LeaderboardRowInfo getFetchRow() {
         String fetchText = "Fetching leaderboard...";
-        return new LeaderboardRowInfo(fetchText, "", "", false);
+        return new LeaderboardRowInfo(fetchText, "", "", RowType.INFO);
     }
 
     private static LeaderboardRowInfo getDividerRow() {
-        return new LeaderboardRowInfo("...", "", "", false);
+        return new LeaderboardRowInfo("...", "", "", RowType.DIVIDER);
     }
 
     static LeaderboardRowInfo generatePlayerRow(String placeString, PlayerStat playerStat) {
         if (playerStat == null) {
             FormatHelper.triggerUpdate();
-            return new LeaderboardRowInfo("Loading your score...", "", "", false);
+            return new LeaderboardRowInfo("Loading your score...", "", "", RowType.INFO);
         }
-        return new LeaderboardRowInfo(placeString + ".", (playerStat.isCurrentPlayer ? EnumChatFormatting.BOLD + "" : "") + playerStat.getPlayerName(), playerStat.getPlayerScore() + "", playerStat.isCurrentPlayer);
+        return new LeaderboardRowInfo(placeString + ".",
+                (playerStat.isCurrentPlayer ? EnumChatFormatting.BOLD + "" : "")
+                        + playerStat.getPlayerName(), playerStat.getPlayerScore() + "",
+                playerStat.isCurrentPlayer ? RowType.CURRENT_PLAYER : RowType.OTHER_PLAYER);
     }
 }

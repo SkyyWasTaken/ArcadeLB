@@ -1,25 +1,36 @@
 package com.skyywastaken.arcadelb.stats.game;
 
 import com.skyywastaken.arcadelb.stats.load.StatTypeHolder;
+import com.skyywastaken.arcadelb.stats.load.StatTypeLoader;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public class StatTypeHelper {
     private final HashMap<String, StatType> statTypeHashMap = new HashMap<>();
 
+    public StatTypeHelper() {
+        StatTypeLoader loader = new StatTypeLoader();
+        registerStatHolders(loader.loadStats());
+    }
+
     public boolean statExists(String passedStatString) {
         return this.statTypeHashMap.containsKey(passedStatString);
     }
 
-    public StatType getStatTypeFromString(String passedStatString) {
-        return this.statTypeHashMap.get(passedStatString);
+    private void registerStatHolders(List<StatTypeHolder> stats) {
+        stats.forEach(this::registerStats);
     }
 
-    public void registerStats(StatTypeHolder passedStats) {
+    private void registerStats(StatTypeHolder passedStats) {
         for (StatType statType : passedStats.statTypeList) {
             registerStat(statType);
         }
+    }
+
+    public StatType getStatTypeFromString(String passedStatString) {
+        return this.statTypeHashMap.get(passedStatString);
     }
 
     private void registerStat(StatType passedStatType) {

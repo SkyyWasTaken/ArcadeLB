@@ -1,4 +1,4 @@
-package com.skyywastaken.arcadelb.leaderboard;
+package com.skyywastaken.arcadelb.leaderboard.format;
 
 import net.minecraft.client.Minecraft;
 
@@ -6,14 +6,13 @@ public class LeaderboardRowInfo {
     public final String FAR_LEFT_TEXT;
     public final String PLAYER_NAME;
     public final String SCORE;
+    public final RowType ROW_TYPE;
 
-    public final boolean IS_CURRENT_PLAYER;
-
-    public LeaderboardRowInfo(String placeNumber, String playerName, String score, boolean isCurrentPlayer) {
+    public LeaderboardRowInfo(String placeNumber, String playerName, String score, RowType passedRowType) {
         this.FAR_LEFT_TEXT = placeNumber;
         this.PLAYER_NAME = playerName;
         this.SCORE = score;
-        this.IS_CURRENT_PLAYER = isCurrentPlayer;
+        this.ROW_TYPE = passedRowType;
     }
 
     public int getFarLeftTextSize() {

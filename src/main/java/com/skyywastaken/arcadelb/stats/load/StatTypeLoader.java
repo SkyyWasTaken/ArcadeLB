@@ -2,7 +2,6 @@ package com.skyywastaken.arcadelb.stats.load;
 
 import com.google.gson.Gson;
 import com.skyywastaken.arcadelb.ArcadeLB;
-import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,29 +28,29 @@ import java.util.stream.Stream;
 
 public class StatTypeLoader {
     private final File statSaveDirectory;
-    private final StatTypeHelper statTypeHelper;
 
     private boolean loadingFromJar = false;
 
-    public StatTypeLoader(StatTypeHelper passedHelper) {
-        this.statTypeHelper = passedHelper;
+    public StatTypeLoader() {
         this.statSaveDirectory = new File(ArcadeLB.configDirectory.getPath(), "stats");
         if (!this.statSaveDirectory.exists() && !this.statSaveDirectory.mkdirs()) {
             ArcadeLB.getLogger().warn("Couldn't create the stats directory! Loading games from jar.");
             this.loadingFromJar = true;
         }
+        loadStats();
     }
 
-    public void loadStats() {
+    public ArrayList<StatTypeHolder> loadStats() {
         if (this.loadingFromJar) {
-            loadStatsFromJar();
+            return loadStatsFromJar();
         } else {
             copyStatsToDrive();
-            loadStatsFromDisk();
+            return loadStatsFromDisk();
         }
     }
 
-    private void loadStatsFromJar() {
+    private ArrayList<StatTypeHolder> loadStatsFromJar() {
+        ArrayList<StatTypeHolder> returnStats = new ArrayList<>();
         for (String currentFileName : getJarStatTypeFileNames()) {
             URL currentFileURL = getClass().getResource(currentFileName);
             if (currentFileURL == null) {
@@ -66,15 +65,17 @@ public class StatTypeLoader {
                 continue;
             }
             StatTypeHolder statTypeHolder = gson.fromJson(new InputStreamReader(currentFileStream), StatTypeHolder.class);
-            this.statTypeHelper.registerStats(statTypeHolder);
+            returnStats.add(statTypeHolder);
         }
+        return returnStats;
     }
 
-    private void loadStatsFromDisk() {
+    private ArrayList<StatTypeHolder> loadStatsFromDisk() {
         String[] files = this.statSaveDirectory.list();
         if (files == null) {
-            return;
+            return new ArrayList<>();
         }
+        ArrayList<StatTypeHolder> returnStats = new ArrayList<>();
         Gson gson = new Gson();
         for (String fileName : files) {
             File currentFile = new File(this.statSaveDirectory, fileName);
@@ -85,8 +86,9 @@ public class StatTypeLoader {
                 e.printStackTrace();
                 continue;
             }
-            this.statTypeHelper.registerStats(statTypeHolder);
+            returnStats.add(statTypeHolder);
         }
+        return returnStats;
     }
 
     private void copyStatsToDrive() {

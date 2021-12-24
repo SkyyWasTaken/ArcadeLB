@@ -1,6 +1,5 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
-import com.skyywastaken.arcadelb.leaderboard.LeaderboardRowInfo;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.stats.game.StatType;
@@ -74,8 +73,7 @@ public class LeaderboardFormatter {
     }
 
     private LinkedList<LeaderboardRowInfo> getNormalScoreboardRows() {
-        LinkedList<LeaderboardRowInfo> returnList = new LinkedList<>(getLeaderboardRowsFromIndices(0, 10));
-        return returnList;
+        return new LinkedList<>(getLeaderboardRowsFromIndices(0, 10));
     }
 
     private LinkedList<LeaderboardRowInfo> getUnknownPlayerEnding() {
