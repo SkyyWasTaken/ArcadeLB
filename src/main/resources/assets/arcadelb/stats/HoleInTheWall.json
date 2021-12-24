@@ -1,0 +1,44 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "holeinthewall.wins",
+      "venomPath": "holeInTheWall.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_hole_in_the_wall"
+      ],
+      "headerText": "HITW Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "holeinthewall.walls",
+      "venomPath": "holeInTheWall.rounds",
+      "hypixelPaths": [
+        "player.stats.Arcade.rounds_hole_in_the_wall"
+      ],
+      "headerText": "HITW Walls",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "holeinthewall.qualifierspb",
+      "venomPath": "holeInTheWall.qualifiers",
+      "hypixelPaths": [
+        "player.stats.Arcade.hitw_record_q"
+      ],
+      "headerText": "HITW Qualifiers PB",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "holeinthewall.finalspb",
+      "venomPath": "holeInTheWall.finals",
+      "hypixelPaths": [
+        "player.stats.Arcade.hitw_record_f"
+      ],
+      "headerText": "HITW Finals PB",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    }
+  ]
+}
