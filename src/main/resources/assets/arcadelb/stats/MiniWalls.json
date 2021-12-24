@@ -1,0 +1,84 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "miniwalls.wins",
+      "venomPath": "miniWalls.wins",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_mini_walls"
+      ],
+      "headerText": "Mini Walls: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.arrowshit",
+      "venomPath": "miniWalls.arrowsHit",
+      "hypixelPaths": [
+        "player.stats.Arcade.arrows_hit_mini_walls"
+      ],
+      "headerText": "Mini Walls: Arrows Hit",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.arrowsshot",
+      "venomPath": "miniWalls.arrowsShot",
+      "hypixelPaths": [
+        "player.stats.Arcade.arrows_shot_mini_walls"
+      ],
+      "headerText": "Mini Walls: Arrows Shot",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.finalkills",
+      "venomPath": "miniWalls.finalKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.final_kills_mini_walls"
+      ],
+      "headerText": "Mini Walls: Final Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.kills",
+      "venomPath": "miniWalls.kills",
+      "hypixelPaths": [
+        "player.stats.Arcade.kills_mini_walls"
+      ],
+      "headerText": "Mini Walls: Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.witherkills",
+      "venomPath": "miniWalls.witherKills",
+      "hypixelPaths": [
+        "player.stats.Arcade.wither_kills_mini_walls"
+      ],
+      "headerText": "Mini Walls: Wither Kills",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.deaths",
+      "venomPath": "miniWalls.deaths",
+      "hypixelPaths": [
+        "player.stats.Arcade.deaths_mini_walls"
+      ],
+      "headerText": "Mini Walls: Deaths",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "miniwalls.witherdamage",
+      "venomPath": "miniWalls.witherDamage",
+      "hypixelPaths": [
+        "player.stats.Arcade.wither_damage_mini_walls"
+      ],
+      "headerText": "Mini Walls: Wither Damage",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    }
+  ]
+}
