@@ -7,7 +7,7 @@ public class UUIDHelper {
         String newUUIDString = passedUUIDString.substring(0, 8) + "-"
                 + passedUUIDString.substring(8, 12) + "-"
                 + passedUUIDString.substring(12, 16) + "-"
-                + passedUUIDString.substring(16, 20) + "-" + passedUUIDString.substring(20, 22);
+                + passedUUIDString.substring(16, 20) + "-" + passedUUIDString.substring(20);
         return UUID.fromString(newUUIDString);
     }
 }
