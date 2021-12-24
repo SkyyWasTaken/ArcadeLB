@@ -64,6 +64,8 @@ public class LeaderboardFormatter {
 
         if (playerPlace < 10) {
             return getNormalScoreboardRows();
+        } else if (playerPlace < ConfigManager.getTotalTracked()) {
+            return getBubbleBoard(playerPlace);
         }
 
         LinkedList<LeaderboardRowInfo> splitScoreboardRows = new LinkedList<>(getLeaderboardRowsFromIndices(0, 5));
@@ -105,7 +107,8 @@ public class LeaderboardFormatter {
         return returnList;
     }
 
-    private LinkedList<LeaderboardRowInfo> getPlayerInvolvedRows(int playerPlace) {
+    private LinkedList<LeaderboardRowInfo> getBubbleBoard(int playerPlace) {
+        LinkedList<LeaderboardRowInfo> returnRows = new LinkedList<>(getFirstThreePlayerRows());
         int partialPlaceIterator;
         if (playerPlace > ConfigManager.getTotalTracked() - 3) {
             partialPlaceIterator = ConfigManager.getTotalTracked() - playerPlace;
@@ -114,7 +117,9 @@ public class LeaderboardFormatter {
         }
 
         int searchEnd = partialPlaceIterator + playerPlace;
-        return getLeaderboardRowsFromIndices(searchEnd - 6, searchEnd);
+        returnRows.add(FormatHelper.DIVIDER_ROW);
+        returnRows.addAll(getLeaderboardRowsFromIndices(searchEnd - 6, searchEnd));
+        return returnRows;
     }
 
     private LinkedList<LeaderboardRowInfo> getFirstThreePlayerRows() {
