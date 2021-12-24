@@ -6,7 +6,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.wins_hole_in_the_wall"
       ],
-      "headerText": "HITW Wins",
+      "headerText": "HITW: Wins",
       "isReversed": false,
       "formatType": "NORMAL"
     },
@@ -16,7 +16,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.rounds_hole_in_the_wall"
       ],
-      "headerText": "HITW Walls",
+      "headerText": "HITW: Walls",
       "isReversed": false,
       "formatType": "NORMAL"
     },
@@ -26,7 +26,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.hitw_record_q"
       ],
-      "headerText": "HITW Qualifiers PB",
+      "headerText": "HITW: Qualifiers PB",
       "isReversed": false,
       "formatType": "NORMAL"
     },
@@ -36,7 +36,7 @@
       "hypixelPaths": [
         "player.stats.Arcade.hitw_record_f"
       ],
-      "headerText": "HITW Finals PB",
+      "headerText": "HITW: Finals PB",
       "isReversed": false,
       "formatType": "NORMAL"
     }
