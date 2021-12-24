@@ -1,7 +1,6 @@
-package com.skyywastaken.arcadelb.command.subcommands.render;
+package com.skyywastaken.arcadelb.command.subcommands.misc;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
-import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
@@ -13,7 +12,7 @@ import net.minecraft.util.IChatComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArcadeLBSetEnabledSubCommand implements SubCommand {
+public class ArcadeLBEnableSubCommand implements SubCommand {
     @Override
     public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
@@ -21,24 +20,25 @@ public class ArcadeLBSetEnabledSubCommand implements SubCommand {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
-        if (args.length == 0) {
-            CommandUtils.sendHelpMessage(this);
+        if (ConfigManager.getLeaderboardEnabled()) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+                    + "The leaderboard is already enabled!"));
+            return;
         }
-        boolean typedValue = Boolean.parseBoolean(args[0]);
-        ConfigManager.setLeaderboardEnabled(typedValue);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "The leaderboard has been "
-                + (typedValue ? "enabled" : "disabled") + "!"));
+        ConfigManager.setLeaderboardEnabled(true);
+        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+                + "The leaderboard has been enabled!"));
     }
 
     @Override
     public String getCommandName() {
-        return "setenabled";
+        return "enable";
     }
 
     @Override
     public IChatComponent getHelpMessage() {
         return new ChatComponentText(EnumChatFormatting.GREEN
-                + "Use this subcommand to enable or disable the leaderboard. (true/false, default: true)\n"
-                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setenabled true");
+                + "Use this subcommand to enable the leaderboard.\n"
+                + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb enable");
     }
 }
