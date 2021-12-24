@@ -1,9 +1,13 @@
-package com.skyywastaken.arcadelb.util;
+package com.skyywastaken.arcadelb.util.score;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.skyywastaken.arcadelb.stats.game.StatType;
+import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.thread.MessageHelper;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,6 +53,16 @@ public class HypixelQueryHelper {
             }
         }
         return returnInt;
+    }
+
+    public static boolean runKeyCheckWithFeedback(UUID passedKey) {
+        boolean keyIsValid = isKeyValid(passedKey);
+        if (!keyIsValid) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+                    + "Your Hypixel API key is invalid! Use '/api new' to generate a new key and save it using "
+                    + "'/arcadelb setapikey <key>'"));
+        }
+        return keyIsValid;
     }
 
     public static boolean isKeyValid(UUID passedKey) {

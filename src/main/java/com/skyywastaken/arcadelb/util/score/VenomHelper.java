@@ -1,4 +1,4 @@
-package com.skyywastaken.arcadelb.util;
+package com.skyywastaken.arcadelb.util.score;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;

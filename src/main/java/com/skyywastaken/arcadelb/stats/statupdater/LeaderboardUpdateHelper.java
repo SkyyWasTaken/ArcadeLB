@@ -3,7 +3,7 @@ package com.skyywastaken.arcadelb.stats.statupdater;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.util.ConfigManager;
-import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;

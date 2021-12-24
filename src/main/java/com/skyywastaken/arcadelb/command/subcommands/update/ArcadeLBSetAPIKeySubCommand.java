@@ -3,7 +3,7 @@ package com.skyywastaken.arcadelb.command.subcommands.update;
 import com.skyywastaken.arcadelb.command.SubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.CommandUtils;
 import com.skyywastaken.arcadelb.util.ConfigManager;
-import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;

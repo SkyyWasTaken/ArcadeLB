@@ -8,9 +8,10 @@ import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
-import com.skyywastaken.arcadelb.util.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.util.JsonUtils;
 import com.skyywastaken.arcadelb.util.UUIDHelper;
-import com.skyywastaken.arcadelb.util.VenomHelper;
+import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.util.score.VenomHelper;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
@@ -18,7 +19,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Session;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -161,19 +161,7 @@ public class ArcadeLeaderboard {
     }
 
     private int getPlayerScoreFromJsonObject(JsonObject passedObject) {
-        String[] scorePath = this.statType.getVenomPath().split("\\.");
-        Iterator<String> scorePathIterator = Arrays.stream(scorePath).iterator();
-        JsonObject currentJsonObject = passedObject;
-        int playerScore = 0;
-        while (scorePathIterator.hasNext()) {
-            String currentPathPart = scorePathIterator.next();
-            if (!scorePathIterator.hasNext()) {
-                playerScore = currentJsonObject.get(currentPathPart).getAsInt();
-            } else {
-                currentJsonObject = currentJsonObject.getAsJsonObject(currentPathPart);
-            }
-        }
-        return playerScore;
+        return JsonUtils.getIntFromPath(passedObject, this.statType.getVenomPath());
     }
 
     public LinkedHashMap<UUID, PlayerStat> getLeaderboard() {
@@ -188,11 +176,8 @@ public class ArcadeLeaderboard {
         Session currentSession = Minecraft.getMinecraft().getSession();
         UUID currentPlayerUUID = currentSession.getProfile().getId();
         int playerScore;
-        if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.isKeyValid(UUID.fromString(ConfigManager.getAPIKey()))) {
+        if (ConfigManager.getAPIKey().equals("") || !HypixelQueryHelper.runKeyCheckWithFeedback(UUID.fromString(ConfigManager.getAPIKey()))) {
             playerScore = 0;
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
-                    + "Your Hypixel API key is invalid! Use '/api new' to generate a new key and save it using "
-                    + "'/arcadelb setapikey <key>'"));
         } else {
             try {
                 playerScore = HypixelQueryHelper.getUpdatedScoreByUUID(currentPlayerUUID, statType);
