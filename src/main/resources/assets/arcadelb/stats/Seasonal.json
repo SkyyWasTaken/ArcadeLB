@@ -1,0 +1,107 @@
+{
+  "statTypeList": [
+    {
+      "userFriendlyPath": "seasonal.easterwins",
+      "venomPath": "seasonalWins.easter",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_easter_simulator"
+      ],
+      "headerText": "Easter Sim: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.scubawins",
+      "venomPath": "seasonalWins.scuba",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_scuba_simulator"
+      ],
+      "headerText": "Scuba Sim: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.halloweenwins",
+      "venomPath": "seasonalWins.halloween",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_halloween_simulator"
+      ],
+      "headerText": "Halloween Sim: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.grinchwins",
+      "venomPath": "seasonalWins.grinch",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_grinch_simulator_v2"
+      ],
+      "headerText": "Grinch Sim: Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.totalwins",
+      "venomPath": "seasonalWins.total",
+      "hypixelPaths": [
+        "player.stats.Arcade.wins_easter_simulator",
+        "player.stats.Arcade.wins_scuba_simulator",
+        "player.stats.Arcade.wins_halloween_simulator",
+        "player.stats.Arcade.wins_grinch_simulator_v2"
+      ],
+      "headerText": "Seasonal: Total Wins",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.grinchgifts",
+      "venomPath": "seasonalWins.grinchGiftsFound",
+      "hypixelPaths": [
+        "player.stats.Arcade.gifts_grinch_simulator_v2"
+      ],
+      "headerText": "Grinch Sim: Gifts",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.scubapoints",
+      "venomPath": "seasonalWins.pointsScuba",
+      "hypixelPaths": [
+        "player.stats.Arcade.total_points_scuba_simulator"
+      ],
+      "headerText": "Scuba Sim: Points",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.scubafinds",
+      "venomPath": "seasonalWins.foundScuba",
+      "hypixelPaths": [
+        "player.stats.Arcade.items_found_scuba_simulator"
+      ],
+      "headerText": "Scuba Sim: Items",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.easterfinds",
+      "venomPath": "seasonalWins.foundEaster",
+      "hypixelPaths": [
+        "player.stats.Arcade.eggs_found_easter_simulator"
+      ],
+      "headerText": "Easter Sim: Eggs",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    },
+    {
+      "userFriendlyPath": "seasonal.halloweenfinds",
+      "venomPath": "seasonalWins.foundHalloween",
+      "hypixelPaths": [
+        "player.stats.Arcade.candy_found_halloween_simulator"
+      ],
+      "headerText": "Halloween Sim: Candy",
+      "isReversed": false,
+      "formatType": "NORMAL"
+    }
+  ]
+}
