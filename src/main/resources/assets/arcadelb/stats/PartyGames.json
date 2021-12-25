@@ -80,7 +80,7 @@
       ],
       "headerText": "Anvil Spleef: Time",
       "isReversed": false,
-      "formatType": "NORMAL"
+      "formatType": "MILLISECOND"
     },
     {
       "userFriendlyPath": "partygames.bombardment.wins",

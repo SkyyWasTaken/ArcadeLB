@@ -36,7 +36,7 @@ public class ArcadeLB {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.info("Preparing to make lives easier");
+        logger.info("Preparing to make grinding more interesting!");
         StatTypeHelper statTypeTracker = new StatTypeHelper();
         ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard(statTypeTracker);
         Thread getStartingLeaderboard = new Thread(arcadeLeaderboard::loadLeaderboardFromConfig);
