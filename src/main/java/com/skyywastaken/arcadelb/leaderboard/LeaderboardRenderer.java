@@ -25,7 +25,6 @@ public class LeaderboardRenderer extends Gui {
     }
 
     public void drawScoreboard(RenderGameOverlayEvent e) {
-        GlStateManager.pushAttrib();
         GlStateManager.pushMatrix();
         float newScale = (float) ConfigManager.getLeaderboardScale();
         GlStateManager.scale(newScale, newScale, newScale);
@@ -47,7 +46,6 @@ public class LeaderboardRenderer extends Gui {
             renderRow(currentRow, rowTopHeight, rowTopHeight + fontHeight, xOffset, rightBound);
             rowTopHeight = rowTopHeight - fontHeight;
         }
-        GlStateManager.popAttrib();
         GlStateManager.popMatrix();
     }
 
