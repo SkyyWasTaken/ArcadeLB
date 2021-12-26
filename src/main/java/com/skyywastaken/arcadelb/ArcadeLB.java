@@ -18,7 +18,7 @@ import java.io.File;
 public class ArcadeLB {
     public static final String NAME = "ArcadeLB";
     public static final String MODID = "arcadelb";
-    public static final String VERSION = "1.4.6 ALPHA";
+    public static final String VERSION = "1.4.7 ALPHA";
     public static Configuration configuration;
     private static Logger logger;
     public static File configDirectory;
