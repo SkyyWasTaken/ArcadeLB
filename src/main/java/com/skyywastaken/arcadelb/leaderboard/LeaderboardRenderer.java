@@ -121,7 +121,7 @@ public class LeaderboardRenderer extends Gui {
         int longestScoreLength = 0;
         int longestIndividualRowLength = 0;
         for (LeaderboardRowInfo currentRow : rowsToCheck) {
-            if (currentRow.SCORE.equals("")) {
+            if (currentRow.SCORE.isEmpty()) {
                 longestIndividualRowLength = Math.max(currentRow.getFarLeftTextSize(), longestIndividualRowLength);
                 continue;
             }

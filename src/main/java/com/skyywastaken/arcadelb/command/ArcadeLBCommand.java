@@ -115,7 +115,7 @@ public class ArcadeLBCommand implements ICommand {
 
     private void sendInvalidCommandFeedback(ICommandSender commandSender, String attemptedCommand) {
         String failureMessage;
-        if (attemptedCommand == null || attemptedCommand.equals("")) {
+        if (attemptedCommand == null || attemptedCommand.isEmpty()) {
             failureMessage = EnumChatFormatting.RED + "You need to type a subcommand!";
         } else {
             failureMessage = EnumChatFormatting.LIGHT_PURPLE + attemptedCommand + EnumChatFormatting.RED
