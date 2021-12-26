@@ -363,7 +363,7 @@
       "formatType": "NORMAL"
     },
     {
-      "userFriendlyPath": "partygames.spidermaze.besttime",
+      "userFriendlyPath": "partygames.floorislava.besttime",
       "venomPath": "partyGames.theFloorIsLavaPB",
       "hypixelPaths": [
         "player.stats.Arcade.the_floor_is_lava_best_time_party"
