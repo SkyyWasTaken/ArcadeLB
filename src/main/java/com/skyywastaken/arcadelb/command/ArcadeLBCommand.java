@@ -2,6 +2,7 @@ package com.skyywastaken.arcadelb.command;
 
 import com.skyywastaken.arcadelb.command.subcommands.misc.ArcadeLBDisableSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.misc.ArcadeLBEnableSubCommand;
+import com.skyywastaken.arcadelb.command.subcommands.misc.ArcadeLBForceResetSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.misc.ArcadeLBSetBoardSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetColorSubCommand;
 import com.skyywastaken.arcadelb.command.subcommands.render.ArcadeLBSetDisplayPlayerSubCommand;
@@ -98,7 +99,8 @@ public class ArcadeLBCommand implements ICommand {
         registerSubCommand(new ArcadeLBSetXOffsetSubCommand());
         registerSubCommand(new ArcadeLBSetYOffsetSubCommand());
         registerSubCommand(new ArcadeLBDisableSubCommand());
-        registerSubCommand(new ArcadeLBEnableSubCommand());
+        registerSubCommand(new ArcadeLBEnableSubCommand(this.ARCADE_LEADERBOARD));
+        registerSubCommand(new ArcadeLBForceResetSubCommand(this.ARCADE_LEADERBOARD));
         registerSubCommand(new ArcadeLbRefreshSubCommand(this.ARCADE_LEADERBOARD));
         registerSubCommand(new ArcadeLBSetDisplayPlayerSubCommand());
         registerSubCommand(new ArcadeLBSetUpdateAmountSubCommand());
