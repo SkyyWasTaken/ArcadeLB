@@ -1,6 +1,7 @@
 package com.skyywastaken.arcadelb.command.subcommands.misc;
 
 import com.skyywastaken.arcadelb.command.SubCommand;
+import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.util.ConfigManager;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.command.ICommandSender;
@@ -13,6 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArcadeLBEnableSubCommand implements SubCommand {
+    private final ArcadeLeaderboard PASSED_LEADERBOARD;
+
+    public ArcadeLBEnableSubCommand(ArcadeLeaderboard passedBoard) {
+        this.PASSED_LEADERBOARD = passedBoard;
+    }
+
     @Override
     public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         return new ArrayList<>();
@@ -23,9 +30,13 @@ public class ArcadeLBEnableSubCommand implements SubCommand {
         if (ConfigManager.getLeaderboardEnabled()) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "The leaderboard is already enabled!"));
+
             return;
         }
         ConfigManager.setLeaderboardEnabled(true);
+        if (this.PASSED_LEADERBOARD.getStatType() == null) {
+            this.PASSED_LEADERBOARD.loadLeaderboardFromConfig();
+        }
         MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "The leaderboard has been enabled!"));
     }
