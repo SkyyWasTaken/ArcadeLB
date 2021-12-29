@@ -10,7 +10,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -23,7 +22,7 @@ public class HypixelQueryHelper {
 
         URLConnection request = url.openConnection();
         JsonParser jsonParser = new JsonParser();
-        JsonObject startElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
+        JsonObject startElement = jsonParser.parse(new InputStreamReader(request.getInputStream())).getAsJsonObject();
         JsonObject currentElement = null;
         int returnInt = 0;
         for (String currentPath : statBeingTracked.getHypixelPaths()) {
@@ -73,7 +72,7 @@ public class HypixelQueryHelper {
             URL url = new URL("https://api.hypixel.net/key?key=" + passedKey);
             URLConnection request = url.openConnection();
             JsonParser jsonParser = new JsonParser();
-            JsonObject currentElement = jsonParser.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
+            JsonObject currentElement = jsonParser.parse(new InputStreamReader(request.getInputStream())).getAsJsonObject();
             return currentElement.get("success").getAsBoolean();
         } catch (IOException e) {
             e.printStackTrace();

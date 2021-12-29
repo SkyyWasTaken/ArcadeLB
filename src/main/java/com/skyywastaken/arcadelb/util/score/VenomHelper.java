@@ -6,7 +6,6 @@ import com.skyywastaken.arcadelb.stats.game.StatType;
 import sun.security.validator.ValidatorException;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -25,7 +24,7 @@ public class VenomHelper {
         try {
             URLConnection request = url.openConnection();
             JsonParser jsonParser = new JsonParser();
-            return jsonParser.parse(new InputStreamReader((InputStream) request.getContent()));
+            return jsonParser.parse(new InputStreamReader(request.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
             return null;
