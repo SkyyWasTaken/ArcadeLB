@@ -51,7 +51,7 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
         } else {
             StatType newStatType = this.statTypeHelper.getStatTypeFromString(String.join(".", args));
             ConfigManager.setStatTracked(newStatType);
-            new Thread(() -> this.arcadeLeaderboard.setLeaderboardFromStatType(newStatType)).start();
+            new Thread(() -> this.arcadeLeaderboard.trySetLeaderboardFromStatType(newStatType)).start();
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.YELLOW
                     + "Attempting to load " + newStatType.getHeaderText() + "..."));
         }
