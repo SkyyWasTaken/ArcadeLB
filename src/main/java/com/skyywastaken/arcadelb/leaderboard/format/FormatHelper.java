@@ -1,6 +1,7 @@
 package com.skyywastaken.arcadelb.leaderboard.format;
 
 import com.skyywastaken.arcadelb.stats.PlayerStat;
+import com.skyywastaken.arcadelb.stats.game.FormatType;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import net.minecraft.util.EnumChatFormatting;
 
@@ -51,7 +52,11 @@ public class FormatHelper {
         if (currentStatType.isReversed && playerStat.getPlayerScore() == 0) {
             scoreString = "Unset!";
         } else {
-            scoreString = currentStatType.getFormatType().formatScore(playerStat.getPlayerScore());
+            FormatType formatType = currentStatType.getFormatType();
+            if (formatType == null) {
+                formatType = FormatType.NORMAL;
+            }
+            scoreString = formatType.formatScore(playerStat.getPlayerScore());
         }
         return new LeaderboardRowInfo(placeString + ".",
                 (playerStat.isCurrentPlayer ? EnumChatFormatting.BOLD + "" : "")
