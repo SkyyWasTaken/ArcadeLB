@@ -59,8 +59,8 @@ public class HypixelQueryHelper {
         boolean keyIsValid = isKeyValid(passedKey);
         if (!keyIsValid) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
-                    + "Your Hypixel API key is invalid! Use '/api new' to generate a new key and save it using "
-                    + "'/arcadelb setapikey <key>'"));
+                    + "Your Hypixel API key is invalid! Use '/arcadelb setapikey <key>' to set it! If you need a new " +
+                    "key, run '/api new' on Hypixel!"));
         }
         return keyIsValid;
     }
