@@ -1,22 +1,22 @@
 package com.skyywastaken.arcadelb.stats.game;
 
+import java.text.NumberFormat;
+
 public enum FormatType {
     MILLISECOND {
         @Override
         public String formatScore(int scoreToFormat) {
-            String paddedString = String.format("%03d", scoreToFormat);
-            int decimalPlace = paddedString.length() - 3;
-            return paddedString.substring(0, decimalPlace) + "." + paddedString.substring(decimalPlace) + "s";
+            return NumberFormat.getInstance().format(scoreToFormat / 1000f) + "s";
         }
     }, SECOND {
         @Override
         public String formatScore(int scoreToFormat) {
-            return scoreToFormat + "s";
+            return NumberFormat.getInstance().format(scoreToFormat) + "s";
         }
     }, NORMAL {
         @Override
         public String formatScore(int scoreToFormat) {
-            return String.valueOf(scoreToFormat);
+            return NumberFormat.getInstance().format(scoreToFormat);
         }
     };
 
