@@ -48,12 +48,25 @@ public class ArcadeLeaderboard {
                     + "Looks like you don't have a leaderboard selected. Type /arcadelb setboard <args> to fix that!\n"
                     + EnumChatFormatting.GOLD + "Tip: Use tab completion to see available completions!"));
         } else {
-            new Thread(() -> setLeaderboardFromStatType(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString)))
+            new Thread(() -> trySetLeaderboardFromStatType(this.STAT_TYPE_HELPER.getStatTypeFromString(configStatString)))
                     .start();
         }
     }
 
-    public void setLeaderboardFromStatType(StatType passedStatType) {
+    public void trySetLeaderboardFromStatType(StatType passedStatType) {
+        if (!ConfigManager.getLeaderboardEnabled()) {
+            return;
+        }
+        try {
+            setBoardFromStatType(passedStatType);
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText("The board couldn't be loaded! Please send your log to the mod author."));
+            this.reset();
+        }
+    }
+
+    private void setBoardFromStatType(StatType passedStatType) {
         prepareForStatChange();
         this.statType = passedStatType;
         FormatHelper.triggerUpdate();
@@ -65,8 +78,7 @@ public class ArcadeLeaderboard {
                     "using an out-of-date version of Java! Make sure you have Java 8 installed and check that the " +
                     "launcher is not using the built-in Java as the mod cannot connect to the internet with the " +
                     "bundled Java version."));
-            this.statType = null;
-            FormatHelper.triggerUpdate();
+            this.reset();
             return;
         }
         if (venomElement == null) {
@@ -102,7 +114,7 @@ public class ArcadeLeaderboard {
 
     private void prepareForStatChange() {
         removeCurrentAutoUpdateInstance();
-        this.leaderboard.clear();
+        reset();
         boardIsSwitching = true;
     }
 
@@ -111,6 +123,13 @@ public class ArcadeLeaderboard {
             this.executorService.shutdownNow();
             executorService = null;
         }
+    }
+
+    public void reset() {
+        this.statType = null;
+        this.boardIsSwitching = false;
+        this.leaderboard.clear();
+        FormatHelper.triggerUpdate();
     }
 
     private LinkedHashMap<UUID, PlayerStat> parseVenomJson(JsonElement passedVenomJson) {
