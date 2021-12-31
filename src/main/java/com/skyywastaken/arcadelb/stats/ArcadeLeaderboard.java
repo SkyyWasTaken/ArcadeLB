@@ -1,5 +1,6 @@
 package com.skyywastaken.arcadelb.stats;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.skyywastaken.arcadelb.ArcadeLB;
@@ -86,6 +87,12 @@ public class ArcadeLeaderboard {
             return;
         }
         HashMap<UUID, PlayerStat> newLeaderboard = parseVenomJson(venomElement);
+        if (newLeaderboard == null) {
+            reset();
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like " +
+                    "something's wrong with the database! Try again later or contact the mod author for help."));
+            return;
+        }
         boolean currentPlayerIsOnNewBoard = currentPlayerIsOnLeaderboard(newLeaderboard);
         if (!currentPlayerIsOnNewBoard) {
             addCurrentPlayerScoreToMap(newLeaderboard);
@@ -137,6 +144,9 @@ public class ArcadeLeaderboard {
         UUID currentPlayerUUID = Minecraft.getMinecraft().getSession().getProfile().getId();
         int leaderboardLimit = ConfigManager.getTotalTracked();
         int i = 1;
+        if (!(passedVenomJson instanceof JsonArray)) {
+            return null;
+        }
         for (JsonElement currentElement : passedVenomJson.getAsJsonArray()) {
             JsonObject currentObject = currentElement.getAsJsonObject();
             UUID currentObjectUUID = attemptToParseUUID(currentObject);
