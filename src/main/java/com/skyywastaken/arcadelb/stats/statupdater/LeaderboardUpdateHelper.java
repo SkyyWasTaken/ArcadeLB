@@ -10,9 +10,6 @@ import net.minecraft.util.EnumChatFormatting;
 
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -26,25 +23,21 @@ public class LeaderboardUpdateHelper extends Thread {
 
     @Override
     public void run() {
-        ExecutorService validKeyCheck = Executors.newSingleThreadExecutor();
-        boolean keyIsValid = false;
-        try {
-            keyIsValid = validKeyCheck.submit(() -> HypixelQueryHelper.isKeyValid(ConfigManager.getAPIKey())).get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-            validKeyCheck.shutdown();
-        } catch (IllegalArgumentException ignored) {
-        }
-        validKeyCheck.shutdown();
-        if (!keyIsValid) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your Hypixel API key is invalid! Use '/api new' to generate a new key and save it using "
-                    + "'/arcadelb setapikey <key>'"));
+        if (!HypixelQueryHelper.runKeyCheckWithFeedback(ConfigManager.getAPIKey())) {
             return;
+        }
+        int keyUseAmount = HypixelQueryHelper.getRemainingUsesOnKey();
+        if (keyUseAmount < ConfigManager.getTotalTracked() + 1) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your key only has " + keyUseAmount + " uses left this minute! Partially updating the board and stopping."));
         }
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(ConfigManager.getAmountOfPlayersToUpdate(),
                 ConfigManager.getAmountOfPlayersToUpdate(), 10, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>());
+        int i = 1;
         for (Map.Entry<UUID, PlayerStat> currentEntry : this.LEADERBOARD.getLeaderboard().entrySet()) {
+            if (i++ >= keyUseAmount) {
+                break;
+            }
             PlayerUpdateThread newUpdateThread = new PlayerUpdateThread(this.LEADERBOARD.getStatType(),
                     currentEntry.getKey(), this);
             threadPoolExecutor.execute(newUpdateThread);

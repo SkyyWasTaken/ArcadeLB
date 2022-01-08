@@ -76,7 +76,7 @@ public class ArcadeLBCommand implements ICommand {
         if (args.length == 0) {
             return new ArrayList<>(this.subCommands.keySet());
         } else if (args.length == 1) {
-            return StringUtils.getPartialMatches(args[0], this.subCommands.keySet());
+            return StringUtils.getSortedPartialMatches(args[0], this.subCommands.keySet());
         } else if (this.subCommands.containsKey(args[0])) {
             return this.subCommands.get(args[0]).getCompletions(sender, Arrays.copyOfRange(args, 1, args.length), pos);
         } else {

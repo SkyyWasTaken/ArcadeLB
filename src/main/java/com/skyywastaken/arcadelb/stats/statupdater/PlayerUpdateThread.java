@@ -25,6 +25,8 @@ public class PlayerUpdateThread implements Runnable {
         } catch (IOException e) {
             return;
         }
-        updateHelper.updateScore(PLAYER_UUID, newScore);
+        if (newScore != -1) {
+            updateHelper.updateScore(PLAYER_UUID, newScore);
+        }
     }
 }

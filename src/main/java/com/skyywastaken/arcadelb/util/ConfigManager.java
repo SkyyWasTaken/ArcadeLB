@@ -65,6 +65,11 @@ public class ConfigManager {
         return getAmountToUpdateAtOnceProperty().getInt();
     }
 
+    public static void setUpdateAmount(int newValue) {
+        getAmountToUpdateAtOnceProperty().set(newValue);
+        saveConfig();
+    }
+
     public static String getAPIKey() {
         return getAPIKeyProperty().getString();
     }
@@ -76,11 +81,6 @@ public class ConfigManager {
 
     public static String getTrackedStat() {
         return getStatTrackedProperty().getString();
-    }
-
-    public static void setUpdateAmount(int newValue) {
-        getAmountToUpdateAtOnceProperty().set(newValue);
-        saveConfig();
     }
 
     public static void setStatTracked(StatType passedStatType) {

@@ -13,7 +13,6 @@ import net.minecraft.util.IChatComponent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,16 +28,9 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
             CommandUtils.sendHelpMessage(this);
             return;
         }
-        UUID typedUUID;
-        try {
-            typedUUID = UUID.fromString(args[0]);
-        } catch (IllegalArgumentException e) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Please enter a valid API key."));
-            return;
-        }
         MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Checking your API key..."));
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(checkValidityAndSetAPIKey(typedUUID));
+        executorService.execute(checkValidityAndSetAPIKey(args[0]));
     }
 
     @Override
@@ -53,15 +45,15 @@ public class ArcadeLBSetAPIKeySubCommand implements SubCommand {
                 + EnumChatFormatting.RED + "Example: " + EnumChatFormatting.GOLD + "/arcadelb setapikey (key)");
     }
 
-    private Runnable checkValidityAndSetAPIKey(UUID apiKey) {
+
+    private Runnable checkValidityAndSetAPIKey(String apiKey) {
         return () -> {
             boolean keyIsValid;
-            keyIsValid = HypixelQueryHelper.isKeyValid(apiKey.toString());
-            if (!keyIsValid) {
-                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your API key is invalid! Try running '/api new' again!"));
-            } else {
-                ConfigManager.setAPIKey(apiKey.toString());
-                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "API key set successfully!"));
+            keyIsValid = HypixelQueryHelper.runKeyCheckWithFeedback(apiKey);
+            if (keyIsValid) {
+                ConfigManager.setAPIKey(apiKey);
+                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN +
+                        "API key set successfully!"));
             }
         };
     }

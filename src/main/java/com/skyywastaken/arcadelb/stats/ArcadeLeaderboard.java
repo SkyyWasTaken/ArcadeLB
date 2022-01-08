@@ -73,7 +73,7 @@ public class ArcadeLeaderboard {
         FormatHelper.triggerUpdate();
         JsonElement venomElement;
         try {
-            venomElement = VenomHelper.requestLeaderboard(passedStatType, passedStatType.isReversed());
+            venomElement = VenomHelper.requestLeaderboard(passedStatType);
         } catch (sun.security.validator.ValidatorException e) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "It seems you're " +
                     "using an out-of-date version of Java! Make sure you have Java 8 installed and check that the " +
@@ -106,7 +106,7 @@ public class ArcadeLeaderboard {
         this.sortScores();
         FormatHelper.triggerUpdate();
         this.executorService = Executors.newScheduledThreadPool(1);
-        this.executorService.scheduleAtFixedRate(this::updateLeaderboard, 1, 1, TimeUnit.MINUTES);
+        this.executorService.scheduleAtFixedRate(this::updateLeaderboard, 0, 1, TimeUnit.MINUTES);
         this.boardIsSwitching = false;
     }
 
@@ -180,7 +180,7 @@ public class ArcadeLeaderboard {
     private UUID attemptToParseUUID(JsonObject passedPlayerObject) {
         String uuidString = passedPlayerObject.get("uuid").getAsString();
         try {
-            return UUIDHelper.parseNonPosixUUID(uuidString);
+            return UUIDHelper.safelyParseUUID(uuidString);
         } catch (IllegalArgumentException e) {
             return null;
         }
@@ -193,7 +193,7 @@ public class ArcadeLeaderboard {
     }
 
     private int getPlayerScoreFromJsonObject(JsonObject passedObject) {
-        return JsonUtils.getIntFromPath(passedObject, this.statType.getVenomPath());
+        return JsonUtils.getIntFromJson(passedObject, this.statType.getVenomPath());
     }
 
     public LinkedHashMap<UUID, PlayerStat> getLeaderboard() {
@@ -211,7 +211,7 @@ public class ArcadeLeaderboard {
         Session currentSession = Minecraft.getMinecraft().getSession();
         UUID currentPlayerUUID = currentSession.getProfile().getId();
         int playerScore;
-        if (!HypixelQueryHelper.runKeyCheckWithFeedback(ConfigManager.getAPIKey())) {
+        if (!HypixelQueryHelper.runKeyCheckWithFeedback(null)) {
             playerScore = 0;
         } else {
             try {

@@ -4,30 +4,37 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.IChatComponent;
 
 public class SendMessageThread extends Thread {
-    private final IChatComponent passedComponent;
-    private final MessageHelper passedThreadHelper;
-    private final int passedDelay;
+    private final IChatComponent messageToSend;
+    private final MessageHelper messageHelper;
+    private final int messageDelay;
 
-    public SendMessageThread(IChatComponent messageToSend, MessageHelper passedThreadHelper, int passedDelay) {
-        this.passedComponent = messageToSend;
-        this.passedThreadHelper = passedThreadHelper;
-        this.passedDelay = passedDelay;
+    public SendMessageThread(IChatComponent passedMessage, MessageHelper passedMessageHelper, int passedDelay) {
+        this.messageToSend = passedMessage;
+        this.messageHelper = passedMessageHelper;
+        this.messageDelay = passedDelay;
     }
 
     @Override
     public void run() {
         synchronized (this) {
             try {
-                sleep(this.passedDelay); // Trying to avoid the message getting buried
+                sleep(messageDelay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         if (Minecraft.getMinecraft().thePlayer == null) {
-            this.passedThreadHelper.addQueuedMessage(this.passedComponent);
-            return;
+            enqueueMessage();
+        } else {
+            addMessageToMainThread();
         }
-        Minecraft.getMinecraft().addScheduledTask(() ->
-                MessageHelper.sendUnsafeMessage(this.passedComponent));
+    }
+
+    private void enqueueMessage() {
+        this.messageHelper.addQueuedMessage(this.messageToSend);
+    }
+
+    private void addMessageToMainThread() {
+        Minecraft.getMinecraft().addScheduledTask(() -> MessageHelper.sendUnsafeMessage(messageToSend));
     }
 }

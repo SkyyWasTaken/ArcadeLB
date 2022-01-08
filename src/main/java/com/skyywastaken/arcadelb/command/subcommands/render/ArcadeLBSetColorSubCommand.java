@@ -26,7 +26,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
     @Override
     public List<String> getCompletions(ICommandSender sender, String[] args, BlockPos pos) {
         if(args.length == 1) {
-            return StringUtils.getPartialMatches(args[0], possibleColorChanges);
+            return StringUtils.getSortedPartialMatches(args[0], possibleColorChanges);
         }
         return new ArrayList<>();
     }

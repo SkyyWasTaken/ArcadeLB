@@ -1,33 +1,40 @@
 package com.skyywastaken.arcadelb.util.score;
 
 import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.skyywastaken.arcadelb.stats.game.StatType;
+import com.skyywastaken.arcadelb.util.JsonUtils;
 import sun.security.validator.ValidatorException;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 
 public class VenomHelper {
-    public static JsonElement requestLeaderboard(StatType statType, boolean reversed) throws ValidatorException {
-        URL url;
+    public static JsonElement requestLeaderboard(StatType statType) throws ValidatorException {
+        URL databaseURL = getLeaderboardURL(statType);
+        if (databaseURL == null) {
+            return null;
+        }
+        return JsonUtils.getJsonElementFromURL(databaseURL);
+    }
+
+    private static URL getLeaderboardURL(StatType passedStatType) {
+        String urlString = getURLString(passedStatType);
         try {
-            url = new URL("https://cdn.hyarcade.xyz/lb?path=." + statType.getVenomPath()
-                    + (reversed ? "&reverse" : "") + "&min");
-        } catch (Exception e) {
+            return new URL(urlString);
+        } catch (MalformedURLException e) {
             e.printStackTrace();
             return null;
         }
-        try {
-            URLConnection request = url.openConnection();
-            JsonParser jsonParser = new JsonParser();
-            return jsonParser.parse(new InputStreamReader(request.getInputStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+    }
+
+    private static String getURLString(StatType passedStatType) {
+        String reversedString;
+        if (passedStatType.isReversed) {
+            reversedString = "&reverse";
+        } else {
+            reversedString = "";
         }
+        return "https://cdn.hyarcade.xyz/lb?min" + reversedString + "&path=." + passedStatType.getVenomPath();
     }
 }

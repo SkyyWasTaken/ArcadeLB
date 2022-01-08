@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.util.ConfigManager;
+import com.skyywastaken.arcadelb.util.JsonUtils;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -20,63 +21,53 @@ public class HypixelQueryHelper {
         URL url = new URL("https://api.hypixel.net/player?key=" + ConfigManager.getAPIKey() + "&uuid="
                 + passedUUID.toString());
 
-        URLConnection request = url.openConnection();
-        JsonParser jsonParser = new JsonParser();
-        JsonObject startElement = jsonParser.parse(new InputStreamReader(request.getInputStream())).getAsJsonObject();
-        JsonObject currentElement = null;
+        JsonElement startElement = JsonUtils.getJsonElementFromURL(url);
+        if (startElement == null) {
+            return -1;
+        }
+        JsonObject startObject = startElement.getAsJsonObject();
         int returnInt = 0;
         for (String currentPath : statBeingTracked.getHypixelPaths()) {
-            String[] returnPath = currentPath.split("\\.");
-            for (String key : returnPath) {
-                if (key.equals(returnPath[0])) {
-                    JsonElement jsonElement = startElement.get(key);
-                    if (jsonElement == null) {
-                        return 0;
-                    } else {
-                        currentElement = jsonElement.getAsJsonObject();
-                    }
-                } else if (key.equals(returnPath[returnPath.length - 1])) {
-                    JsonElement possibleScore = currentElement.get(key);
-                    if (possibleScore == null) {
-                        continue;
-                    }
-                    returnInt += possibleScore.getAsInt();
-                } else {
-                    JsonElement jsonElement = currentElement.get(key);
-                    if (jsonElement == null) {
-                        return 0;
-                    } else {
-                        currentElement = jsonElement.getAsJsonObject();
-                    }
-                }
-            }
+            returnInt += JsonUtils.getIntFromJson(startObject, currentPath);
         }
         return returnInt;
     }
 
-    public static boolean runKeyCheckWithFeedback(String passedKey) {
-        boolean keyIsValid = isKeyValid(passedKey);
-        if (!keyIsValid) {
+    public static boolean runKeyCheckWithFeedback(String key) {
+        HypixelKey apiKey = new HypixelKey(key);
+        if (apiKey.isThrottled()) {
+            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your key is " +
+                    "being throttled! Make sure you don't have too many apps using your key and don't refresh the " +
+                    "board too often!"));
+            return true;
+        } else if (apiKey.isInvalid()) {
             MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "Your Hypixel API key is invalid! Use '/arcadelb setapikey <key>' to set it! If you need a new " +
                     "key, run '/api new' on Hypixel!"));
+            return false;
         }
-        return keyIsValid;
+        return true;
     }
 
-    public static boolean isKeyValid(String passedKey) {
-        if (passedKey.isEmpty()) {
-            return false;
+    public static int getRemainingUsesOnKey() {
+        HypixelKey apiKey = new HypixelKey();
+        return apiKey.getRemainingUses();
+    }
+
+    static JsonObject getKeyResponse(String passedKey) {
+        String apiKey;
+        if (passedKey == null) {
+            apiKey = ConfigManager.getAPIKey();
+        } else {
+            apiKey = passedKey;
         }
         try {
-            URL url = new URL("https://api.hypixel.net/key?key=" + passedKey);
+            URL url = new URL("https://api.hypixel.net/key?key=" + apiKey);
             URLConnection request = url.openConnection();
             JsonParser jsonParser = new JsonParser();
-            JsonObject currentElement = jsonParser.parse(new InputStreamReader(request.getInputStream())).getAsJsonObject();
-            return currentElement.get("success").getAsBoolean();
+            return jsonParser.parse(new InputStreamReader(request.getInputStream())).getAsJsonObject();
         } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

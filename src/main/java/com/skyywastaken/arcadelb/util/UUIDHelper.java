@@ -3,7 +3,7 @@ package com.skyywastaken.arcadelb.util;
 import java.util.UUID;
 
 public class UUIDHelper {
-    public static UUID parseNonPosixUUID(String passedUUIDString) {
+    public static UUID safelyParseUUID(String passedUUIDString) throws IllegalArgumentException {
         try {
             return UUID.fromString(passedUUIDString);
         } catch (IllegalArgumentException ignored) {

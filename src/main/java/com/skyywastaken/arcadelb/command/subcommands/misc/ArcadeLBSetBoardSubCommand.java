@@ -32,7 +32,7 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
             return new ArrayList<>();
         }
         if (args.length == 1) {
-            return StringUtils.getPartialMatches(args[0], getBaseLayerCompletions());
+            return StringUtils.getSortedPartialMatches(args[0], getBaseLayerCompletions());
         } else {
             return getCompletionsAtIndex(args);
         }
