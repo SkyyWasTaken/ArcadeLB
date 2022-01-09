@@ -16,8 +16,8 @@ public class MessageHelper {
     private final ArrayList<IChatComponent> QUEUED_MESSAGES = new ArrayList<>();
 
     public MessageHelper() {
-        ThreadListeners threadListeners = new ThreadListeners(this);
-        MinecraftForge.EVENT_BUS.register(threadListeners);
+        MessageThreadListener messageListener = new MessageThreadListener(this);
+        MinecraftForge.EVENT_BUS.register(messageListener);
     }
 
     public static void sendThreadSafeMessage(IChatComponent chatComponent) {
