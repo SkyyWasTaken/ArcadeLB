@@ -26,7 +26,7 @@ public class ArcadeLBSetDisplayPlayerSubCommand implements SubCommand {
         }
         boolean typedValue = Boolean.parseBoolean(args[0]);
         ConfigManager.setDisplayPlayer(typedValue);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Your score is now "
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Your score is now "
                 + (typedValue ? "shown" : "hidden") + "!"));
     }
 

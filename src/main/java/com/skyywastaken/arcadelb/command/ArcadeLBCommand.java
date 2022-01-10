@@ -135,7 +135,7 @@ public class ArcadeLBCommand implements ICommand {
             }
             subCommandList.append(EnumChatFormatting.RESET);
         }
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(failureMessage));
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(subCommandList.toString()));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(failureMessage));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(subCommandList.toString()));
     }
 }

@@ -39,7 +39,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
         }
         ElementType elementType = ElementType.HEADER.getFromString(args[0]);
         if (elementType == null) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "'" + args[0]
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "'" + args[0]
                     + "' is not a valid element type!"));
             return;
         }
@@ -55,10 +55,10 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
             return;
         }
         if (redValue < 0 || greenValue < 0 || blueValue < 0) {
-            MessageHelper.sendThreadSafeMessage(
+            MessageHelper.sendNullAndThreadSafeMessage(
                     new ChatComponentText(EnumChatFormatting.RED + "You can't set a color to a value below 0!"));
         } else if (redValue > 255 || greenValue > 255 || blueValue > 255) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED +
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED +
                     "You can't set a color to a value over 255!"));
         }
         int newColorValue = (0xFF << 24) + (redValue << 16) + (greenValue << 8) + blueValue;
@@ -81,7 +81,7 @@ public class ArcadeLBSetColorSubCommand implements SubCommand {
             case MISC:
                 ConfigManager.setMiscColor(newColorValue);
         }
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "" + elementType + " has been set to " + EnumChatFormatting.DARK_RED + redValue + " " + EnumChatFormatting.DARK_GREEN + greenValue + " " + EnumChatFormatting.DARK_BLUE + blueValue));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "" + elementType + " has been set to " + EnumChatFormatting.DARK_RED + redValue + " " + EnumChatFormatting.DARK_GREEN + greenValue + " " + EnumChatFormatting.DARK_BLUE + blueValue));
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.skyywastaken.arcadelb.stats.statupdater;
 
+import com.skyywastaken.arcadelb.io.hypixel.HypixelQueryHelper;
 import com.skyywastaken.arcadelb.stats.game.StatType;
-import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
 
 import java.io.IOException;
 import java.util.UUID;

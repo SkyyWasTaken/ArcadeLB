@@ -32,7 +32,7 @@ public class ArcadeLBSetAmountTrackedSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setTotalTracked(newUpdateAmount);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "Total tracked player count has been set to " + newUpdateAmount + "!"));
     }
 

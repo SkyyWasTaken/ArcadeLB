@@ -16,17 +16,11 @@ public class SendMessageThread extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
-            try {
-                sleep(messageDelay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        runMessageDelay();
         if (Minecraft.getMinecraft().thePlayer == null) {
             enqueueMessage();
         } else {
-            addMessageToMainThread();
+            MessageHelper.sendThreadSafeMessage(messageToSend);
         }
     }
 
@@ -34,7 +28,11 @@ public class SendMessageThread extends Thread {
         this.messageHelper.addQueuedMessage(this.messageToSend);
     }
 
-    private void addMessageToMainThread() {
-        Minecraft.getMinecraft().addScheduledTask(() -> MessageHelper.sendUnsafeMessage(messageToSend));
+    private synchronized void runMessageDelay() {
+        try {
+            sleep(messageDelay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

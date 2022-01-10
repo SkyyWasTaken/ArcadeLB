@@ -1,9 +1,10 @@
 package com.skyywastaken.arcadelb.stats.statupdater;
 
+import com.skyywastaken.arcadelb.io.hypixel.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.io.hypixel.HypixelQueryManager;
 import com.skyywastaken.arcadelb.stats.ArcadeLeaderboard;
 import com.skyywastaken.arcadelb.stats.PlayerStat;
 import com.skyywastaken.arcadelb.util.ConfigManager;
-import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -23,17 +24,21 @@ public class LeaderboardUpdateHelper extends Thread {
 
     @Override
     public void run() {
-        if (!HypixelQueryHelper.runKeyCheckWithFeedback(ConfigManager.getAPIKey())) {
+        if (!HypixelQueryHelper.runKeyCheckWithFeedback(null)) {
             return;
         }
-        int keyUseAmount = HypixelQueryHelper.getRemainingUsesOnKey();
-        if (keyUseAmount < ConfigManager.getTotalTracked() + 1) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your key only has " + keyUseAmount + " uses left this minute! Partially updating the board and stopping."));
+        int keyUseAmount = HypixelQueryManager.getInstance().getRemainingQueries();
+        if (keyUseAmount == 0) {
+            return;
+        } else if (keyUseAmount < ConfigManager.getTotalTracked() + 1) {
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+                    + "Your key only has " + keyUseAmount
+                    + " uses left this minute! Partially updating the board and stopping."));
         }
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(ConfigManager.getAmountOfPlayersToUpdate(),
                 ConfigManager.getAmountOfPlayersToUpdate(), 10, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>());
-        int i = 1;
+        int i = 0;
         for (Map.Entry<UUID, PlayerStat> currentEntry : this.LEADERBOARD.getLeaderboard().entrySet()) {
             if (i++ >= keyUseAmount) {
                 break;

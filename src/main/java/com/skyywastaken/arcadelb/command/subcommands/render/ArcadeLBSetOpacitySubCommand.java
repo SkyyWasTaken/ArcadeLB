@@ -32,7 +32,7 @@ public class ArcadeLBSetOpacitySubCommand implements SubCommand {
             return;
         }
         ConfigManager.setOpacity(newOpacity);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Opacity successfully set to " + newOpacity + "!"));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Opacity successfully set to " + newOpacity + "!"));
     }
 
     @Override

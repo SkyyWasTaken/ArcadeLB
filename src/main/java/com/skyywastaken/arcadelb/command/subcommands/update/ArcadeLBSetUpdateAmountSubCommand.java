@@ -32,7 +32,7 @@ public class ArcadeLBSetUpdateAmountSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setUpdateAmount(newUpdateAmount);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Concurrent update amount set to " + newUpdateAmount + "!"));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Concurrent update amount set to " + newUpdateAmount + "!"));
     }
 
     @Override

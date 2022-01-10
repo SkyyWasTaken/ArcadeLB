@@ -28,7 +28,7 @@ public class ArcadeLBEnableSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (ConfigManager.getLeaderboardEnabled()) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "The leaderboard is already enabled!"));
 
             return;
@@ -37,7 +37,7 @@ public class ArcadeLBEnableSubCommand implements SubCommand {
         if (this.PASSED_LEADERBOARD.getStatType() == null) {
             this.PASSED_LEADERBOARD.loadLeaderboardFromConfig();
         }
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "The leaderboard has been enabled!"));
     }
 

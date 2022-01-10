@@ -20,9 +20,9 @@ public class MessageHelper {
         MinecraftForge.EVENT_BUS.register(messageListener);
     }
 
-    public static void sendThreadSafeMessage(IChatComponent chatComponent) {
+    public static void sendNullAndThreadSafeMessage(IChatComponent chatComponent) {
         if (Minecraft.getMinecraft().thePlayer != null) {
-            sendUnsafeMessage(chatComponent);
+            sendThreadSafeMessage(chatComponent);
         } else {
             mainInstance.QUEUED_MESSAGES.add(chatComponent);
         }
@@ -37,11 +37,15 @@ public class MessageHelper {
         }
     }
 
-    static void sendUnsafeMessage(IChatComponent component) {
-        ChatComponentText modNameMessage = new ChatComponentText(EnumChatFormatting.GOLD + ""
+    static void sendThreadSafeMessage(IChatComponent component) {
+        ChatComponentText formattedMessage = new ChatComponentText(EnumChatFormatting.GOLD + ""
                 + EnumChatFormatting.BOLD + "ARCADELB> ");
-        modNameMessage.appendSibling(component).appendSibling(new ChatComponentText(""));
-        Minecraft.getMinecraft().thePlayer.addChatMessage(modNameMessage);
+        formattedMessage.appendSibling(component).appendSibling(new ChatComponentText(""));
+        scheduleMessageOnMainThread(formattedMessage);
+    }
+
+    private static void scheduleMessageOnMainThread(IChatComponent message) {
+        Minecraft.getMinecraft().addScheduledTask(() -> Minecraft.getMinecraft().thePlayer.addChatMessage(message));
     }
 
     void addQueuedMessage(IChatComponent message) {

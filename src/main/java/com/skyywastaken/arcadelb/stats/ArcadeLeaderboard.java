@@ -4,15 +4,15 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.skyywastaken.arcadelb.ArcadeLB;
+import com.skyywastaken.arcadelb.io.hypixel.HypixelQueryHelper;
+import com.skyywastaken.arcadelb.io.venom.VenomHelper;
 import com.skyywastaken.arcadelb.leaderboard.format.FormatHelper;
 import com.skyywastaken.arcadelb.stats.game.StatType;
 import com.skyywastaken.arcadelb.stats.game.StatTypeHelper;
 import com.skyywastaken.arcadelb.stats.statupdater.LeaderboardUpdateHelper;
 import com.skyywastaken.arcadelb.util.ConfigManager;
-import com.skyywastaken.arcadelb.util.JsonUtils;
 import com.skyywastaken.arcadelb.util.UUIDHelper;
-import com.skyywastaken.arcadelb.util.score.HypixelQueryHelper;
-import com.skyywastaken.arcadelb.util.score.VenomHelper;
+import com.skyywastaken.arcadelb.util.io.JsonUtils;
 import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
@@ -45,7 +45,7 @@ public class ArcadeLeaderboard {
     public void loadLeaderboardFromConfig() {
         String configStatString = ConfigManager.getTrackedStat();
         if (!this.STAT_TYPE_HELPER.statExists(configStatString)) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "Looks like you don't have a leaderboard selected. Type /arcadelb setboard <args> to fix that!\n"
                     + EnumChatFormatting.GOLD + "Tip: Use tab completion to see available completions!"));
         } else {
@@ -62,7 +62,7 @@ public class ArcadeLeaderboard {
             setBoardFromStatType(passedStatType);
         } catch (Exception e) {
             e.printStackTrace();
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText("The board couldn't be loaded! Please send your log to the mod author."));
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText("The board couldn't be loaded! Please send your log to the mod author."));
             this.reset();
         }
     }
@@ -75,7 +75,7 @@ public class ArcadeLeaderboard {
         try {
             venomElement = VenomHelper.requestLeaderboard(passedStatType);
         } catch (sun.security.validator.ValidatorException e) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "It seems you're " +
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "It seems you're " +
                     "using an out-of-date version of Java! Make sure you have Java 8 installed and check that the " +
                     "launcher is not using the built-in Java as the mod cannot connect to the internet with the " +
                     "bundled Java version."));
@@ -89,7 +89,7 @@ public class ArcadeLeaderboard {
         HashMap<UUID, PlayerStat> newLeaderboard = parseVenomJson(venomElement);
         if (newLeaderboard == null) {
             reset();
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like " +
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like " +
                     "something's wrong with the database! Try again later or contact the mod author for help."));
             return;
         }
@@ -99,7 +99,7 @@ public class ArcadeLeaderboard {
         }
         this.leaderboard.putAll(newLeaderboard);
         runFinishingTasks();
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Board loaded!"));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Board loaded!"));
     }
 
     private void runFinishingTasks() {
@@ -162,7 +162,7 @@ public class ArcadeLeaderboard {
                 this.statType = null;
                 this.boardIsSwitching = false;
                 FormatHelper.triggerUpdate();
-                MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like the " +
+                MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Looks like the " +
                         "Venom path for the selected leaderboard is borked or I've received an erroneous response from " +
                         "the database! Try loading the board again. If the issue persists, fix the path in its " +
                         "respective json file or contact the mod author."));

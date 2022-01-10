@@ -39,8 +39,7 @@ public class ArcadeLB {
         logger.info("Preparing to make grinding more interesting!");
         StatTypeHelper statTypeTracker = new StatTypeHelper();
         ArcadeLeaderboard arcadeLeaderboard = new ArcadeLeaderboard(statTypeTracker);
-        Thread getStartingLeaderboard = new Thread(arcadeLeaderboard::loadLeaderboardFromConfig);
-        getStartingLeaderboard.start();
+        new Thread(arcadeLeaderboard::loadLeaderboardFromConfig).start();
         MinecraftForge.EVENT_BUS.register(new EventThing(arcadeLeaderboard));
         ClientCommandHandler.instance.registerCommand(new ArcadeLBCommand(arcadeLeaderboard, statTypeTracker));
     }

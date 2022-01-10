@@ -21,12 +21,12 @@ public class ArcadeLBDisableSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (!ConfigManager.getLeaderboardEnabled()) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED
                     + "The leaderboard is already disabled!"));
             return;
         }
         ConfigManager.setLeaderboardEnabled(false);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "The leaderboard has been disabled!"));
     }
 

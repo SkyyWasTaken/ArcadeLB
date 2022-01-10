@@ -27,7 +27,7 @@ public class ArcadeLBForceResetSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         this.PASSED_LEADERBOARD.reset();
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Reset complete!"));
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Reset complete!"));
     }
 
     @Override

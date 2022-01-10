@@ -36,7 +36,7 @@ public class ArcadeLBSetScaleSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setLeaderboardScale(typedValue);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "Leaderboard scale successfully set to " + typedValue));
     }
 

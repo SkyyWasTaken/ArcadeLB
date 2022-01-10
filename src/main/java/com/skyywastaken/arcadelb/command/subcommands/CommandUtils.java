@@ -5,7 +5,7 @@ import com.skyywastaken.arcadelb.util.thread.MessageHelper;
 
 public class CommandUtils {
     public static void sendHelpMessage(SubCommand passedSubCommand) {
-        MessageHelper.sendThreadSafeMessage(passedSubCommand.getHelpMessage());
+        MessageHelper.sendNullAndThreadSafeMessage(passedSubCommand.getHelpMessage());
     }
 
     public static int attemptIntegerParseWithHelp(String intToParse, SubCommand sourceCommand) throws NumberFormatException {

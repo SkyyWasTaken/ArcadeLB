@@ -36,7 +36,7 @@ public class ArcadeLBSetYOffsetSubCommand implements SubCommand {
             return;
         }
         ConfigManager.setYOffset(typedValue);
-        MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
+        MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.GREEN
                 + "Y offset successfully set to " + typedValue));
     }
 

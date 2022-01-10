@@ -41,18 +41,18 @@ public class ArcadeLBSetBoardSubCommand implements SubCommand {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (this.arcadeLeaderboard.isBoardSwitching()) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your leaderboard is currently "
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "Your leaderboard is currently "
                     + "loading! Wait for it to finish before swapping leaderboards again."));
         } else if (args.length == 0) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "You need to specify a statistic to swap to!"));
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "You need to specify a statistic to swap to!"));
         } else if (!this.statTypeHelper.statExists(String.join(".", args))) {
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "That statistic doesn't exist! " +
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.RED + "That statistic doesn't exist! " +
                     "Check your spelling and try again."));
         } else {
             StatType newStatType = this.statTypeHelper.getStatTypeFromString(String.join(".", args));
             ConfigManager.setStatTracked(newStatType);
             new Thread(() -> this.arcadeLeaderboard.trySetLeaderboardFromStatType(newStatType)).start();
-            MessageHelper.sendThreadSafeMessage(new ChatComponentText(EnumChatFormatting.YELLOW
+            MessageHelper.sendNullAndThreadSafeMessage(new ChatComponentText(EnumChatFormatting.YELLOW
                     + "Attempting to load " + newStatType.getHeaderText() + "..."));
         }
     }
